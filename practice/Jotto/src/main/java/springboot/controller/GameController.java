@@ -1,0 +1,20 @@
+package springboot.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class GameController {
+    //GameController gameController;
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public @ResponseBody void getInput(@RequestParam(value="val", required = true) String input) {
+
+    }
+
+    public boolean sendData() {
+        return true;
+    }
+}
