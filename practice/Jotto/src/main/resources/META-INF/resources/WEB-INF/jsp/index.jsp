@@ -17,7 +17,7 @@
 <div class="container">
     <div class="row">
         <div id="login_box" class="col-lg-12 col-ml-12 col-xs-12">
-            <form action="#" method="get" >
+            <form action="./gamePlay.jsp" method="get" >
                 <div class="form-group">
                     <input type="text" name="name" placeholder="User Name  or  email..." class="input_login" required=""/>
                     <input type="password"  name="password" class="input_login" placeholder="Password" required=""/>

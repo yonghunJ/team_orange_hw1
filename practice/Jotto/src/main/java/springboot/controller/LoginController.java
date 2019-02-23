@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
     @RequestMapping(value = {"/"},method = RequestMethod.GET)
     public ModelAndView index() {
-        ModelAndView modelAndView = new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView("gamePlay");
         return modelAndView;
     }
 
