@@ -19,7 +19,7 @@
         <div id="login_box" class="col-lg-12 col-ml-12 col-xs-12">
             <form action="./gamePlay.jsp" method="get" >
                 <div class="form-group">
-                    <input type="text" name="name" placeholder="User Name  or  email..." class="input_login" required=""/>
+                    <input type="text" name="name" placeholder="User Name" class="input_login" required=""/>
                     <input type="password"  name="password" class="input_login" placeholder="Password" required=""/>
                     <button type="submit" class="yh_btn">Log In</button>
                     <button type="button" class="btn btn-link" data-toggle="modal" data-target="#darkModalForm" >SignUp</button>
@@ -51,10 +51,6 @@
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="signup_name">NAME</label>
                             <input type="text" id="signup_name" class="form-control validate white-text" required>
-                        </div>
-                        <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="signup_mail">EMAIL</label>
-                            <input type="email" id="signup_mail" class="form-control validate white-text" required>
                         </div>
                         <div class="md-form pb-3">
                             <label data-error="wrong" data-success="right" for="signup_pw">PASSWORD</label>
