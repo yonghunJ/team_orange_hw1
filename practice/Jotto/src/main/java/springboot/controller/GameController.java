@@ -8,12 +8,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class GameController {
-    //GameController gameController;
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    public @ResponseBody void getInput(@RequestParam(value="val", required = true) String input) {
+    //GameManager gameManager;
 
+    @RequestMapping(value = "/gameplay")
+    public String gamePlay() {
+        //this.gameController = new GameController();
+        return "gameplay";
     }
 
+    @RequestMapping(value = "/gameplay/userinput", method = RequestMethod.POST)
+    public @ResponseBody String[] getInput(@RequestParam(value="userinput", required = true) String input) {
+        String[] responseArray = new String[3];
+        // int userGuessCount = this.gameController.getGuessCount(false);
+        // int aiGuessCount = this.gameController.getGuessCount(true);
+        // getGuessCount(flag)
+        // false : user
+        // true : ai
+        // return String array : ai guess word, user guess count, ai guess count
+
+        return responseArray;
+    }
+
+    // When game is finished, send game data to Data base
     public boolean sendData() {
         return true;
     }
