@@ -5,11 +5,17 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 @SpringBootApplication
 public class MyTest implements CommandLineRunner{
 
     @Autowired
-    private UserRepository repository;
+    private UserRepository userRepository;
+
+    @Autowired
+    private GameRecordRepository gameRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(MyTest.class, args);
@@ -18,21 +24,22 @@ public class MyTest implements CommandLineRunner{
     @Override
     public void run(String... args) throws Exception {
 
-        repository.deleteAll();
+        userRepository.deleteAll();
+        gameRepository.deleteAll();
 
         // create a couple users
-        repository.save(Passwords.createUser("Coolkid27", "hunter2"));
-        repository.save(Passwords.createUser("AvengersFan", "ilovetonystark"));
+        userRepository.save(Passwords.createUser("Coolkid27", "hunter2"));
+        userRepository.save(Passwords.createUser("AvengersFan", "ilovetonystark"));
 
         System.out.println("Users found with findAll():");
         System.out.println("-------------------------------");
-        for(User user : repository.findAll()){
+        for(User user : userRepository.findAll()){
             System.out.println(user);
         }
         System.out.println();
 
         // find individual customer
-        User user = repository.findByName(("Coolkid27"));
+        User user = userRepository.findByName(("Coolkid27"));
         System.out.println("User found with findByName('Coolkid27'):");
         System.out.println("--------------------------------");
         System.out.println(user);
@@ -44,6 +51,23 @@ public class MyTest implements CommandLineRunner{
         System.out.println("Attempting login with password 'hunter2'");
         System.out.println("Login Successful? " +
                 Passwords.isExpectedPassword(("hunter2").toCharArray(), user.password_salt, user.password_hash));
+        System.out.println();
+
+        // test saving games
+        ArrayList<String> rounds = new ArrayList<String>();
+        rounds.add("UserGuess:'TEETH'; ComputerGuess'MAKER'");
+        rounds.add("UserGuess:'TOOTH'; ComputerGuess'HANDY'");
+        rounds.add("UserGuess:'LOTTO'; ComputerGuess'PARKA'");
+        rounds.add("UserGuess:'JOTTO'; ComputerGuess'SALTY'");
+        GameRecord game = new GameRecord(new Date(), "SALTY", "BOATS", rounds);
+        gameRepository.save(game);
+        user.addGameId(game.id);
+        userRepository.save(user);
+
+        user = userRepository.findByName("Coolkid27");
+        game = gameRepository.findById(user.getGameId(0)).get();
+        System.out.println("Game saved and found with id in User 'Coolkid27':");
+        System.out.println(game.toString());
 
     }
 }
