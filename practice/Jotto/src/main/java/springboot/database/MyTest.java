@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import springboot.model.GameRound;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -50,11 +51,11 @@ public class MyTest implements CommandLineRunner{
         System.out.println();
 
         // test saving games
-        ArrayList<String> rounds = new ArrayList<String>();
-        rounds.add("UserGuess:'TEETH'; ComputerGuess'MAKER'");
-        rounds.add("UserGuess:'TOOTH'; ComputerGuess'HANDY'");
-        rounds.add("UserGuess:'LOTTO'; ComputerGuess'PARKA'");
-        rounds.add("UserGuess:'JOTTO'; ComputerGuess'SALTY'");
+        ArrayList<GameRound> rounds = new ArrayList<GameRound>();
+        rounds.add(new GameRound("TEETH","MAKER", new int[]{1,0,0,1,0}, new int[]{0,1,0,0,0}));
+        rounds.add(new GameRound("TOOTH","HANDY", new int[]{1,1,1,1,0}, new int[]{0,1,0,0,1}));
+        rounds.add(new GameRound("LOTTO","PARKA", new int[]{0,1,1,1,1}, new int[]{0,1,0,0,1}));
+        rounds.add(new GameRound("JOTTO","SALTY", new int[]{0,1,1,1,1}, new int[]{1,1,1,1,1}));
         GameRecord game = new GameRecord(new Date(), "SALTY", "BOATS", rounds);
         user.addGame(game);
         userRepository.save(user);

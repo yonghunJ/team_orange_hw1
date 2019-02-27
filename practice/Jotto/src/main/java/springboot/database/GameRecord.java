@@ -1,18 +1,17 @@
 package springboot.database;
 
-import org.springframework.data.annotation.Id;
 import java.util.Date;
 import java.util.List;
-//import springboot.model.GameRound;
+import springboot.model.GameRound;
 
 public class GameRecord {
 
     public Date date;
     public String userWord;
     public String computerWord;
-    public List<String> rounds;
+    public List<GameRound> rounds;
 
-    public GameRecord(Date date, String userWord, String computerWord, List<String> rounds){
+    public GameRecord(Date date, String userWord, String computerWord, List<GameRound> rounds){
         this.date = date;
         this.userWord = userWord;
         this.computerWord = computerWord;
@@ -24,7 +23,7 @@ public class GameRecord {
         String s = String.format("GameRecord[Date='%s', UserWord='%s', ComputerWord='%s', Rounds='%d']",
                 date.toString(), userWord, computerWord, rounds.size());
         for(int i=0; i<rounds.size(); i++){
-            s = s + String.format("\nRound%d[%s]", i+1, rounds.get(i));
+            s = s + String.format("\nRound%d[%s]", i+1, rounds.get(i).toString());
         }
         return s;
     }

@@ -6,6 +6,13 @@ public class GameRound {
     int[] userColorArray;
     int[] aiColorArray;
 
+    public GameRound(String userGuess, String aiGuess, int[] userColorArray, int[] aiColorArray){
+        this.userGuess = userGuess;
+        this.aiGuess = aiGuess;
+        this.userColorArray = userColorArray;
+        this.aiColorArray = aiColorArray;
+    }
+
     public String getUserGuess() {
         return userGuess;
     }

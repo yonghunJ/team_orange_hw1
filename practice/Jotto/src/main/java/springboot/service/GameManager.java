@@ -57,11 +57,7 @@ public class GameManager {
     }
 
     public void setGameRound() {
-        GameRound currentGameRound = new GameRound();
-        currentGameRound.setUserGuess(this.userGuess);
-        currentGameRound.setAiGuess(this.aiGuess);
-        currentGameRound.setUserColorArray(userColorArray);
-        currentGameRound.setAiColorArray(aiColorArray);
+        GameRound currentGameRound = new GameRound(this.userGuess, this.aiGuess, userColorArray, aiColorArray);
 
         roundNum++;
         gameRoundList.add(currentGameRound);
