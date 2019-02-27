@@ -10,7 +10,7 @@ public class User {
     public String name;
     public byte[] password_salt;
     public byte[] password_hash;
-    public ArrayList<String> pastGameIds = new ArrayList<String>();
+    public ArrayList<GameRecord> pastGames = new ArrayList<GameRecord>();
 
     public User(String name, byte[] password_salt, byte[] password_hash){
         this.name = name;
@@ -18,12 +18,12 @@ public class User {
         this.password_hash = password_hash;
     }
 
-    public String getGameId(int i){
-        return pastGameIds.get(i);
+    public GameRecord getGame(int i){
+        return pastGames.get(i);
     }
 
-    public void addGameId(String id){
-        pastGameIds.add(id);
+    public void addGame(GameRecord game){
+        pastGames.add(game);
     }
 
     @Override
