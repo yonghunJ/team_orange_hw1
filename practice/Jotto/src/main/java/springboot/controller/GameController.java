@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class GameController {
-    //GameManager gameManager;
+    //GameManager gameManger;
 
     @RequestMapping(value = "/gameplay")
     public String gamePlay() {
@@ -16,8 +16,14 @@ public class GameController {
         return "gameplay";
     }
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public void getUserWordInput(@RequestParam(value = "firstWord") String firstInput) {
+        // gameManager = new GameManager();
+        // gameManager.setUserWord(firstInput)
+    }
+
     @RequestMapping(value = "/gameplay/userinput", method = RequestMethod.POST)
-    public @ResponseBody String[] getInput(@RequestParam(value="userinput", required = true) String input) {
+    public @ResponseBody String[] getGuessWordInput(@RequestParam(value="userinput", required = true) String input) {
         String[] responseArray = new String[3];
         // int userGuessCount = this.gameController.getGuessCount(false);
         // int aiGuessCount = this.gameController.getGuessCount(true);
@@ -30,7 +36,7 @@ public class GameController {
     }
 
     // When game is finished, send game data to Data base
-    public boolean sendData() {
-        return true;
+    public void sendData() {
+
     }
 }
