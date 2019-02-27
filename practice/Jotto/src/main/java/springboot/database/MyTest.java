@@ -24,6 +24,27 @@ public class MyTest implements CommandLineRunner{
 
         userRepository.deleteAll();
 
+        Dictionary dictionary = new Dictionary();
+
+        System.out.println("Getting random words");
+        System.out.println("-------------------------------");
+        for(int i=0; i<10; i++) {
+            System.out.println(dictionary.getWord(new char[]{}, new char[]{}, null));
+        }
+
+        System.out.println("Getting random words containing 'W'");
+        System.out.println("-------------------------------");
+        for(int i=0; i<10; i++) {
+            System.out.println(dictionary.getWord(new char[]{'W'}, new char[]{}, null));
+        }
+
+        System.out.println("Getting random words containing 'T' but not 'W'");
+        System.out.println("-------------------------------");
+        for(int i=0; i<10; i++) {
+            System.out.println(dictionary.getWord(new char[]{'T'}, new char[]{'W'}, null));
+        }
+
+        /**
         // create a couple users
         userRepository.save(Passwords.createUser("Coolkid27", "hunter2"));
         userRepository.save(Passwords.createUser("AvengersFan", "ilovetonystark"));
@@ -64,6 +85,6 @@ public class MyTest implements CommandLineRunner{
         game = user.getGame(0);
         System.out.println("First game by User 'Coolkid27':");
         System.out.println(game.toString());
-
+        **/
     }
 }
