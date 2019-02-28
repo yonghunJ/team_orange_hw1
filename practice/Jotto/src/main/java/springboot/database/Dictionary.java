@@ -19,10 +19,14 @@ public class Dictionary {
         mongoTemplate = new MongoTemplate(new MongoClient(), "database");
     }
 
-    public String getWord(char[] include, char[] exclude, Integer uniqueLetters){
+    public String getWord(char[] include, char[] exclude, Integer uniqueLetters, String[] ignoredWords){
         String[] with = new String(include).split("");
         String[] without = new String(exclude).split("");
         if(without[0].equals("")){without = new String[]{};}
+
+        if(ignoredWords.length == 0){
+            ignoredWords = new String[]{""};
+        }
 
         SampleOperation sampleStage = Aggregation.sample(1);
 
@@ -31,11 +35,13 @@ public class Dictionary {
         if(uniqueLetters != null) {
             if (with[0].equals("")) {
                 criteria = new Criteria().andOperator(
+                        Criteria.where("word").nin(ignoredWords),
                         Criteria.where("letters").size(uniqueLetters),
                         Criteria.where("letters").nin(without));
 
             } else {
                 criteria = new Criteria().andOperator(
+                        Criteria.where("word").nin(ignoredWords),
                         Criteria.where("letters").size(uniqueLetters),
                         Criteria.where("letters").all(with),
                         Criteria.where("letters").nin(without));
@@ -43,10 +49,12 @@ public class Dictionary {
         }else{
             if (with[0].equals("")) {
                 criteria = new Criteria().andOperator(
+                        Criteria.where("word").nin(ignoredWords),
                         Criteria.where("letters").nin(without));
 
             } else {
                 criteria = new Criteria().andOperator(
+                        Criteria.where("word").nin(ignoredWords),
                         Criteria.where("letters").all(with),
                         Criteria.where("letters").nin(without));
             }
