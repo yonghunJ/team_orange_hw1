@@ -1,0 +1,49 @@
+#login_form{
+    position:relative;
+    margin:0 auto;
+    top :30%;
+    left:20%
+}
+.login_box{
+    border-top:100px;
+}
+.bg {
+    /* The image used */
+    background-image: url("./back.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+.row {
+    align-self: center;
+}
+.input_login{
+    border:0px;
+    display: block;
+    margin:30px;
+    background-color: transparent;
+    color:#33cc33;
+    border-bottom: 2px solid lightgrey;
+    font-size: 12px;
+    line-height:normal;
+}
+.input_login:focus {
+    outline: none;
+}
+input::-webkit-input-placeholder {
+    color: #ffffff;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: #ff0000;
+}
+.yh_btn{
+    background-color: transparent;
+    color: #999999;
+    border: 1px solid WHITE;
+}
+button:hover {
+    /* opacity:1; */
+    border : 2px solid lightgrey
+}
