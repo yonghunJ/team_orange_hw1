@@ -1,35 +1,32 @@
 package springboot.service;
 
+import springboot.database.Dictionary;
+
 import java.util.ArrayList;
 
 public class JottoManager {
-    private ArrayList<Character> jots = new ArrayList<Character>();
-    private ArrayList<Character> notInJots = new ArrayList<Character>();
-    private ArrayList<Character> uncertainLetters = new ArrayList<Character>();
-    private ArrayList<String> threeTwoLetters = new ArrayList<String>();
-    private ArrayList<String> anagrams = new ArrayList<String>();
+    private ArrayList<Character> include = new ArrayList<Character>();
+    private ArrayList<Character> exclude = new ArrayList<Character>();
+    private ArrayList<String> ignoredWords = new ArrayList<String>();
     private int anagramCount = 0;
+    private Dictionary dict = new Dictionary();
 
-    public JottoManager() {
-        this.threeTwoLetters.add("ajaja");
-        this.threeTwoLetters.add("alala");
-        this.threeTwoLetters.add("anana");
-        this.threeTwoLetters.add("arara");
-        this.threeTwoLetters.add("cocco");
-        this.threeTwoLetters.add("mamma");
-        this.threeTwoLetters.add("pappa");
-        this.threeTwoLetters.add("reree");
-        this.threeTwoLetters.add("tatta");
-        this.threeTwoLetters.add("ululu");
-        this.threeTwoLetters.add("xxxii");
+    public char[] toArray(ArrayList<Character> list){
+        char[] toReturn = new char[list.size()];
+        int i = 0;
+        for(char c : list)
+            toReturn[i ++] = c;
+        return toReturn;
     }
 
-
-
-
     public String chooseAiWord() {
-        // Consider I got a legal starting word from DB
-        String aiWord = "";
+        // Typecasting
+        char[] includeTemp = toArray(include);
+        char[] excludeTemp = toArray(exclude);
+        String[] ignoredWordsTemp = include.toArray(new String[include.size()]);
+
+        // Get a word without repeating letters from DB
+        String aiWord = dict.getWord(includeTemp, excludeTemp, 5, ignoredWordsTemp);
 
         return aiWord;
     }
@@ -38,71 +35,24 @@ public class JottoManager {
         String aiGuess = "";
         int guessCount = 0;
 
-
-
-
+        // Typecasting
+        char[] includeTemp = toArray(include);
+        char[] excludeTemp = toArray(exclude);
+        String[] ignoredWordsTemp = include.toArray(new String[include.size()]);
 
         // All jots have been found. Move to the next strategy.
-        if (jots.size() == 5) {
-            aiGuess = rearrangeFiveLetters();
+        if (include.size() == 5) {
+            aiGuess = dict.getWord(includeTemp, excludeTemp, 5, ignoredWordsTemp);
+            ignoredWords.add(aiGuess);
         }
         else if (roundNum < 22) {
-            aiGuess = threeTwoLetters.get(roundNum % 11);
+            aiGuess = dict.getWord(includeTemp, excludeTemp, 2, ignoredWordsTemp);
 
             for (int i = 0; i < 5; i++) {
-                if (aiGuess.contains(Character.toString(userWord.charAt(i)))) {
+                if (userWord.contains(Character.toString(aiGuess.charAt(i)))) {
                     guessCount++;
                 }
             }
-            if (guessCount == 0) {
-                char[] twoLetters = getTwoLetters(aiGuess);
-                if (!notInJots.contains(twoLetters[1])) {
-                    notInJots.add(twoLetters[1]);
-                }
-                if (!notInJots.contains(twoLetters[0])) {
-                    notInJots.add(twoLetters[0]);
-                }
-            }
-            else if (guessCount == 1) {
-                char[] twoLetters = getTwoLetters(aiGuess);
-
-                if (jots.contains(twoLetters[0])) {
-                    notInJots.add(twoLetters[1]);
-                    uncertainLetters.remove(twoLetters[1]);
-                }
-                else if (jots.contains(twoLetters[1])) {
-                    notInJots.add(twoLetters[0]);
-                    uncertainLetters.remove(twoLetters[0]);
-                }
-                else if (notInJots.contains(twoLetters[0])) {
-                    jots.add(twoLetters[1]);
-                    uncertainLetters.remove(twoLetters[1]);
-                }
-                else if (notInJots.contains(twoLetters[1])) {
-                    jots.add(twoLetters[0]);
-                    uncertainLetters.remove(twoLetters[0]);
-                }
-                else {
-                    if (!uncertainLetters.contains(twoLetters[0])) {
-                        uncertainLetters.add(twoLetters[0]);
-                    }
-                    if (!uncertainLetters.contains(twoLetters[1])) {
-                        uncertainLetters.add(twoLetters[1]);
-                    }
-                }
-            }
-            else { // guessCount == 2
-                char[] twoLetters = getTwoLetters(aiGuess);
-                if (!jots.contains(twoLetters[0])) {
-                    jots.add(twoLetters[0]);
-                }
-                if (!jots.contains(twoLetters[1])) {
-                    jots.add(twoLetters[1]);
-                }
-            }
-        }
-        else { // roundNum >= 22
-
         }
 
         return aiGuess;
@@ -119,26 +69,6 @@ public class JottoManager {
         }
 
         return arr;
-    }
-
-    public String rearrangeFiveLetters() {
-        String aiGuess = "";
-
-        // Consider I did NOT get an anagram list from DB yet
-        if (anagramCount == 0) {
-            // -------------- Get an anagram list from DB ----------------
-
-            // -----------------------------------------------------------
-
-            aiGuess = anagrams.get(anagramCount);
-            anagramCount++;
-        }
-        else { // Consider I did got an anagram list from DB before
-            aiGuess = anagrams.get(anagramCount);
-            anagramCount++;
-        }
-
-        return aiGuess;
     }
 
 }
