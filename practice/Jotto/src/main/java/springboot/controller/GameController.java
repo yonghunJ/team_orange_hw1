@@ -16,7 +16,7 @@ public class GameController {
         return "gameplay";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/qweqweasd", method = RequestMethod.GET)
     public void getUserWordInput(@RequestParam(value = "firstWord") String firstInput) {
         // gameManager = new GameManager();
         // gameManager.setUserWord(firstInput)

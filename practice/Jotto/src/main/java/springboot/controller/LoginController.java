@@ -14,7 +14,8 @@ public class LoginController {
     }
 
     @RequestMapping(value = {"/"}, method = RequestMethod.POST)
-    public @ResponseBody int loginRequest(@RequestParam("login_id") String uname, @RequestParam("login_pw") String psw) {
+    @ResponseBody
+    public int loginRequest(@RequestParam("login_id") String uname, @RequestParam("login_pw") String psw) {
         //System.out.println(uname);
         //System.out.println(psw);
         //@Autowired
