@@ -5,9 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-@ComponentScan({"springboot.demo","springboot.controller"})
-@SpringBootApplication
+@ComponentScan({"springboot.demo","springboot.controller", "springboot.database"})
+@EnableMongoRepositories(basePackages = "springboot.database")
+@SpringBootApplication()
 public class JottoGameApplication extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {

@@ -1,12 +1,19 @@
 package springboot.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import springboot.database.Passwords;
+import springboot.database.User;
+import springboot.database.UserRepository;
 
 @Controller
 public class LoginController {
+    @Autowired
+    UserRepository userRepository;
+
     @RequestMapping(value = {"/"},method = RequestMethod.GET)
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView("index");
@@ -16,17 +23,17 @@ public class LoginController {
     @RequestMapping(value = {"/"}, method = RequestMethod.POST)
     @ResponseBody
     public int loginRequest(@RequestParam("login_id") String uname, @RequestParam("login_pw") String psw) {
-        //System.out.println(uname);
-        //System.out.println(psw);
-        //@Autowired
-        //UserRepository userRepository;
-        //if (userRepository.exit())
-        //  User user = userRepository.findByName(uname);
-        //if (Passwords.isExpectedPassword(psw.toCharArray(), user.password_salt, user.password.hash))
-        //return 0;
-        //else return 1;
-        //else return 2;
-        return 0;
+        User user = userRepository.findByName(uname);
+        if (user != null) {
+            if (Passwords.isExpectedPassword(psw.toCharArray(), user.password_salt, user.password_hash)) {
+                return 0;
+            } else {
+                return 1;
+            }
+        }else {
+            return 2;
+        }
+
     }
 
 }
