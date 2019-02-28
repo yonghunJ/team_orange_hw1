@@ -1,11 +1,23 @@
 $(document).ready(function(){
+//Paswword double check
+    var password = document.getElementById("signup_pw");
+    var confirm_password = document.getElementById("signup_pw2");
 
-    $("#login_btn").click(function(){
+    function validatePassword(){
+        if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    }
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+
+    //signup from submittion
+    $("#signup_btn").click(function(){
         var id = $("#login_id").val();
         var pw = $("#login_pw").val();
-        $("#login_warning").text('Password is wrong');//1
-        $("#login_form").hide();//2
-        $("#main_menu").show();
+        $("#login_warning").text('Password is wrong');
 
         var request = $.ajax({
             type:"post",
@@ -16,9 +28,7 @@ $(document).ready(function(){
             success: function(data) {
                 console.log('Success!');
                 console.log("User ID: " + this.login_id);
-                if(data==0){
-                    $("#login_form").hide();
-                }else if(data==1){
+                if(data==1){
                     $("#login_warning").text('Password is wrong');
                 }
             },
