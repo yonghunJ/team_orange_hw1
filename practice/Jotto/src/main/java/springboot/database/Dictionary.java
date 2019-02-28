@@ -6,8 +6,8 @@ import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.aggregation.MatchOperation;
 import org.springframework.data.mongodb.core.aggregation.SampleOperation;
-import org.springframework.data.mongodb.core.index.TextIndexDefinition;
 import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 
 public class Dictionary {
 
@@ -58,6 +58,11 @@ public class Dictionary {
 
         if(output.getMappedResults().isEmpty()){return null;}
         return output.getMappedResults().get(0).toString();
+    }
+
+    public boolean isValidWord(String word){
+        Query query = new Query(Criteria.where("word").is(word));
+        return mongoTemplate.exists(query, WORDS_DATABASE);
     }
 
 }

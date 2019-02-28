@@ -44,6 +44,9 @@ public class MyTest implements CommandLineRunner{
             System.out.println(dictionary.getWord(new char[]{'T'}, new char[]{'W'}, null));
         }
 
+        System.out.println(String.format("'SALTY' is a word? %b", dictionary.isValidWord("SALTY")));
+        System.out.println(String.format("'AAAAA' is a word? %b", dictionary.isValidWord("AAAAA")));
+
         /**
         // create a couple users
         userRepository.save(Passwords.createUser("Coolkid27", "hunter2"));
