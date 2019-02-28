@@ -29,19 +29,25 @@ public class MyTest implements CommandLineRunner{
         System.out.println("Getting random words");
         System.out.println("-------------------------------");
         for(int i=0; i<10; i++) {
-            System.out.println(dictionary.getWord(new char[]{}, new char[]{}, null));
+            System.out.println(dictionary.getWord(new char[]{}, new char[]{}, null, new String[]{}));
         }
 
         System.out.println("Getting random words containing 'W'");
         System.out.println("-------------------------------");
         for(int i=0; i<10; i++) {
-            System.out.println(dictionary.getWord(new char[]{'W'}, new char[]{}, null));
+            System.out.println(dictionary.getWord(new char[]{'W'}, new char[]{}, null, new String[]{}));
         }
 
         System.out.println("Getting random words containing 'T' but not 'W'");
         System.out.println("-------------------------------");
         for(int i=0; i<10; i++) {
-            System.out.println(dictionary.getWord(new char[]{'T'}, new char[]{'W'}, null));
+            System.out.println(dictionary.getWord(new char[]{'T'}, new char[]{'W'}, null, new String[]{}));
+        }
+
+        System.out.println("Getting random words containing 'T' but aren't 'SALTY'");
+        System.out.println("-------------------------------");
+        for(int i=0; i<10; i++) {
+            System.out.println(dictionary.getWord(new char[]{'T'}, new char[]{}, null, new String[]{"SALTY"}));
         }
 
         System.out.println(String.format("'SALTY' is a word? %b", dictionary.isValidWord("SALTY")));
