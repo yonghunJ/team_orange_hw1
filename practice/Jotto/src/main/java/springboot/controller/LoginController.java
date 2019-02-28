@@ -2,10 +2,7 @@ package springboot.controller;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -17,10 +14,19 @@ public class LoginController {
     }
 
     @RequestMapping(value = {"/"}, method = RequestMethod.POST)
-    public String loginRequest(@RequestParam("uname") String uname, @RequestParam("psw") String psw) {
-        System.out.println(uname);
-        System.out.println(psw);
-        return "Succeed";
+    @ResponseBody
+    public int loginRequest(@RequestParam("login_id") String uname, @RequestParam("login_pw") String psw) {
+        //System.out.println(uname);
+        //System.out.println(psw);
+        //@Autowired
+        //UserRepository userRepository;
+        //if (userRepository.exit())
+        //  User user = userRepository.findByName(uname);
+        //if (Passwords.isExpectedPassword(psw.toCharArray(), user.password_salt, user.password.hash))
+        //return 0;
+        //else return 1;
+        //else return 2;
+        return 0;
     }
 
 }
