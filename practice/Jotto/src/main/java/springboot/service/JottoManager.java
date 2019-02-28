@@ -1,8 +1,11 @@
 package springboot.service;
 
+import com.microsoft.applicationinsights.core.dependencies.apachecommons.lang3.StringUtils;
 import springboot.database.Dictionary;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class JottoManager {
     private ArrayList<Character> include = new ArrayList<Character>();
@@ -34,6 +37,7 @@ public class JottoManager {
     public String chooseAiGuess(int roundNum, String userWord) {
         String aiGuess = "";
         int guessCount = 0;
+        Map<Character,Integer> charCount;
 
         // Typecasting
         char[] includeTemp = toArray(include);
@@ -45,30 +49,89 @@ public class JottoManager {
             aiGuess = dict.getWord(includeTemp, excludeTemp, 5, ignoredWordsTemp);
             ignoredWords.add(aiGuess);
         }
-        else if (roundNum < 22) {
+        // 2+3 word while exist
+        else if (dict.getWord(includeTemp, excludeTemp, 2, ignoredWordsTemp) != null) {
+            // Get aiGuess from DB
             aiGuess = dict.getWord(includeTemp, excludeTemp, 2, ignoredWordsTemp);
+            ignoredWords.add(aiGuess); // Update ignoredWords
+            charCount = countChars(aiGuess); // Get HashMap with Character,Integer pair
 
+            // Get guessCount
             for (int i = 0; i < 5; i++) {
                 if (userWord.contains(Character.toString(aiGuess.charAt(i)))) {
                     guessCount++;
                 }
             }
+
+            // If guessCount = 0, then exclude.add(c2) && exclude.add(c3)
+            if (guessCount == 0) {
+                ArrayList<Character> keys = new ArrayList<Character>();
+                keys.addAll(charCount.keySet());
+                addUnique(exclude, keys);
+            }
+            // If guessCount = 2, then include.add(c2) && exclude.add(c3)
+            else if (guessCount == 2) {
+                ArrayList<Character> keyToInclude = new ArrayList<Character>();
+                keyToInclude = getKeysFromValue(charCount, 2);
+                addUnique(include, keyToInclude);
+
+                ArrayList<Character> keyToExclude = new ArrayList<Character>();
+                keyToExclude = getKeysFromValue(charCount, 3);
+                addUnique(exclude, keyToExclude);
+            }
+            // If guessCount = 3, then include.add(c3) && exclude.add(c2)
+            else if (guessCount == 3) {
+                ArrayList<Character> keyToInclude = new ArrayList<Character>();
+                keyToInclude = getKeysFromValue(charCount, 3);
+                addUnique(include, keyToInclude);
+
+                ArrayList<Character> keyToExclude = new ArrayList<Character>();
+                keyToExclude = getKeysFromValue(charCount, 2);
+                addUnique(exclude, keyToExclude);
+            }
+            // If guessCount = 5, then include.add(c2) && include.add(c3)
+            else if (guessCount == 5) {
+                ArrayList<Character> keys = new ArrayList<Character>();
+                keys.addAll(charCount.keySet());
+                addUnique(include, keys);
+            }
         }
+        // 2+2+1 while include.size = 5
+        else {
+
+        }
+
 
         return aiGuess;
     }
 
-    public char[] getTwoLetters(String aiGuess) {
-        char[] arr = new char[2];
+    public void addUnique(ArrayList<Character> list, ArrayList<Character> charsToAdd) {
+        for (Character c: charsToAdd) {
+            if (!list.contains(c))
+                list.add(c);
+        }
+    }
 
-        arr[0] = aiGuess.charAt(0);
+    public static ArrayList<Character> getKeysFromValue(Map<Character, Integer> map, Integer value){
+        ArrayList <Character>list = new ArrayList<Character>();
+        for(Character c:map.keySet()){
+            if(map.get(c).equals(value)) {
+                list.add(c);
+            }
+        }
+        return list;
+    }
 
-        for (int i = 1; i < 5; i++) {
-            if (aiGuess.charAt(i) != arr[0])
-                arr[1] = aiGuess.charAt(i);
+    public Map<Character,Integer> countChars(String aiGuess) {
+        Map<Character,Integer> charCount = new HashMap<Character, Integer>();
+        int count = 0;
+
+        for (int i = 0; i < 5; i++) {
+            count = StringUtils.countMatches(aiGuess, aiGuess.charAt(i));
+            charCount.put(aiGuess.charAt(i), count);
         }
 
-        return arr;
+        return charCount;
     }
 
 }
