@@ -155,7 +155,7 @@
 <form action ="#" method="get" >
     <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog form-dark" role="document">
-            <div class="modal-content card card-image" style="background-image: url('/img/signUp.jpg');">
+            <div class="modal-content card card-image" style="background-image: url('/image/signUp.jpg');">
                 <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
                     <div class="modal-header text-center pb-4">
                         <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel">
@@ -171,14 +171,6 @@
                             <label data-error="wrong" data-success="right" for="signup_id">ID</label>
                             <input type="text" id="signup_id" class="form-control validate white-text" required>
                         </div>
-                        <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="signup_name">NAME</label>
-                            <input type="text" id="signup_name" class="form-control validate white-text" required>
-                        </div>
-                        <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="signup_mail">EMAIL</label>
-                            <input type="email" id="signup_mail" class="form-control validate white-text" required>
-                        </div>
                         <div class="md-form pb-3">
                             <label data-error="wrong" data-success="right" for="signup_pw">PASSWORD</label>
                             <input type="password" id="signup_pw" class="form-control validate white-text"
@@ -187,9 +179,6 @@
                             <input type="password" id="signup_pw2" class="form-control validate white-text" required>
                             <div class="form-group mt-4">
                                 <input class="form-check-input" type="checkbox" id="checkbox624">
-                                <label for="checkbox624" class="white-text form-check-label">
-                                    Accept the<a href="#" class="green-text font-weight-bold">Terms and Conditions</a>
-                                </label>
                             </div>
                         </div>
 
