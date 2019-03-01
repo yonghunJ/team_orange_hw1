@@ -1,144 +1,252 @@
 package springboot.service;
 
+import com.microsoft.applicationinsights.core.dependencies.apachecommons.lang3.StringUtils;
+import springboot.database.Dictionary;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class JottoManager {
-    private ArrayList<Character> jots = new ArrayList<Character>();
-    private ArrayList<Character> notInJots = new ArrayList<Character>();
-    private ArrayList<Character> uncertainLetters = new ArrayList<Character>();
-    private ArrayList<String> threeTwoLetters = new ArrayList<String>();
-    private ArrayList<String> anagrams = new ArrayList<String>();
-    private int anagramCount = 0;
+    private ArrayList<Character> include = new ArrayList<Character>();
+    private ArrayList<Character> exclude = new ArrayList<Character>();
+    private ArrayList<String> ignoredWords = new ArrayList<String>();
+    private Dictionary dict = new Dictionary();
 
-    public JottoManager() {
-        this.threeTwoLetters.add("ajaja");
-        this.threeTwoLetters.add("alala");
-        this.threeTwoLetters.add("anana");
-        this.threeTwoLetters.add("arara");
-        this.threeTwoLetters.add("cocco");
-        this.threeTwoLetters.add("mamma");
-        this.threeTwoLetters.add("pappa");
-        this.threeTwoLetters.add("reree");
-        this.threeTwoLetters.add("tatta");
-        this.threeTwoLetters.add("ululu");
-        this.threeTwoLetters.add("xxxii");
+    public Dictionary getDict() {
+        return dict;
     }
 
-
-
-
     public String chooseAiWord() {
-        // Consider I got a legal starting word from DB
-        String aiWord = "";
+        // Typecasting
+        char[] includeTemp = toArray(include);
+        char[] excludeTemp = toArray(exclude);
+        String[] ignoredWordsTemp = include.toArray(new String[include.size()]);
+
+        // Get a word without repeating letters from DB
+        String aiWord = dict.getWord(includeTemp, excludeTemp, 5, ignoredWordsTemp);
 
         return aiWord;
     }
 
-    public String chooseAiGuess(int roundNum, String userWord) {
+    public String chooseAiGuess(String userWord) {
         String aiGuess = "";
         int guessCount = 0;
+        Map<Character,Integer> charCount;
 
+        // Typecasting
+        char[] includeTemp = toArray(include);
+        char[] excludeTemp = toArray(exclude);
+        String[] ignoredWordsTemp = include.toArray(new String[include.size()]);
 
-
-
-
-        // All jots have been found. Move to the next strategy.
-        if (jots.size() == 5) {
-            aiGuess = rearrangeFiveLetters();
+        // All jots have been found. Try anagrams
+        if (include.size() == 5) {
+            aiGuess = dict.getWord(includeTemp, excludeTemp, 5, ignoredWordsTemp);
+            ignoredWords.add(aiGuess);
         }
-        else if (roundNum < 22) {
-            aiGuess = threeTwoLetters.get(roundNum % 11);
+        // 2+3 word while exist
+        else if (dict.getWord(includeTemp, excludeTemp, 2, ignoredWordsTemp) != null) {
+            // Get aiGuess from DB
+            aiGuess = dict.getWord(includeTemp, excludeTemp, 2, ignoredWordsTemp);
+            ignoredWords.add(aiGuess); // Update ignoredWords
+            charCount = countChars(aiGuess); // Get HashMap with Character,Integer pair
 
-            for (int i = 0; i < 5; i++) {
-                if (aiGuess.contains(Character.toString(userWord.charAt(i)))) {
-                    guessCount++;
-                }
-            }
+            // Get guessCount
+            guessCount = getGuseeCount(userWord, aiGuess);
+
+            // If guessCount = 0, then exclude.add(c2) && exclude.add(c3)
             if (guessCount == 0) {
-                char[] twoLetters = getTwoLetters(aiGuess);
-                if (!notInJots.contains(twoLetters[1])) {
-                    notInJots.add(twoLetters[1]);
-                }
-                if (!notInJots.contains(twoLetters[0])) {
-                    notInJots.add(twoLetters[0]);
-                }
+                ArrayList<Character> keys = new ArrayList<Character>();
+                keys.addAll(charCount.keySet());
+                addUnique(exclude, keys);
             }
-            else if (guessCount == 1) {
-                char[] twoLetters = getTwoLetters(aiGuess);
+            // If guessCount = 2, then include.add(c2) && exclude.add(c3)
+            else if (guessCount == 2) {
+                ArrayList<Character> keyToInclude = new ArrayList<Character>();
+                keyToInclude = getKeysFromValue(charCount, 2);
+                addUnique(include, keyToInclude);
 
-                if (jots.contains(twoLetters[0])) {
-                    notInJots.add(twoLetters[1]);
-                    uncertainLetters.remove(twoLetters[1]);
-                }
-                else if (jots.contains(twoLetters[1])) {
-                    notInJots.add(twoLetters[0]);
-                    uncertainLetters.remove(twoLetters[0]);
-                }
-                else if (notInJots.contains(twoLetters[0])) {
-                    jots.add(twoLetters[1]);
-                    uncertainLetters.remove(twoLetters[1]);
-                }
-                else if (notInJots.contains(twoLetters[1])) {
-                    jots.add(twoLetters[0]);
-                    uncertainLetters.remove(twoLetters[0]);
-                }
-                else {
-                    if (!uncertainLetters.contains(twoLetters[0])) {
-                        uncertainLetters.add(twoLetters[0]);
-                    }
-                    if (!uncertainLetters.contains(twoLetters[1])) {
-                        uncertainLetters.add(twoLetters[1]);
-                    }
-                }
+                ArrayList<Character> keyToExclude = new ArrayList<Character>();
+                keyToExclude = getKeysFromValue(charCount, 3);
+                addUnique(exclude, keyToExclude);
             }
-            else { // guessCount == 2
-                char[] twoLetters = getTwoLetters(aiGuess);
-                if (!jots.contains(twoLetters[0])) {
-                    jots.add(twoLetters[0]);
-                }
-                if (!jots.contains(twoLetters[1])) {
-                    jots.add(twoLetters[1]);
-                }
+            // If guessCount = 3, then include.add(c3) && exclude.add(c2)
+            else if (guessCount == 3) {
+                ArrayList<Character> keyToInclude = new ArrayList<Character>();
+                keyToInclude = getKeysFromValue(charCount, 3);
+                addUnique(include, keyToInclude);
+
+                ArrayList<Character> keyToExclude = new ArrayList<Character>();
+                keyToExclude = getKeysFromValue(charCount, 2);
+                addUnique(exclude, keyToExclude);
+            }
+            // If guessCount = 5, then include.add(c2) && include.add(c3)
+            else if (guessCount == 5) {
+                ArrayList<Character> keys = new ArrayList<Character>();
+                keys.addAll(charCount.keySet());
+                addUnique(include, keys);
             }
         }
-        else { // roundNum >= 22
+        // Keep doing again while include.size <= 5
+        else {
+            // Get aiGuess from DB
+            aiGuess = dict.getWord(includeTemp, excludeTemp, 3, ignoredWordsTemp);
+            ignoredWords.add(aiGuess); // Update ignoredWords
+            charCount = countChars(aiGuess); // Get HashMap with Character,Integer pair
 
+            // Check whether aiGuess is 2+2+1 or 3+1+1
+            int type = checkTypeOfWord(charCount, aiGuess);
+
+            // If 2+2+1
+            if (type == 2) {
+                // If guessCount = 0, then exclude.add(c2) && exclude.add(c2) && exclude.add(c1)
+                if (guessCount == 0) {
+                    ArrayList<Character> keys = new ArrayList<Character>();
+                    keys.addAll(charCount.keySet());
+                    addUnique(exclude, keys);
+                }
+                // If guessCount = 1, then include.add(c1) && exclude.add(c2) && exclude.add(c2)
+                else if (guessCount == 1) {
+                    ArrayList<Character> keyToInclude = new ArrayList<Character>();
+                    keyToInclude = getKeysFromValue(charCount, 1);
+                    addUnique(include, keyToInclude);
+
+                    ArrayList<Character> keyToExclude = new ArrayList<Character>();
+                    keyToExclude = getKeysFromValue(charCount, 2);
+                    addUnique(exclude, keyToExclude);
+                }
+                // If guessCount = 3, then include.add(c1)
+                else if (guessCount == 3) {
+                    ArrayList<Character> keyToInclude = new ArrayList<Character>();
+                    keyToInclude = getKeysFromValue(charCount, 1);
+                    addUnique(include, keyToInclude);
+                }
+                // If guessCount = 4, then include.add(c2) && include.add(c2) && exclude.add(c1)
+                else if (guessCount == 4) {
+                    ArrayList<Character> keyToInclude = new ArrayList<Character>();
+                    keyToInclude = getKeysFromValue(charCount, 2);
+                    addUnique(include, keyToInclude);
+
+                    ArrayList<Character> keyToExclude = new ArrayList<Character>();
+                    keyToExclude = getKeysFromValue(charCount, 1);
+                    addUnique(exclude, keyToExclude);
+                }
+                // If guessCount = 5, then include.add(c2) && include.add(c2) && include.add(c1)
+                else if (guessCount == 5) {
+                    ArrayList<Character> keys = new ArrayList<Character>();
+                    keys.addAll(charCount.keySet());
+                    addUnique(include, keys);
+                }
+            }
+            // If 3+1+1
+            else if (type == 3) {
+                // If guessCount = 0, then exclude.add(c3) && exclude.add(c1) && exclude.add(c1)
+                if (guessCount == 0) {
+                    ArrayList<Character> keys = new ArrayList<Character>();
+                    keys.addAll(charCount.keySet());
+                    addUnique(exclude, keys);
+                }
+                // If guessCount = 2, then exclude.add(c3) && include.add(c1) && include.add(c1)
+                else if (guessCount == 1) {
+                    ArrayList<Character> keyToInclude = new ArrayList<Character>();
+                    keyToInclude = getKeysFromValue(charCount, 1);
+                    addUnique(include, keyToInclude);
+
+                    ArrayList<Character> keyToExclude = new ArrayList<Character>();
+                    keyToExclude = getKeysFromValue(charCount, 3);
+                    addUnique(exclude, keyToExclude);
+                }
+                // If guessCount = 3, then include.add(c3) && exclude.add(c1) && exclude.add(c1)
+                else if (guessCount == 3) {
+                    ArrayList<Character> keyToInclude = new ArrayList<Character>();
+                    keyToInclude = getKeysFromValue(charCount, 3);
+                    addUnique(include, keyToInclude);
+
+                    ArrayList<Character> keyToExclude = new ArrayList<Character>();
+                    keyToExclude = getKeysFromValue(charCount, 1);
+                    addUnique(exclude, keyToExclude);
+                }
+                // If guessCount = 4, then include.add(c3)
+                else if (guessCount == 4) {
+                    ArrayList<Character> keyToInclude = new ArrayList<Character>();
+                    keyToInclude = getKeysFromValue(charCount, 3);
+                    addUnique(include, keyToInclude);
+                }
+                // If guessCount = 5, then include.add(c3) && include.add(c1) && include.add(c1)
+                else if (guessCount == 5) {
+                    ArrayList<Character> keys = new ArrayList<Character>();
+                    keys.addAll(charCount.keySet());
+                    addUnique(include, keys);
+                }
+            }
         }
 
         return aiGuess;
     }
 
-    public char[] getTwoLetters(String aiGuess) {
-        char[] arr = new char[2];
-
-        arr[0] = aiGuess.charAt(0);
-
-        for (int i = 1; i < 5; i++) {
-            if (aiGuess.charAt(i) != arr[0])
-                arr[1] = aiGuess.charAt(i);
-        }
-
-        return arr;
+    public char[] toArray(ArrayList<Character> list){
+        char[] toReturn = new char[list.size()];
+        int i = 0;
+        for(char c : list)
+            toReturn[i ++] = c;
+        return toReturn;
     }
 
-    public String rearrangeFiveLetters() {
-        String aiGuess = "";
+    public int getGuseeCount(String userWord, String aiGuess) {
+        int guessCount = 0;
 
-        // Consider I did NOT get an anagram list from DB yet
-        if (anagramCount == 0) {
-            // -------------- Get an anagram list from DB ----------------
-
-            // -----------------------------------------------------------
-
-            aiGuess = anagrams.get(anagramCount);
-            anagramCount++;
-        }
-        else { // Consider I did got an anagram list from DB before
-            aiGuess = anagrams.get(anagramCount);
-            anagramCount++;
+        // Get guessCount
+        for (int i = 0; i < 5; i++) {
+            if (userWord.contains(Character.toString(aiGuess.charAt(i)))) {
+                guessCount++;
+            }
         }
 
-        return aiGuess;
+        return guessCount;
+    }
+
+    public int checkTypeOfWord(Map<Character, Integer> charCount, String aiGuess) {
+        int result = 0;
+
+        for (int i = 0; i < 5; i++) {
+            // return 2 if 2+2+1
+            if (charCount.get(aiGuess.charAt(i)) == 2)
+                result = 2;
+                // return 2 if 3+1+1
+            else if (charCount.get(aiGuess.charAt(i)) == 3)
+                result = 3;
+        }
+
+        return result;
+    }
+
+    public void addUnique(ArrayList<Character> list, ArrayList<Character> charsToAdd) {
+        for (Character c: charsToAdd) {
+            if (!list.contains(c))
+                list.add(c);
+        }
+    }
+
+    public static ArrayList<Character> getKeysFromValue(Map<Character, Integer> map, Integer value){
+        ArrayList <Character>list = new ArrayList<Character>();
+        for(Character c:map.keySet()){
+            if(map.get(c).equals(value)) {
+                list.add(c);
+            }
+        }
+        return list;
+    }
+
+    public Map<Character,Integer> countChars(String aiGuess) {
+        Map<Character,Integer> charCount = new HashMap<Character, Integer>();
+        int count = 0;
+
+        for (int i = 0; i < 5; i++) {
+            count = StringUtils.countMatches(aiGuess, aiGuess.charAt(i));
+            charCount.put(aiGuess.charAt(i), count);
+        }
+
+        return charCount;
     }
 
 }
