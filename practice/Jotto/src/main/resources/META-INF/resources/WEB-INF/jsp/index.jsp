@@ -14,6 +14,8 @@
     <script src="/javascript/index.js"></script>
     <script src="/javascript/mainMenu.js"></script>
     <script src="/javascript/userFirstInput.js"></script>
+    <script src="/javascript/pastGameResult.js"></script>
+
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/signUp.css">
@@ -147,12 +149,79 @@
                 </div>
             </div>
         </div>
-        <div style="background-color:green"> Page 4 </div>
-            <div class="pastGameResult">
+        <div style="background-color:green"> Page 4
+            <div id="pastGameResult1" class="pastGameResult">
+                <ul>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
 
+                </ul>
 
             </div>
-        <div style="background-color:purple"> Page 5 </div>
+        </div>
+
+        <div style="background-color:purple">
+            <div id="pastGameResult2" class="pastGameResult">
+                <ul>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+                    <li>ha</li>
+
+                </ul>
+
+            </div>
+        </div>
         <div style="background-color:gray"> Page 6 </div>
         <div class="hard"></div>
         <div class="hard"></div>
@@ -160,7 +229,7 @@
 </div>
 
 <%--signup form--%>
-<form action ="/" method="post" >
+<form action ="./" method="POST" >
     <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog form-dark" role="document">
             <div class="modal-content card card-image" style="background-image: url('/image/signUp.jpg');">
@@ -177,14 +246,14 @@
                     <div class="modal-body">
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="signup_id">ID</label>
-                            <input type="text" id="signup_id" class="form-control validate white-text" required>
+                            <input type="text" id="signup_id" name="signup_id" class="form-control validate white-text" required>
                         </div>
                         <div class="md-form pb-3">
                             <label data-error="wrong" data-success="right" for="signup_pw">PASSWORD</label>
-                            <input type="password" id="signup_pw" class="form-control validate white-text"
+                            <input type="password" id="signup_pw" name="signup_pw" class="form-control validate white-text"
                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                             <label data-error="wrong" data-success="right" for="signup_pw2">CHECK PASSWORD</label>
-                            <input type="password" id="signup_pw2" class="form-control validate white-text" required>
+                            <input type="password" id="signup_pw2" name="signup_pw2" class="form-control validate white-text" required>
                             <div class="form-group mt-4">
                                 <input class="form-check-input" type="checkbox" id="checkbox624">
                             </div>
@@ -192,7 +261,7 @@
 
                         <div class="row d-flex align-items-center mb-4">
                             <div class="text-center mb-3 col-md-12">
-                                <button type="submit" id="sigun_btn" class="btn btn-success btn-block btn-rounded z-depth-1">Sign up</button>
+                                <button type="submit" id="sigunp_btn" class="btn btn-success btn-block btn-rounded z-depth-1">Sign up</button>
                             </div>
                         </div>
                         <div class="row"></div>
