@@ -11,15 +11,10 @@ public class JottoManager {
     private ArrayList<Character> include = new ArrayList<Character>();
     private ArrayList<Character> exclude = new ArrayList<Character>();
     private ArrayList<String> ignoredWords = new ArrayList<String>();
-    private int anagramCount = 0;
     private Dictionary dict = new Dictionary();
 
-    public char[] toArray(ArrayList<Character> list){
-        char[] toReturn = new char[list.size()];
-        int i = 0;
-        for(char c : list)
-            toReturn[i ++] = c;
-        return toReturn;
+    public Dictionary getDict() {
+        return dict;
     }
 
     public String chooseAiWord() {
@@ -34,7 +29,7 @@ public class JottoManager {
         return aiWord;
     }
 
-    public String chooseAiGuess(int roundNum, String userWord) {
+    public String chooseAiGuess(String userWord) {
         String aiGuess = "";
         int guessCount = 0;
         Map<Character,Integer> charCount;
@@ -44,7 +39,7 @@ public class JottoManager {
         char[] excludeTemp = toArray(exclude);
         String[] ignoredWordsTemp = include.toArray(new String[include.size()]);
 
-        // All jots have been found. Move to the next strategy.
+        // All jots have been found. Try anagrams
         if (include.size() == 5) {
             aiGuess = dict.getWord(includeTemp, excludeTemp, 5, ignoredWordsTemp);
             ignoredWords.add(aiGuess);
@@ -92,7 +87,7 @@ public class JottoManager {
                 addUnique(include, keys);
             }
         }
-        // Keep doing again while include.size = 5
+        // Keep doing again while include.size <= 5
         else {
             // Get aiGuess from DB
             aiGuess = dict.getWord(includeTemp, excludeTemp, 3, ignoredWordsTemp);
@@ -187,6 +182,14 @@ public class JottoManager {
         }
 
         return aiGuess;
+    }
+
+    public char[] toArray(ArrayList<Character> list){
+        char[] toReturn = new char[list.size()];
+        int i = 0;
+        for(char c : list)
+            toReturn[i ++] = c;
+        return toReturn;
     }
 
     public int getGuseeCount(String userWord, String aiGuess) {

@@ -11,11 +11,61 @@ public class GameManager {
     private String aiGuess;
     private int userGuessCount;
     private int aiGuessCount;
-    private int roundNum = 0;
     private int[] userColorArray;
     private int[] aiColorArray;
     private ArrayList<GameRound> gameRoundList = new ArrayList<GameRound>();
     private JottoManager jottoManager = new JottoManager();
+
+    public ArrayList<GameRound> getGameRoundList() {
+        return gameRoundList;
+    }
+
+    public int setGameRound() {
+        int gameRoundResult;
+
+        // no one wins yet = 0; user wins = 1; AI wins = 2; draw = 3;
+        if (!this.userGuess.equals(this.aiWord) && !(this.aiGuess.equals(this.userWord))) {
+            gameRoundResult = 0; // no one wins yet
+        }
+        else if (this.userGuess.equals(this.aiWord) && !(this.aiGuess.equals(this.userWord))) {
+            gameRoundResult = 1; // user wins
+        }
+        else if (!(this.userGuess.equals(this.aiWord))) {
+            gameRoundResult = 2; // AI wins
+        }
+        else {
+            gameRoundResult = 3; // draw
+        }
+
+        GameRound currentGameRound = new GameRound(this.userGuess, this.aiGuess, userColorArray, aiColorArray);
+        gameRoundList.add(currentGameRound);
+
+        return gameRoundResult;
+    }
+
+    public JottoManager getJottoManager() {
+        return jottoManager;
+    }
+
+    public String getAiWord() {
+        return this.aiWord;
+    }
+
+    public void setAiWord() {
+        this.aiWord = jottoManager.chooseAiWord();
+    }
+
+    public String getAiGuess() {
+        return this.aiGuess;
+    }
+
+    public void setUserGuess(String userGuess) {
+        this.userGuess = userGuess;
+    }
+
+    public void setUserWord(String userWord) {
+        this.userWord = userWord;
+    }
 
     public int getGuessCount(boolean flag) {
         int guessCount;
@@ -38,7 +88,7 @@ public class GameManager {
             guessCount = this.userGuessCount;
         }
         else { // For AI guess
-            this.aiGuess = jottoManager.chooseAiGuess(roundNum, userWord);
+            this.aiGuess = jottoManager.chooseAiGuess(userWord);
 
             for (int i = 0; i < 5; i++) {
                 if (this.userWord.contains(Character.toString(this.aiGuess.charAt(i)))) {
@@ -54,10 +104,4 @@ public class GameManager {
         return guessCount;
     }
 
-    public void setGameRound() {
-        GameRound currentGameRound = new GameRound(this.userGuess, this.aiGuess, userColorArray, aiColorArray);
-
-        roundNum++;
-        gameRoundList.add(currentGameRound);
-    }
 }
