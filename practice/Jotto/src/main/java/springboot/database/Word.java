@@ -14,7 +14,12 @@ public class Word {
     @TextIndexed
     private String word;
 
-    private List<String> tags;
+    private List<String> letters;
+
+    public Word(String word, List<String> letters){
+        this.word = word;
+        this.letters = letters;
+    }
 
     public String toString(){return word;}
 
