@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/signUp.css">
     <link rel="stylesheet" href="/css/userFirstInput.css">
+    <link rel="stylesheet" href="/css/pastGameResult.css">
 
 
 </head>
@@ -32,6 +33,7 @@
                 <input type="text" id="login_id" name="login_id" placeholder="User Name" class="input_login">
                 <input type="password" id="login_pw"  name="login_pw" class="input_login" placeholder="Password">
                 <button type="submit" id = "login_btn" class="yh_btn">Log In</button>
+
                 <button type="button" class="btn btn-link" data-toggle="modal" data-target="#darkModalForm" >SignUp</button>
                 <hr />
                 <label id="login_warning" style="color:red;"></label>
@@ -95,16 +97,6 @@
                                             <tbody>
                                             <tr ><td><span>s</span><span>s</span><span>d</span></td><td>ssd</td></tr>
                                             <tr><td>ssd</td><td>ssd</td></tr>
-                                            <tr><td>ssd</td><td>ssd</td></tr>
-                                            <tr><td>ssd</td><td>ssd</td></tr>
-                                            <tr><td>ssd</td><td>ssd</td></tr>
-                                            <tr><td>ssd</td><td>ssd</td></tr>
-                                            <tr><td>ssd</td><td>ssd</td></tr>
-                                            <tr><td>ssd</td><td>ssd</td></tr>
-                                            <tr><td>ssd</td><td>ssd</td></tr>
-                                            <tr><td>ssd</td><td>ssd</td></tr>
-                                            <tr><td>ssd</td><td>ssd</td></tr>
-                                            <tr><td>ssd</td><td>ssd</td></tr>
                                             </tbody>
                                         </table>
                                     </div><!-- /  CONTENT BOX-->
@@ -141,16 +133,6 @@
                                         <tbody>
                                         <tr ><td>ssd</td><td>ssd</td></tr>
                                         <tr><td>ssd</td><td>ssd</td></tr>
-                                        <tr><td>ssd</td><td>ssd</td></tr>
-                                        <tr><td>ssd</td><td>ssd</td></tr>
-                                        <tr><td>ssd</td><td>ssd</td></tr>
-                                        <tr><td>ssd</td><td>ssd</td></tr>
-                                        <tr><td>ssd</td><td>ssd</td></tr>
-                                        <tr><td>ssd</td><td>ssd</td></tr>
-                                        <tr><td>ssd</td><td>ssd</td></tr>
-                                        <tr><td>ssd</td><td>ssd</td></tr>
-                                        <tr><td>ssd</td><td>ssd</td></tr>
-                                        <tr><td>ssd</td><td>ssd</td></tr>
                                         </tbody>
                                     </table>
                                 </div><!-- /  CONTENT BOX-->
@@ -165,16 +147,20 @@
                 </div>
             </div>
         </div>
-        <div style="background-color:green"> Page 2 </div>
-        <div style="background-color:purple"> Page 3 </div>
-        <div style="background-color:gray"> Page 4 </div>
+        <div style="background-color:green"> Page 4 </div>
+            <div class="pastGameResult">
+
+
+            </div>
+        <div style="background-color:purple"> Page 5 </div>
+        <div style="background-color:gray"> Page 6 </div>
         <div class="hard"></div>
         <div class="hard"></div>
     </div>
 </div>
 
 <%--signup form--%>
-<form action ="#" method="get" >
+<form action ="/" method="post" >
     <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog form-dark" role="document">
             <div class="modal-content card card-image" style="background-image: url('/image/signUp.jpg');">
