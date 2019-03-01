@@ -1,3 +1,4 @@
+
 .test1{
     background-image:url(./gradient-page-left.jpg);
     background-position:right top;
@@ -73,9 +74,15 @@
 body{
     font-family: 'Lato', sans-serif;;
     /* overflow:hidden; */
-    background-color:#000;
+    /*background-color:#000;*/
     margin:0 auto;
-    background:  linear-gradient(to left, #eecda3, #e49ff1);
+    /*background:  linear-gradient(to left, #ccff33, #ffff66);*/
+    /*background-color: #f5d020;*/
+    /*background-image: linear-gradient(to left, #f5d020 0%, #f53803 74%);*/
+    /*background-color: #f5df2e;*/
+    /*!*background-image: linear-gradient(to left, #f5df2e 0%, #f07654 74%);*!222222*/
+    background-color: #fffcf9;
+    background-image: linear-gradient(to left, #fffcf9 0%, #ffd166 74%);
     /* color: wheat; */
     /* text-align: center; */
     /* height: 100%; */

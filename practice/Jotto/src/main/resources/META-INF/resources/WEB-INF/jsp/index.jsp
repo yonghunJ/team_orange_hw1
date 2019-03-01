@@ -229,7 +229,7 @@
 </div>
 
 <%--signup form--%>
-<form action ="./" method="POST" >
+<form action ="/" method="POST" >
     <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog form-dark" role="document">
             <div class="modal-content card card-image" style="background-image: url('/image/signUp.jpg');">

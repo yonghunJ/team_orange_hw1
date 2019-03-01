@@ -7,7 +7,7 @@ $(document).ready(function(){
         $.ajax({
             type:"get",
             dataType: "json",
-            url: "/lsignup_id?signup_id="+signup_id,
+            url: "/signup_id?signup_id="+signup_id,
             success : function(data) {
                 console.log('Success!');
                 if(data==0){
