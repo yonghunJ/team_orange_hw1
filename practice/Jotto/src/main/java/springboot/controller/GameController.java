@@ -67,12 +67,8 @@ public class GameController {
                 response.put("user_game_ended",true);
                 response.put("ai_game_ended",false);
                 sendData(session);
-            } else if (roundResult == 2) {
-                response.put("user_game_ended",false);
-                response.put("ai_game_ended",true);
-                sendData(session);
             } else {
-                response.put("user_game_ended",true);
+                response.put("user_game_ended",false);
                 response.put("ai_game_ended",true);
                 sendData(session);
             }

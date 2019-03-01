@@ -29,12 +29,13 @@ public class GameManager {
         }
         else if (this.userGuess.equals(this.aiWord) && !(this.aiGuess.equals(this.userWord))) {
             gameRoundResult = 1; // user wins
-        }
-        else if (!(this.userGuess.equals(this.aiWord))) {
-            gameRoundResult = 2; // AI wins
+            GameRound currentGameRound = new GameRound(this.userGuess, null, userColorArray, null);
+            gameRoundList.add(currentGameRound);
+
+            return  gameRoundResult;
         }
         else {
-            gameRoundResult = 3; // draw
+            gameRoundResult = 2; // AI wins
         }
 
         GameRound currentGameRound = new GameRound(this.userGuess, this.aiGuess, userColorArray, aiColorArray);

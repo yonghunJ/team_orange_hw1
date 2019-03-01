@@ -25,6 +25,7 @@ public class JottoManager {
 
         // Get a word without repeating letters from DB
         String aiWord = dict.getWord(includeTemp, excludeTemp, 5, ignoredWordsTemp);
+        System.out.println(aiWord);
 
         return aiWord;
     }
