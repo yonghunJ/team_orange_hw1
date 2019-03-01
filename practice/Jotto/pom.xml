@@ -15,7 +15,7 @@
     <description>Jotto game web application</description>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>1.7</java.version>
         <azure.version>2.1.2</azure.version>
     </properties>
 

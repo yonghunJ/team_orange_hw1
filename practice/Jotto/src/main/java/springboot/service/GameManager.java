@@ -17,6 +17,9 @@ public class GameManager {
     private ArrayList<GameRound> gameRoundList = new ArrayList<GameRound>();
     private JottoManager jottoManager = new JottoManager();
 
+    public void setUserWord(String userWord) {
+        this.userWord = userWord;
+    }
     public int getGuessCount(boolean flag) {
         int guessCount;
         this.userGuessCount = 0;

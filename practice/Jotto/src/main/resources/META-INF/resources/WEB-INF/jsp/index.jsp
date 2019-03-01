@@ -155,7 +155,7 @@
 <form action ="#" method="get" >
     <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog form-dark" role="document">
-            <div class="modal-content card card-image" style="background-image: url('/img/signUp.jpg');">
+            <div class="modal-content card card-image" style="background-image: url('/image/signUp.jpg');">
                 <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
                     <div class="modal-header text-center pb-4">
                         <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel">

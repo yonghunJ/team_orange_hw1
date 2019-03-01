@@ -9,6 +9,8 @@ import springboot.database.Passwords;
 import springboot.database.User;
 import springboot.database.UserRepository;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class LoginController {
     @Autowired
@@ -20,12 +22,13 @@ public class LoginController {
         return modelAndView;
     }
 
-    @RequestMapping(value = {"/"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"http://orangeJotto.com/login"}, method = RequestMethod.POST)
     @ResponseBody
-    public int loginRequest(@RequestParam("login_id") String uname, @RequestParam("login_pw") String psw) {
+    public int loginRequest(@RequestParam("login_id") String uname, @RequestParam("login_pw") String psw, HttpSession session) {
         User user = userRepository.findByName(uname);
         if (user != null) {
             if (Passwords.isExpectedPassword(psw.toCharArray(), user.password_salt, user.password_hash)) {
+                session.setAttribute("user", uname);
                 return 0;
             } else {
                 return 1;
