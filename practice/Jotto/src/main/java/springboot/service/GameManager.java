@@ -63,6 +63,10 @@ public class GameManager {
         this.userGuess = userGuess;
     }
 
+    public String getUserWord() {
+        return this.userWord;
+    }
+
     public void setUserWord(String userWord) {
         this.userWord = userWord;
     }
