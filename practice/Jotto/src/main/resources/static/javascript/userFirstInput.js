@@ -5,6 +5,9 @@ $(document).ready(function() {
         if(input.length != 5){
             console.log("fail");
         }else{
+            var pageNum = $("#flipbook").turn("page");
+            $("#flipbook").turn("page", pageNum+2);
+
 
             //input valid check //duplication //only char
 
@@ -16,6 +19,10 @@ $(document).ready(function() {
                 success: function(data) {
                     if(data==0){
                         console.log("It works");
+
+                        var pageNum = $("#flipbook").turn("page");
+                        $("#flipbook").turn("page", pageNum+1);
+
                     }else if(data==1){
                         console.log("Input word is not adequate");
                         $('#ai_answer').val("");
