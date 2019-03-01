@@ -13,15 +13,19 @@
     <script src="/javascript/signUp.js"></script>
     <script src="/javascript/index.js"></script>
     <script src="/javascript/mainMenu.js"></script>
+    <script src="/javascript/userFirstInput.js"></script>
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/signUp.css">
+    <link rel="stylesheet" href="/css/userFirstInput.css">
+
 
 </head>
 <body>
 <div id="canvas">
 
     <div id="flipbook" style="background-color:transparent">
+        <%--Book Cover--%>
         <div class="">
 
             <div id="login_form" stlye="position:absolute; top 100px;right:0px;">
@@ -33,6 +37,9 @@
                 <label id="login_warning" style="color:red;"></label>
             </div>
 
+            <div>
+
+            </div>
             <div id="main_menu">
                 <a id="game_play" class="intro-banner-vdo-play-btn pinkBg" target="_blank">
                     <span class="ripple pinkBg"></span>
@@ -48,6 +55,21 @@
             </div>
 
         </div>
+        <%-- User First Input--%>
+        <div style="background-color:green"> Page 2
+            <div id="user_first_input_box">
+                <div class="webflow-style-input">
+                    <input  id = "ai_answer"type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
+                </div>
+                <div id ="ai_answer_inadquate">
+                    <label></label>
+                </div>
+            </div>
+
+        </div>
+        <div style="background-color:purple"> Page 3wea</div>
+
+        <%-- Game Play --%>
         <div class="">
             <div>
                 <div class="demo" id="ai_plate">
@@ -151,7 +173,7 @@
     </div>
 </div>
 
-
+<%--signup form--%>
 <form action ="#" method="get" >
     <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog form-dark" role="document">
@@ -171,14 +193,6 @@
                             <label data-error="wrong" data-success="right" for="signup_id">ID</label>
                             <input type="text" id="signup_id" class="form-control validate white-text" required>
                         </div>
-                        <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="signup_name">NAME</label>
-                            <input type="text" id="signup_name" class="form-control validate white-text" required>
-                        </div>
-                        <div class="md-form mb-5">
-                            <label data-error="wrong" data-success="right" for="signup_mail">EMAIL</label>
-                            <input type="email" id="signup_mail" class="form-control validate white-text" required>
-                        </div>
                         <div class="md-form pb-3">
                             <label data-error="wrong" data-success="right" for="signup_pw">PASSWORD</label>
                             <input type="password" id="signup_pw" class="form-control validate white-text"
@@ -187,9 +201,6 @@
                             <input type="password" id="signup_pw2" class="form-control validate white-text" required>
                             <div class="form-group mt-4">
                                 <input class="form-check-input" type="checkbox" id="checkbox624">
-                                <label for="checkbox624" class="white-text form-check-label">
-                                    Accept the<a href="#" class="green-text font-weight-bold">Terms and Conditions</a>
-                                </label>
                             </div>
                         </div>
 

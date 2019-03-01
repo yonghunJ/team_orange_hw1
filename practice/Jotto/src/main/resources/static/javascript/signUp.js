@@ -1,4 +1,27 @@
 $(document).ready(function(){
+    $("#signup_id").focusout(function() {
+        console.log("signup id duplication ajax request");
+        var signup_id = $("#signup_id").val();
+        console.log(signup_id);
+        $.ajax({
+            type:"get",
+            dataType: "json",
+            url: "http://orangeJotto.com/signup_id?"+signup_id,
+            success: function(data) {
+                console.log('Success!');
+                console.log("User ID: " + this.login_id);
+                if(data==0){
+                    console.log("there is no id dupliacted");
+                }else if(data==1){
+                    console.log("ID is duplicated");
+                }
+            },
+            timeout: 2000
+        }).fail(function() {
+            console.log('Fail!');
+        });
+      });
+
 //Paswword double check
     var password = document.getElementById("signup_pw");
     var confirm_password = document.getElementById("signup_pw2");

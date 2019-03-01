@@ -3,10 +3,9 @@ $(document).ready(function(){
     $("#login_btn").click(function(){
         var id = $("#login_id").val();
         var pw = $("#login_pw").val();
-        $("#login_warning").text('Password is wrong');//1
-        $("#login_form").hide();//2
-        $("#main_menu").show();
 
+
+        $("#main_menu").show();//tempor
         var request = $.ajax({
             type:"post",
             dataType: "json",
@@ -18,8 +17,10 @@ $(document).ready(function(){
                 console.log("User ID: " + this.login_id);
                 if(data==0){
                     $("#login_form").hide();
+                    // $("#main_menu").show();
                 }else if(data==1){
                     $("#login_warning").text('Password is wrong');
+
                 }
             },
             timeout: 2000
