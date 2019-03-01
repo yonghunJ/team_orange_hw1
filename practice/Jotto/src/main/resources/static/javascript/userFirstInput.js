@@ -15,7 +15,7 @@ $(document).ready(function() {
             $.ajax({
                 type:"get",
                 dataType: "json",
-                url: "http://orangeJotto.com/user_first_input?"+user_first_input,
+                url: "/user_first_input?user_first_input="+user_first_input,
                 success: function(data) {
                     if(data==0){
                         console.log("It works");

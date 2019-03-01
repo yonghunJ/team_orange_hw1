@@ -29,7 +29,7 @@ public class GameController {
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping(value = "http://orangeJotto.com/user_first_input", method = RequestMethod.GET)
+    @RequestMapping(value = "/user_first_input", method = RequestMethod.GET)
     @ResponseBody
     public int getUserWordInput(@RequestParam(value = "user_first_input") String firstInput) {
         if (this.gameManager == null)
@@ -45,7 +45,7 @@ public class GameController {
         }
     }
 
-    @RequestMapping(value = "http://orangeJotto.com/user_guess", method = RequestMethod.GET)
+    @RequestMapping(value = "/user_guess", method = RequestMethod.GET)
     @ResponseBody
     public HashMap<String, Object> getGuessWordInput(@RequestParam(value="user_guess") String input, HttpSession session) {
         HashMap<String, Object> response = new HashMap<>();

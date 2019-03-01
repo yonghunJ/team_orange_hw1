@@ -174,7 +174,7 @@
 </div>
 
 <%--signup form--%>
-<form action ="#" method="get" >
+<form action ="/" method="post" >
     <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog form-dark" role="document">
             <div class="modal-content card card-image" style="background-image: url('/image/signUp.jpg');">
@@ -191,14 +191,14 @@
                     <div class="modal-body">
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="signup_id">ID</label>
-                            <input type="text" id="signup_id" class="form-control validate white-text" required>
+                            <input type="text" id="signup_id" name="signup_id" class="form-control validate white-text" required>
                         </div>
                         <div class="md-form pb-3">
                             <label data-error="wrong" data-success="right" for="signup_pw">PASSWORD</label>
-                            <input type="password" id="signup_pw" class="form-control validate white-text"
+                            <input type="password" id="signup_pw" name="signup_pw" class="form-control validate white-text"
                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                             <label data-error="wrong" data-success="right" for="signup_pw2">CHECK PASSWORD</label>
-                            <input type="password" id="signup_pw2" class="form-control validate white-text" required>
+                            <input type="password" id="signup_pw2" name="signup_pw2" class="form-control validate white-text" required>
                             <div class="form-group mt-4">
                                 <input class="form-check-input" type="checkbox" id="checkbox624">
                             </div>
@@ -206,7 +206,7 @@
 
                         <div class="row d-flex align-items-center mb-4">
                             <div class="text-center mb-3 col-md-12">
-                                <button type="submit" id="sigun_btn" class="btn btn-success btn-block btn-rounded z-depth-1">Sign up</button>
+                                <button type="submit" id="signup_btn" class="btn btn-success btn-block btn-rounded z-depth-1">Sign up</button>
                             </div>
                         </div>
                         <div class="row"></div>

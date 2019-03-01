@@ -9,9 +9,11 @@ $(document).ready(function(){
         var request = $.ajax({
             type:"post",
             dataType: "json",
-            url: "http://orangeJotto.com/" + id + "/tasks?callback=?",
-            login_id: id,
-            login_pw: pw,
+            url: "/login",
+            data: {
+                login_id: id,
+                login_pw: pw,
+            },
             success: function(data) {
                 console.log('Success!');
                 console.log("User ID: " + this.login_id);

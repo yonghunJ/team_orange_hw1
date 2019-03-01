@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import springboot.database.Passwords;
 import springboot.database.UserRepository;
 
@@ -16,12 +17,14 @@ public class SignUpController {
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping(value = "/sexonthebeach", method = RequestMethod.POST)
-    public void signUpRequset(@RequestParam("signup_id") String id, @RequestParam("signup_pw") String pwd) {
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public ModelAndView signUpRequset(@RequestParam("signup_id") String id, @RequestParam("signup_pw") String pwd) {
+        System.out.println("qweqwe");
         userRepository.save(Passwords.createUser(id,pwd));
+        return new ModelAndView("index");
     }
 
-    @RequestMapping(value = "http://orangeJotto.com/signup_id", method = RequestMethod.GET)
+    @RequestMapping(value = "/signup_id", method = RequestMethod.GET)
     @ResponseBody
     public int checkId(@RequestParam("signup_id") String id) {
         if (userRepository.findByName(id) != null) {
