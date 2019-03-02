@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "whatever it takes";
+    src: url("fonts/whatever it takes bold.ttf") format("truetype");
+}
+
 .test1{
     background-image:url(./gradient-page-left.jpg);
     background-position:right top;

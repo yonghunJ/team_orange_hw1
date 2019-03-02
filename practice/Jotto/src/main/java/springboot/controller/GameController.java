@@ -32,12 +32,13 @@ public class GameController {
     @RequestMapping(value = "/user_first_input", method = RequestMethod.GET)
     @ResponseBody
     public int getUserWordInput(@RequestParam(value = "user_first_input") String firstInput) {
+        String upperString = firstInput.toUpperCase();
         if (this.gameManager == null)
             this.gameManager = new GameManager();
 
         // check vaild word
-        if (this.gameManager.getJottoManager().getDict().isValidWord(firstInput)) {
-            this.gameManager.setUserWord(firstInput);
+        if (this.gameManager.getJottoManager().getDict().isValidWord(upperString)) {
+            this.gameManager.setUserWord(upperString);
             this.gameManager.setAiWord();
             return 0;
         } else{
@@ -49,8 +50,10 @@ public class GameController {
     @ResponseBody
     public HashMap<String, Object> getGuessWordInput(@RequestParam(value="user_guess") String input, HttpSession session) {
         HashMap<String, Object> response = new HashMap<>();
+        String upperInput = input.toUpperCase();
 
-        if (this.gameManager.getJottoManager().getDict().isValidWord(input)) {
+        if (this.gameManager.getJottoManager().getDict().isValidWord(upperInput)) {
+            this.gameManager.setUserGuess(upperInput);
             int userGuessCount = this.gameManager.getGuessCount(false);
             int aiGuessCount = this.gameManager.getGuessCount(true);
             String aiGuess = this.gameManager.getAiGuess();
@@ -67,10 +70,12 @@ public class GameController {
                 response.put("user_game_ended",true);
                 response.put("ai_game_ended",false);
                 sendData(session);
+                this.gameManager = null;
             } else {
                 response.put("user_game_ended",false);
                 response.put("ai_game_ended",true);
                 sendData(session);
+                this.gameManager = null;
             }
         } else {
             response.put("is_valid_word",false);

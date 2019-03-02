@@ -18,7 +18,11 @@
     <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/signUp.css">
     <link rel="stylesheet" href="/css/userFirstInput.css">
-
+    <style>
+        * {
+            font-family: "whatever it takes";
+        }
+    </style>
 
 </head>
 <body>
