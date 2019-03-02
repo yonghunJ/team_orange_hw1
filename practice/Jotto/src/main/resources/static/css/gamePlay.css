@@ -1,0 +1,5 @@
+#ai_table, #player_table{
+    overflow-y:scroll;
+    height:400px;
+    display:block;
+}

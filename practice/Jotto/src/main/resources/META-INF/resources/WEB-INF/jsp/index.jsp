@@ -17,6 +17,7 @@
     <script src="/javascript/pastGameResult.js"></script>
 
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/gamePlay.css">
     <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/signUp.css">
     <link rel="stylesheet" href="/css/userFirstInput.css">
@@ -77,7 +78,6 @@
         <div class="">
             <div>
                 <div class="demo" id="ai_plate">
-                    <button class="prev">prev</button>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-3 col-sm-6" id="ai_screen">
@@ -102,21 +102,20 @@
                                             </tbody>
                                         </table>
                                     </div><!-- /  CONTENT BOX-->
-                                    <div class="pricingTable-signup">
-                                        <a href="#"><i class="fa fa-shopping-cart"></i> order now</a>
-                                    </div>
                                 </div><!-- BUTTON BOX-->
                             </div>
+
                         </div>
                     </div>
                 </div>
+                <button class="prev">prev</button>
             </div>
         </div>
         <div style="background-color:yellow">
             <div class="demo" id="player_plate">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3 col-sm-6" id="player_screen">
+                        <div class="col-md-3 col-sm-6 player_screen" id="">
                             <div class="pricingTable">
                                 <div class="pricingTable-header">
                                     <span class="price-icon"></span>
@@ -138,19 +137,19 @@
                                         </tbody>
                                     </table>
                                 </div><!-- /  CONTENT BOX-->
-                                <!-- <div class="pricingTable-signup"> -->
-                                <div class="webflow-style-input">
-                                    <input id="userGuess" type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
-                                </div>
-                                <!-- </div> -->
                             </div><!-- BUTTON BOX-->
+                            <div class="webflow-style-input">
+                                <input id="userGuess" type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
         <div style="background-color:green"> Page 4
             <div id="pastGameResult1" class="pastGameResult">
+                <button type="button" id="aaaaa">next page</button>
                 <ul>
                     <li>ha</li>
                     <li>ha</li>
@@ -186,7 +185,7 @@
             </div>
         </div>
 
-        <div style="background-color:purple">
+        <div style="background-color:purple">page5
             <div id="pastGameResult2" class="pastGameResult">
                 <ul>
                     <li>ha</li>
@@ -198,6 +197,7 @@
                     <li>ha</li>
                     <li>ha</li>
                     <li>ha</li>
+
                     <li>ha</li>
                     <li>ha</li>
                     <li>ha</li>
@@ -208,6 +208,7 @@
                     <li>ha</li>
                     <li>ha</li>
                     <li>ha</li>
+
                     <li>ha</li>
                     <li>ha</li>
                     <li>ha</li>
@@ -222,7 +223,55 @@
 
             </div>
         </div>
-        <div style="background-color:gray"> Page 6 </div>
+        <div style="background-color:gray"> Page 6
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 player_screen"  >
+                        <div class="pricingTable">
+                            <div class="pricingTable-header">
+                                <span class="price-icon"></span>
+                                <span class="price-value">YY<span class="month">Player</span></span>
+                                <h3 class="heading">Standard</h3>
+                            </div>
+                            <div class="pricingContent">
+                                <table id ="player_table333" class="game_table">
+                                    <tbody>
+                                    <tr ><td>ssd</td><td>ssd</td></tr>
+                                    <tr><td>ssd</td><td>ssd</td></tr>
+                                    </tbody>
+                                </table>
+                            </div><!-- /  CONTENT BOX-->
+                        </div><!-- BUTTON BOX-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>page7
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 player_screen"  >
+                        <div class="pricingTable">
+                            <div class="pricingTable-header">
+                                <span class="price-icon"></span>
+                                <span class="price-value">YY<span class="month">Player</span></span>
+                                <h3 class="heading">Standard</h3>
+                            </div>
+                            <div class="pricingContent">
+                                <table id ="player_table444" class="game_table">
+                                    <tbody>
+                                    <tr ><td>ssd</td><td>ssd</td></tr>
+                                    <tr><td>ssd</td><td>ssd</td></tr>
+                                    </tbody>
+                                </table>
+                            </div><!-- /  CONTENT BOX-->
+                        </div><!-- BUTTON BOX-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>page8</div>
+        <div>page9</div>
+
         <div class="hard"></div>
         <div class="hard"></div>
     </div>
@@ -232,7 +281,7 @@
 <form action ="/" method="POST" >
     <div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog form-dark" role="document">
-            <div class="modal-content card card-image" style="background-image: url('/image/signUp.jpg');">
+            <div class="modal-content card card-image" >
                 <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
                     <div class="modal-header text-center pb-4">
                         <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel">
