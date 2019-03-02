@@ -7,14 +7,27 @@ $(document).ready(function(){
                 al_button[i].style.backgroundColor ="green";
                 let spans = $("table > tbody > tr td span");
                 for(let j=0;j<spans.length;j++){
-                    if(al_button[i].innerHTML== spans[i].innerText){
-                        console.log(spans[i])
+                    if(al_button[i].innerHTML.toLowerCase()== spans[j].innerText.toLowerCase()){
+                        console.log(spans[j].innerText)
+                        spans[j].style.color="green"
                     }
                 }
             }else if(al_button[i].style.backgroundColor =="green"){
                 al_button[i].style.backgroundColor ="red";
+                let spans = $("table > tbody > tr td span");
+                for(let j=0;j<spans.length;j++){
+                    if(al_button[i].innerHTML.toLowerCase()== spans[j].innerText.toLowerCase()){
+                        spans[j].style.color="red"
+                    }
+                }
             }else if(al_button[i].style.backgroundColor =="red"){
                 al_button[i].style.backgroundColor ="black";
+                let spans = $("table > tbody > tr td span");
+                for(let j=0;j<spans.length;j++){
+                    if(al_button[i].innerHTML.toLowerCase()== spans[j].innerText.toLowerCase()){
+                        spans[j].style.color="black"
+                    }
+                }
             }
         });
     }
