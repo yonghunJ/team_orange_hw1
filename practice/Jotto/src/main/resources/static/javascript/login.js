@@ -5,18 +5,17 @@ $(document).ready(function(){
         var pw = $("#login_pw").val();
 
 
+
         $("#main_menu").show();//tempor
-        var request = $.ajax({
+        $.ajax({
             type:"post",
-            dataType: "json",
             url: "/login",
             data: {
                 login_id: id,
-                login_pw: pw,
+                login_pw: pw
             },
-            success: function(data) {
-                console.log('Success!');
-                console.log("User ID: " + this.login_id);
+            dataType:'json',
+            success : function(data) {
                 if(data==0){
                     $("#login_form").hide();
                     // $("#main_menu").show();
@@ -24,11 +23,10 @@ $(document).ready(function(){
                     $("#login_warning").text('Password is wrong');
 
                 }
-            },
-            timeout: 2000
-        }).fail(function() {
-            console.log('Fail!');
-            console.log("User ID: " + this.login_pw);
+            },error : function(request,err){
+                console.log('Fail!');
+                console.log("User ID: " + this.login_pw);
+            }
         });
     });
 });

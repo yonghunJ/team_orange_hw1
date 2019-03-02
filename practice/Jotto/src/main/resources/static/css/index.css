@@ -3,6 +3,22 @@
     src: url("fonts/whatever it takes bold.ttf") format("truetype");
 }
 
+.raise:hover, .raise:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    transform: translateY(-0.25em);
+
+}
+.raise{
+    background-color: black;
+    border: 2px solid;
+    margin: 0.5em;
+    margin: 1px 1px;
+    color: white;
+    text-align: center
+}
+
+
+
 .test1{
     background-image:url(./gradient-page-left.jpg);
     background-position:right top;
@@ -78,9 +94,15 @@
 body{
     font-family: 'Lato', sans-serif;;
     /* overflow:hidden; */
-    background-color:#000;
+    /*background-color:#000;*/
     margin:0 auto;
-    background:  linear-gradient(to left, #eecda3, #e49ff1);
+    /*background:  linear-gradient(to left, #ccff33, #ffff66);*/
+    /*background-color: #f5d020;*/
+    /*background-image: linear-gradient(to left, #f5d020 0%, #f53803 74%);*/
+    /*background-color: #f5df2e;*/
+    /*!*background-image: linear-gradient(to left, #f5df2e 0%, #f07654 74%);*!222222*/
+    background-color: #fffcf9;
+    background-image: linear-gradient(to left, #fffcf9 0%, #ffd166 74%);
     /* color: wheat; */
     /* text-align: center; */
     /* height: 100%; */
@@ -323,16 +345,13 @@ body{
 #ai_plate{
     height:100%;
 }
-#player_screen{
+.player_screen{
     margin-left:100px;
 }
 #ai_screen{
     margin-left:100px;
 }
-#player_table,#ai_table{
-    width:100%
 
-}
 #player_table tbody tr td{
     text-align:center;
 }
