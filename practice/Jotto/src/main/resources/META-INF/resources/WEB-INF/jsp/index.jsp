@@ -89,7 +89,7 @@
                                         <h3 class="heading">Standard</h3>
                                     </div>
                                     <div class="pricingContent">
-                                        <table id ="ai_table" class="game_table">
+                                        <table id ="ai_table">
                                             <tbody>
                                             </tbody>
                                         </table>
@@ -115,14 +115,7 @@
                                     <h3 class="heading">Standard</h3>
                                 </div>
                                 <div class="pricingContent">
-                                    <!-- <ul>
-                                      <li><i class="fa fa-check"></i>50GB Disk Space</li>
-                                      <li><i class="fa fa-check"></i>50 Email Accounts</li>
-                                      <li><i class="fa fa-check"></i>10 subdomains</li>
-                                      <li><i class="fa fa-check"></i>15 Domains</li>
-                                      <li><i class="fa fa-check"></i>50GB Monthly Bandwidth</li>
-                                    </ul> -->
-                                    <table id ="player_table" class="game_table">
+                                    <table id="player_table">
                                         <tbody>
                                         </tbody>
                                     </table>
@@ -169,35 +162,6 @@
             <div id="pastGameResult1" class="pastGameResult">
                 <button type="button" id="aaaaa">next page</button>
                 <ul>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-
                 </ul>
 
             </div>
@@ -206,37 +170,6 @@
         <div style="background-color:purple">page5
             <div id="pastGameResult2" class="pastGameResult">
                 <ul>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-                    <li>ha</li>
-
                 </ul>
 
             </div>
@@ -252,10 +185,8 @@
                                 <h3 class="heading">Standard</h3>
                             </div>
                             <div class="pricingContent">
-                                <table id ="player_table333" class="game_table">
+                                <table id ="ai_result_table">
                                     <tbody>
-                                    <tr ><td>ssd</td><td>ssd</td></tr>
-                                    <tr><td>ssd</td><td>ssd</td></tr>
                                     </tbody>
                                 </table>
                             </div><!-- /  CONTENT BOX-->
@@ -275,10 +206,9 @@
                                 <h3 class="heading">Standard</h3>
                             </div>
                             <div class="pricingContent">
-                                <table id ="player_table444" class="game_table">
+                                <table id ="player_result_table">
                                     <tbody>
-                                    <tr ><td>ssd</td><td>ssd</td></tr>
-                                    <tr><td>ssd</td><td>ssd</td></tr>
+
                                     </tbody>
                                 </table>
                             </div><!-- /  CONTENT BOX-->
@@ -287,8 +217,6 @@
                 </div>
             </div>
         </div>
-        <div>page8</div>
-        <div>page9</div>
 
         <div class="hard"></div>
         <div class="hard"></div>

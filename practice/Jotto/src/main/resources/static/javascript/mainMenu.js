@@ -31,15 +31,19 @@ $(document).ready(function() {
             success : function(data) {
                 console.log('Success!');
 
-                var pastGameLi= $("#pastGameResult1 > ul> li");
-                for(let i=0;i<data.length;i++){
-                    pastGameLi[i].click(function(){
-
-                        var pageNum = $("#flipbook").turn("page");
-                        console.log(pageNum);
-                        $("#flipbook").turn("page", pageNum+2);
-                    });
+                if(data.length<20){
+                    for(let i=0;i<data.length;i++){
+                        $("#pastGameResult1 > ul").append("list");
+                    }
+                }else{
+                    for(let i=0;i<20;i++){
+                        $("#pastGameResult1 > ul").append("list");
+                    }
+                    for(let j=0;j<data.length-20;j++){
+                        $("#pastGameResult2 > ul").append("list");
+                    }
                 }
+
 
             },error : function(request,err){
                 console.log('Fail!');
