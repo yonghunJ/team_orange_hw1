@@ -38,11 +38,8 @@ $(document).ready(function() {
                         var pageNum = $("#flipbook").turn("page");
                         console.log(pageNum);
                         $("#flipbook").turn("page", pageNum+2);
-
-
                     });
                 }
-
 
             },error : function(request,err){
                 console.log('Fail!');

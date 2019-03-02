@@ -346,10 +346,7 @@ body{
 #ai_screen{
     margin-left:100px;
 }
-#player_table,#ai_table{
-    width:100%
 
-}
 #player_table tbody tr td{
     text-align:center;
 }

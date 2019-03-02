@@ -89,17 +89,8 @@
                                         <h3 class="heading">Standard</h3>
                                     </div>
                                     <div class="pricingContent">
-                                        <!-- <ul>
-                                          <li><i class="fa fa-check"></i>50GB Disk Space</li>
-                                          <li><i class="fa fa-check"></i>50 Email Accounts</li>
-                                          <li><i class="fa fa-check"></i>10 subdomains</li>
-                                          <li><i class="fa fa-check"></i>15 Domains</li>
-                                          <li><i class="fa fa-check"></i>50GB Monthly Bandwidth</li>
-                                        </ul> -->
                                         <table id ="ai_table" class="game_table">
                                             <tbody>
-                                            <tr ><td><span>s</span><span>s</span><span>d</span></td><td>ssd</td></tr>
-                                            <tr><td>ssd</td><td>ssd</td></tr>
                                             </tbody>
                                         </table>
                                     </div><!-- /  CONTENT BOX-->
@@ -133,14 +124,12 @@
                                     </ul> -->
                                     <table id ="player_table" class="game_table">
                                         <tbody>
-                                        <tr ><td>ssd</td><td>ssd</td></tr>
-                                        <tr><td>ssd</td><td>ssd</td></tr>
                                         </tbody>
                                     </table>
                                 </div><!-- /  CONTENT BOX-->
                             </div><!-- BUTTON BOX-->
                             <div class="webflow-style-input">
-                                <input id="userGuess" type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
+                                <input id="userGuess" type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";><label id="invalid_word_check"></label>
                             </div>
                         </div>
 

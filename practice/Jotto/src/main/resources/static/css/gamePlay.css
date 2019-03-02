@@ -1,9 +1,23 @@
 /*make scroll to the table*/
-#ai_table, #player_table{
+#ai_table{
+     overflow-y:scroll;
+     height:400px;
+     display:block;
+ }
+#player_table{
     overflow-y:scroll;
     height:400px;
     display:block;
 }
+#player_table tbody{
+    width: 100%;
+    display: table;
+}
+#ai_table tbody{
+    width: 100%;
+    display: table;
+}
+
 /*table scroll design*/
 ::-webkit-scrollbar {
     width: 20px;
