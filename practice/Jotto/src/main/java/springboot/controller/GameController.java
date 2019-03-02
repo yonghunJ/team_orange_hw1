@@ -19,6 +19,7 @@ import springboot.model.GameRound;
 import springboot.service.GameManager;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,8 +37,9 @@ public class GameController {
         if (this.gameManager == null)
             this.gameManager = new GameManager();
 
-        // check vaild word
-        if (this.gameManager.getJottoManager().getDict().isValidWord(upperString)) {
+        // check valid word
+        // Does it have 5 unique letters?
+        if (this.gameManager.getJottoManager().getDict().isValidWord(upperString) && checkLetters(upperString)) {
             this.gameManager.setUserWord(upperString);
             this.gameManager.setAiWord();
             return 0;
@@ -89,5 +91,22 @@ public class GameController {
         GameRecord gameRecord = new GameRecord(new Date(), this.gameManager.getUserWord(), this.gameManager.getAiWord(), this.gameManager.getGameRoundList());
         user.addGame(gameRecord);
         userRepository.save(user);
+    }
+
+    public boolean checkLetters(String userWord) {
+        ArrayList<Character> list = new ArrayList<Character>(5);
+
+        for (int i = 0; i < 5; i++) {
+            if (i == 0) {
+                list.add(userWord.charAt(i));
+            }
+            else {
+                if (list.contains(userWord.charAt(i))) {
+                    return false;
+                }
+                list.add(userWord.charAt(i));
+            }
+        }
+        return true;
     }
 }

@@ -34,6 +34,7 @@ public class JottoManager {
         String aiGuess = "";
         int guessCount = 0;
         Map<Character,Integer> charCount;
+        char[] empty = new char[0];
 
         // Typecasting
         char[] includeTemp = toArray(include);
@@ -42,12 +43,12 @@ public class JottoManager {
 
         // All jots have been found. Try anagrams
         if (include.size() >= 5) {
-            aiGuess = dict.getWord(includeTemp, null, 5, ignoredWordsTemp);
+            aiGuess = dict.getWord(includeTemp, empty, 5, ignoredWordsTemp);
         }
         // 2+3 word while exist
-        else if (dict.getWord(null, excludeTemp, 2, ignoredWordsTemp) != null) {
+        else if (dict.getWord(empty, excludeTemp, 2, ignoredWordsTemp) != null) {
             // Get aiGuess from DB
-            aiGuess = dict.getWord(null, excludeTemp, 2, ignoredWordsTemp);
+            aiGuess = dict.getWord(empty, excludeTemp, 2, ignoredWordsTemp);
             charCount = countChars(aiGuess); // Get HashMap with Character,Integer pair
 
             // Get guessCount
@@ -89,7 +90,7 @@ public class JottoManager {
         // Keep doing again while include.size <= 3
         else if (include.size() <= 3) {
             // Get aiGuess from DB
-            aiGuess = dict.getWord(null, excludeTemp, 3, ignoredWordsTemp);
+            aiGuess = dict.getWord(empty, excludeTemp, 3, ignoredWordsTemp);
             charCount = countChars(aiGuess); // Get HashMap with Character,Integer pair
 
             // Check whether aiGuess is 2+2+1 or 3+1+1
