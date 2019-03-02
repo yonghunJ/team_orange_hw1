@@ -15,6 +15,7 @@
     <script src="/javascript/mainMenu.js"></script>
     <script src="/javascript/userFirstInput.js"></script>
     <script src="/javascript/pastGameResult.js"></script>
+    <script src="/javascript/gamePlay.js"></script>
 
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/gamePlay.css">
@@ -144,6 +145,34 @@
                         </div>
 
                     </div>
+                </div>
+                <div>
+                    <button type="button" class=" raise ">A</button>
+                    <button type="button" class="raise  ">B</button>
+                    <button type="button" class="raise  ">C</button>
+                    <button type="button" class="raise  ">D</button>
+                    <button type="button" class="raise  ">E</button>
+                    <button type="button" class="raise  ">F</button>
+                    <button type="button" class="raise  ">G</button>
+                    <button type="button" class="raise  ">H</button>
+                    <button type="button" class="raise  ">I</button>
+                    <button type="button" class="raise  ">J</button>
+                    <button type="button" class="raise  ">K</button>
+                    <button type="button" class="raise  ">L</button>
+                    <button type="button" class="raise  ">M</button>
+                    <button type="button" class="raise  ">N</button>
+                    <button type="button" class="raise  ">O</button>
+                    <button type="button" class="raise  ">P</button>
+                    <button type="button" class="raise  ">Q</button>
+                    <button type="button" class="raise  ">R</button>
+                    <button type="button" class="raise  ">S</button>
+                    <button type="button" class="raise  ">T</button>
+                    <button type="button" class="raise  ">U</button>
+                    <button type="button" class="raise  ">V</button>
+                    <button type="button" class="raise  ">W</button>
+                    <button type="button" class="raise  ">X</button>
+                    <button type="button" class="raise  ">Y</button>
+                    <button type="button" class="raise  ">Z</button>
                 </div>
             </div>
         </div>
