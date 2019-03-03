@@ -5,7 +5,7 @@ $(document).ready(function(){
         var pw = $("#login_pw").val();
 
 
-
+        // $("#login_warning").text('ID or Password is wrong');
         // $("#main_menu").show();//tempor
         $.ajax({
             type:"post",
@@ -19,9 +19,8 @@ $(document).ready(function(){
                 if(data==0){
                     $("#login_form").hide();
                     $("#main_menu").show();
-                }else if(data==1){
+                }else {
                     $("#login_warning").text('ID or Password is wrong');
-
                 }
             },error : function(request,err){
                 console.log('login Fail!');

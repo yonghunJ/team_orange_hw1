@@ -26,9 +26,10 @@
         * {
             font-family: "whatever it takes";
         }
+
     </style>
     <link rel="stylesheet" href="/css/pastGameResult.css">
-
+    <link rel="icon" href="/image/logo.png">
 
 </head>
 <body>
@@ -267,7 +268,7 @@
 
                         <div class="row d-flex align-items-center mb-4">
                             <div class="text-center mb-3 col-md-12">
-                                <button type="submit" id="signup_btn" class="btn btn-success btn-block btn-rounded z-depth-1">Sign up</button>
+                                <button type="submit" id="signup_btn"   class="btn btn-success btn-block btn-rounded z-depth-1">Sign up</button>
                             </div>
                         </div>
                         <div class="row"></div>

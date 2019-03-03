@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $("#signup_id").focusout(function() {
 
+
         var signup_id = $("#signup_id").val();
 
         $.ajax({
@@ -24,6 +25,9 @@ $(document).ready(function(){
 
 
       });
+    $("#signup_btn").click(function(){
+        $("#signup_btn").attr("disabled:disabled");
+    })
 
 //Paswword double check
     var password = document.getElementById("signup_pw");
