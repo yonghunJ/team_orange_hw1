@@ -105,11 +105,9 @@ $(document).ready(function(){
                         }
                         ai_submit.fadeIn("slow");
 
-                        if (ai_game_ended=="True" && user_game_ended=="True"){
-                            alert("user and ai win");
-                        }else if(user_game_ended=="True"){
+                        if(user_game_ended==true){
                             alert("user win")
-                        }else if(ai_game_ended =="True"){
+                        }else if(ai_game_ended ==true){
                             alert("Ai win")
                         }
                     }else{
