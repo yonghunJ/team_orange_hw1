@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 
 
-        $("#main_menu").show();//tempor
+        // $("#main_menu").show();//tempor
         $.ajax({
             type:"post",
             url: "/login",
@@ -18,7 +18,7 @@ $(document).ready(function(){
             success : function(data) {
                 if(data==0){
                     $("#login_form").hide();
-                    // $("#main_menu").show();
+                    $("#main_menu").show();
                 }else if(data==1){
                     $("#login_warning").text('Password is wrong');
 
