@@ -49,6 +49,8 @@ $(document).ready(function() {
                 if(list1.length <20){
                     for(let i=0; i<list1.length ; i++) {
                         list1[i].addEventListener("click",function(){
+                            $("#ai_result_table > tbody").empty();
+                            $("#player_result_table > tbody").empty();
                             $.ajax({
                                 type:"get",
                                 dataType: "json",
@@ -112,6 +114,8 @@ $(document).ready(function() {
                 }else{ //The number of list >20
                     for(let i=0; i<list1.length ; i++) {
                         list1[i].addEventListener("click",function(){
+                            $("#ai_result_table > tbody").empty();
+                            $("#player_result_table > tbody").empty();
                             $.ajax({
                                 type:"get",
                                 dataType: "json",
@@ -174,6 +178,8 @@ $(document).ready(function() {
                     }
                     for(let i=0; i<list2.length ; i++) {
                         list2[i].addEventListener("click",function(){
+                            $("#ai_result_table > tbody").empty();
+                            $("#player_result_table > tbody").empty();
                             $.ajax({
                                 type:"get",
                                 dataType: "json",
