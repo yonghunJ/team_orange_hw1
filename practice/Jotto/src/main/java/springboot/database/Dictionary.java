@@ -1,6 +1,7 @@
 package springboot.database;
 
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
@@ -16,7 +17,7 @@ public class Dictionary {
     private MongoTemplate mongoTemplate;
 
     public Dictionary(){
-        mongoTemplate = new MongoTemplate(new MongoClient(), "database");
+        mongoTemplate = new MongoTemplate(new MongoClient(new MongoClientURI("mongodb://YunSeob:qazwsxedC1@ds125255.mlab.com:25255/heroku_vplcmjgw")), "heroku_vplcmjgw");
     }
 
     public String getWord(char[] include, char[] exclude, Integer uniqueLetters, String[] ignoredWords){
@@ -72,5 +73,4 @@ public class Dictionary {
         Query query = new Query(Criteria.where("word").is(word));
         return mongoTemplate.exists(query, WORDS_DATABASE);
     }
-
 }

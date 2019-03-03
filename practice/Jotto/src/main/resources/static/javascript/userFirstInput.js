@@ -8,18 +8,15 @@ $(document).ready(function() {
             let user_first_input = $("#ai_answer").val();
             $('#ai_answer').val("");
 
-
-
-
             //input valid check //duplication //only char
 
 
 
             $.ajax({
                 type:"get",
-                url: "/user_first_input?"+user_first_input,
-                dataType:'json',
-                success : function(data) {
+                dataType: "json",
+                url: "/user_first_input?user_first_input="+user_first_input,
+                success: function(data) {
                     if(data==0){
                         console.log("It works");
 

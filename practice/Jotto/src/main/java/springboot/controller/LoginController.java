@@ -22,7 +22,7 @@ public class LoginController {
         return modelAndView;
     }
 
-    @RequestMapping(value = {"http://orangeJotto.com/login"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/login"}, method = RequestMethod.POST)
     @ResponseBody
     public int loginRequest(@RequestParam("login_id") String uname, @RequestParam("login_pw") String psw, HttpSession session) {
         User user = userRepository.findByName(uname);

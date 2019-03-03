@@ -19,6 +19,7 @@ import springboot.model.GameRound;
 import springboot.service.GameManager;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,40 +27,49 @@ import java.util.Map;
 @Controller
 public class GameController {
     private GameManager gameManager;
+    int gameRoundCount;
+
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping(value = "http://orangeJotto.com/user_first_input", method = RequestMethod.GET)
+    @RequestMapping(value = "/user_first_input", method = RequestMethod.GET)
     @ResponseBody
     public int getUserWordInput(@RequestParam(value = "user_first_input") String firstInput) {
+        String upperString = firstInput.toUpperCase();
         if (this.gameManager == null)
             this.gameManager = new GameManager();
 
-        // check vaild word
-        if (this.gameManager.getJottoManager().getDict().isValidWord(firstInput)) {
-            this.gameManager.setUserWord(firstInput);
+        // check valid word
+        // Does it have 5 unique letters?
+        if (this.gameManager.getJottoManager().getDict().isValidWord(upperString) && checkLetters(upperString)) {
+            this.gameManager.setUserWord(upperString);
             this.gameManager.setAiWord();
+            gameRoundCount = 0;
             return 0;
         } else{
             return 1;
         }
     }
 
-    @RequestMapping(value = "http://orangeJotto.com/user_guess", method = RequestMethod.GET)
+    @RequestMapping(value = "/user_guess", method = RequestMethod.GET)
     @ResponseBody
     public HashMap<String, Object> getGuessWordInput(@RequestParam(value="user_guess") String input, HttpSession session) {
         HashMap<String, Object> response = new HashMap<>();
+        String upperInput = input.toUpperCase();
 
-        if (this.gameManager.getJottoManager().getDict().isValidWord(input)) {
+        if (this.gameManager.getJottoManager().getDict().isValidWord(upperInput)) {
+            gameRoundCount++;
+            this.gameManager.setUserGuess(upperInput);
             int userGuessCount = this.gameManager.getGuessCount(false);
             int aiGuessCount = this.gameManager.getGuessCount(true);
             String aiGuess = this.gameManager.getAiGuess();
             int roundResult = this.gameManager.setGameRound();
             response.put("is_valid_word",true);
             response.put("user_guess_count",userGuessCount);
-            response.put("user_guess_word",this.gameManager.getUserWord());
+            response.put("user_guess_word",upperInput);
             response.put("ai_guess_count",aiGuessCount);
             response.put("ai_guess",aiGuess);
+            response.put("game_round_number", gameRoundCount);
             if (roundResult == 0) {
                 response.put("user_game_ended",false);
                 response.put("ai_game_ended",false);
@@ -67,14 +77,12 @@ public class GameController {
                 response.put("user_game_ended",true);
                 response.put("ai_game_ended",false);
                 sendData(session);
-            } else if (roundResult == 2) {
+                this.gameManager = null;
+            } else {
                 response.put("user_game_ended",false);
                 response.put("ai_game_ended",true);
                 sendData(session);
-            } else {
-                response.put("user_game_ended",true);
-                response.put("ai_game_ended",true);
-                sendData(session);
+                this.gameManager = null;
             }
         } else {
             response.put("is_valid_word",false);
@@ -88,5 +96,22 @@ public class GameController {
         GameRecord gameRecord = new GameRecord(new Date(), this.gameManager.getUserWord(), this.gameManager.getAiWord(), this.gameManager.getGameRoundList());
         user.addGame(gameRecord);
         userRepository.save(user);
+    }
+
+    public boolean checkLetters(String userWord) {
+        ArrayList<Character> list = new ArrayList<Character>(5);
+
+        for (int i = 0; i < 5; i++) {
+            if (i == 0) {
+                list.add(userWord.charAt(i));
+            }
+            else {
+                if (list.contains(userWord.charAt(i))) {
+                    return false;
+                }
+                list.add(userWord.charAt(i));
+            }
+        }
+        return true;
     }
 }
