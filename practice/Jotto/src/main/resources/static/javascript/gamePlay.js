@@ -110,6 +110,7 @@ $(document).ready(function(){
                         }else if(ai_game_ended ==true){
                             alert("Ai win")
                         }
+                        $("#invalid_word_check").text("");
                     }else{
                         $("#invalid_word_check").text("This is not a word");
                     }

@@ -131,10 +131,15 @@
                                 <button type="button" id = "user_input" class="yh_btn">Input</button>
                                 <div id="invalid_word_check" style="color:red"></div>
                             </div>
+
+
+
                         </div>
 
                     </div>
                 </div>
+
+                <hr>
                 <div>
                     <button type="button" class=" raise ">A</button>
                     <button type="button" class="raise  ">B</button>
@@ -289,6 +294,7 @@
     // })
     $("#flipbook").turn("size", 1200, 700);
     // $("#flipbook").turn("center");
+
 </script>
 
 </html>
