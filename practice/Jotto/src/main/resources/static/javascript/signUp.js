@@ -12,7 +12,7 @@ $(document).ready(function(){
                 if(data==0){
                     $("#signup_btn").removeAttr("disabled");
                 }else if(data==1){
-                    $("#singup_id_warning").text("ID is dupliacted");
+                    $("#signup_id_warning").text("ID is dupliacted");
                     $("#signup_btn").attr("disabled","disabled")
                 }
             },error : function(request,err){

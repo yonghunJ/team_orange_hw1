@@ -1,16 +1,14 @@
 $(document).ready(function() {
 
-    $('#ai_answer').keyup(function(){
+    $("#first_input_btn").click(function(){
         var input = $('#ai_answer').val();
+
         if(input.length != 5){
-            console.log("fail");
+            $('#ai_answer_inadquate').val("Input 5 characters");
         }else{
             let user_first_input = $("#ai_answer").val();
-            $('#ai_answer').val("");
 
             //input valid check //duplication //only char
-
-
 
             $.ajax({
                 type:"get",
@@ -25,7 +23,6 @@ $(document).ready(function() {
 
                     }else if(data==1){
                         console.log("Input word is not adequate");
-                        $('#ai_answer').val("");
                         $("#ai_answer_inadquate").text("wrong input");
                     }
                 },error : function(request,err){
@@ -33,7 +30,8 @@ $(document).ready(function() {
                 }
             });
         }
-    });
+
+    })
 
 
 

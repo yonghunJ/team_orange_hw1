@@ -71,6 +71,7 @@
             <div id="user_first_input_box">
                 <div class="webflow-style-input">
                     <input  id = "ai_answer"type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
+                    <button type="submit" id = "first_input_btn" class="yh_btn">Log In</button>
                 </div>
                 <div id ="ai_answer_inadquate">
                     <label></label>
@@ -248,7 +249,7 @@
                     <div class="modal-body">
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="signup_id">ID</label>
-                            <input type="text" id="signup_id" name="signup_id" class="form-control validate white-text" required><label id="singup_id_warning" style="color:red"></label>
+                            <input type="text" id="signup_id" name="signup_id" class="form-control validate white-text" required><label id="signup_id_warning" style="color:red"></label>
                         </div>
                         <div class="md-form pb-3">
                             <label data-error="wrong" data-success="right" for="signup_pw">PASSWORD</label>
