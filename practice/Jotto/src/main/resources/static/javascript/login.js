@@ -20,12 +20,11 @@ $(document).ready(function(){
                     $("#login_form").hide();
                     $("#main_menu").show();
                 }else if(data==1){
-                    $("#login_warning").text('Password is wrong');
+                    $("#login_warning").text('ID or Password is wrong');
 
                 }
             },error : function(request,err){
-                console.log('Fail!');
-                console.log("User ID: " + this.login_pw);
+                console.log('login Fail!');
             }
         });
     });
