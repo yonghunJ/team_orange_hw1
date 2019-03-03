@@ -94,7 +94,7 @@
                                         <h3 class="heading">Standard</h3>
                                     </div>
                                     <div class="pricingContent">
-                                        <table id ="ai_table">
+                                        <table id="player_table">
                                             <tbody>
                                             </tbody>
                                         </table>
@@ -120,7 +120,7 @@
                                     <h3 class="heading">Standard</h3>
                                 </div>
                                 <div class="pricingContent">
-                                    <table id="player_table">
+                                    <table id ="ai_table">
                                         <tbody>
                                         </tbody>
                                     </table>
@@ -189,11 +189,14 @@
                                 <span class="price-value">YY<span class="month">Player</span></span>
                                 <h3 class="heading">Standard</h3>
                             </div>
+
                             <div class="pricingContent">
-                                <table id ="ai_result_table">
+                                <table id ="player_result_table">
                                     <tbody>
+
                                     </tbody>
                                 </table>
+
                             </div><!-- /  CONTENT BOX-->
                         </div><!-- BUTTON BOX-->
                     </div>
@@ -211,9 +214,8 @@
                                 <h3 class="heading">Standard</h3>
                             </div>
                             <div class="pricingContent">
-                                <table id ="player_result_table">
+                                <table id ="ai_result_table">
                                     <tbody>
-
                                     </tbody>
                                 </table>
                             </div><!-- /  CONTENT BOX-->

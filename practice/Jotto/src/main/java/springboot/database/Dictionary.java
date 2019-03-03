@@ -15,15 +15,7 @@ public class Dictionary {
     public static final String WORDS_DATABASE = "words";
 
     private MongoTemplate mongoTemplate;
-    /*
-    @Bean
-    public MongoTemplate mongoTemplate() throws Exception {
-        MongoCredential credential = new MongoCredential.createCredential("YunSeob", "", "");
-        ServerAddress address = new ServerAddress("ds125255.mlab.com",25255);
 
-        MongoClient client = new MongoClient(address, Arrays.asList(credential));
-    }
-    */
     public Dictionary(){
         mongoTemplate = new MongoTemplate(new MongoClient(new MongoClientURI("mongodb://YunSeob:qazwsxedC1@ds125255.mlab.com:25255/heroku_vplcmjgw")), "heroku_vplcmjgw");
     }
@@ -81,5 +73,4 @@ public class Dictionary {
         Query query = new Query(Criteria.where("word").is(word));
         return mongoTemplate.exists(query, WORDS_DATABASE);
     }
-
 }

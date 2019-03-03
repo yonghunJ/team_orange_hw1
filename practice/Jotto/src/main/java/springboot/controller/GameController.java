@@ -27,6 +27,8 @@ import java.util.Map;
 @Controller
 public class GameController {
     private GameManager gameManager;
+    int gameRoundCount;
+
     @Autowired
     private UserRepository userRepository;
 
@@ -42,6 +44,7 @@ public class GameController {
         if (this.gameManager.getJottoManager().getDict().isValidWord(upperString) && checkLetters(upperString)) {
             this.gameManager.setUserWord(upperString);
             this.gameManager.setAiWord();
+            gameRoundCount = 0;
             return 0;
         } else{
             return 1;
@@ -55,6 +58,7 @@ public class GameController {
         String upperInput = input.toUpperCase();
 
         if (this.gameManager.getJottoManager().getDict().isValidWord(upperInput)) {
+            gameRoundCount++;
             this.gameManager.setUserGuess(upperInput);
             int userGuessCount = this.gameManager.getGuessCount(false);
             int aiGuessCount = this.gameManager.getGuessCount(true);
@@ -62,9 +66,10 @@ public class GameController {
             int roundResult = this.gameManager.setGameRound();
             response.put("is_valid_word",true);
             response.put("user_guess_count",userGuessCount);
-            response.put("user_guess_word",this.gameManager.getUserWord());
+            response.put("user_guess_word",upperInput);
             response.put("ai_guess_count",aiGuessCount);
             response.put("ai_guess",aiGuess);
+            response.put("game_round_number", gameRoundCount);
             if (roundResult == 0) {
                 response.put("user_game_ended",false);
                 response.put("ai_game_ended",false);

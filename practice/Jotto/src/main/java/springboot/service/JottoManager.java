@@ -46,9 +46,9 @@ public class JottoManager {
             aiGuess = dict.getWord(includeTemp, empty, 5, ignoredWordsTemp);
         }
         // 2+3 word while exist
-        else if (dict.getWord(empty, excludeTemp, 2, ignoredWordsTemp) != null) {
+        else if (dict.getWord(empty, empty, 2, ignoredWordsTemp) != null) {
             // Get aiGuess from DB
-            aiGuess = dict.getWord(empty, excludeTemp, 2, ignoredWordsTemp);
+            aiGuess = dict.getWord(empty, empty, 2, ignoredWordsTemp);
             charCount = countChars(aiGuess); // Get HashMap with Character,Integer pair
 
             // Get guessCount
@@ -88,10 +88,13 @@ public class JottoManager {
             }
         }
         // Keep doing again while include.size <= 3
-        else if (include.size() <= 3) {
+        else if (include.size() <= 3 && dict.getWord(empty, excludeTemp, 3, ignoredWordsTemp) != null) {
             // Get aiGuess from DB
             aiGuess = dict.getWord(empty, excludeTemp, 3, ignoredWordsTemp);
             charCount = countChars(aiGuess); // Get HashMap with Character,Integer pair
+
+            // Get guessCount
+            guessCount = getGuseeCount(userWord, aiGuess);
 
             // Check whether aiGuess is 2+2+1 or 3+1+1
             int type = checkTypeOfWord(charCount, aiGuess);
@@ -103,6 +106,7 @@ public class JottoManager {
                     ArrayList<Character> keys = new ArrayList<Character>();
                     keys.addAll(charCount.keySet());
                     addUnique(exclude, keys);
+                    System.out.println("0");
                 }
                 // If guessCount = 1, then include.add(c1) && exclude.add(c2) && exclude.add(c2)
                 else if (guessCount == 1) {
@@ -113,12 +117,14 @@ public class JottoManager {
                     ArrayList<Character> keyToExclude = new ArrayList<Character>();
                     keyToExclude = getKeysFromValue(charCount, 2);
                     addUnique(exclude, keyToExclude);
+                    System.out.println("1");
                 }
                 // If guessCount = 3, then include.add(c1)
                 else if (guessCount == 3) {
                     ArrayList<Character> keyToInclude = new ArrayList<Character>();
                     keyToInclude = getKeysFromValue(charCount, 1);
                     addUnique(include, keyToInclude);
+                    System.out.println("3");
                 }
                 // If guessCount = 4, then include.add(c2) && include.add(c2) && exclude.add(c1)
                 else if (guessCount == 4) {
@@ -129,12 +135,14 @@ public class JottoManager {
                     ArrayList<Character> keyToExclude = new ArrayList<Character>();
                     keyToExclude = getKeysFromValue(charCount, 1);
                     addUnique(exclude, keyToExclude);
+                    System.out.println("4");
                 }
                 // If guessCount = 5, then include.add(c2) && include.add(c2) && include.add(c1)
                 else if (guessCount == 5) {
                     ArrayList<Character> keys = new ArrayList<Character>();
                     keys.addAll(charCount.keySet());
                     addUnique(include, keys);
+                    System.out.println("5");
                 }
             }
             // If 3+1+1
@@ -183,8 +191,20 @@ public class JottoManager {
         else {
             // Find 2+1+1+1 letters word
             // Get aiGuess from DB
-            aiGuess = dict.getWord(includeTemp, excludeTemp, 4, ignoredWordsTemp);
+
+            System.out.println(include.toString());
+            System.out.println(exclude.toString());
+
+            if (dict.getWord(empty, excludeTemp, 4, ignoredWordsTemp) != null) {
+                aiGuess = dict.getWord(empty, excludeTemp, 4, ignoredWordsTemp);
+            }
+            else {
+                aiGuess = dict.getWord(includeTemp, empty, 4, ignoredWordsTemp);
+            }
             charCount = countChars(aiGuess); // Get HashMap with Character,Integer pair
+
+            // Get guessCount
+            guessCount = getGuseeCount(userWord, aiGuess);
 
             // If guessCount = 0, then exclude.add(c2) && exclude.add(c1) && exclude.add(c1) && exclude.add(c1)
             if (guessCount == 0) {
@@ -198,7 +218,7 @@ public class JottoManager {
                 keyToInclude = getKeysFromValue(charCount, 2);
                 addUnique(exclude, keyToInclude);
             }
-            // If guessCount = 1, then exclude.add(c2)
+            // If guessCount = 4, then include.add(c2)
             else if (guessCount == 4) {
                 ArrayList<Character> keyToInclude = new ArrayList<Character>();
                 keyToInclude = getKeysFromValue(charCount, 2);
@@ -211,6 +231,8 @@ public class JottoManager {
                 addUnique(include, keys);
             }
         }
+
+        System.out.println(exclude.toString());
 
         ignoredWords.add(aiGuess); // Update ignoredWords
         return aiGuess;
@@ -248,6 +270,8 @@ public class JottoManager {
             else if (charCount.get(aiGuess.charAt(i)) == 3)
                 result = 3;
         }
+
+        System.out.println(aiGuess + "  //  " + result);
 
         return result;
     }

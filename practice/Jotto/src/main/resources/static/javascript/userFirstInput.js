@@ -8,10 +8,6 @@ $(document).ready(function() {
             let user_first_input = $("#ai_answer").val();
             $('#ai_answer').val("");
 
-            var pageNum = $("#flipbook").turn("page");
-            $("#flipbook").turn("page", pageNum+2);
-
-
             //input valid check //duplication //only char
 
 
