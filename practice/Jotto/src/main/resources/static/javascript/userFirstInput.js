@@ -4,7 +4,7 @@ $(document).ready(function() {
         var input = $('#ai_answer').val();
 
         if(input.length != 5){
-            $('#ai_answer_inadquate').val("Input 5 characters");
+            $('#ai_answer_inadquate').text("Input 5 characters");
         }else{
             let user_first_input = $("#ai_answer").val();
 

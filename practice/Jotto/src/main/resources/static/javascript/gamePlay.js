@@ -30,13 +30,13 @@ $(document).ready(function(){
             }
         });
     }
-    user_input
+
     //5 input
 
     $("#user_input").click(function() {
         var bla = $('#userGuess').val();
         if(bla.length != 5){
-            $("ai_answer_inadquate").text("Wrong input")
+            $("#invalid_word_check").text("Wrong input")
         }else{
             $.ajax({
                 type:"get",
@@ -111,7 +111,7 @@ $(document).ready(function(){
                             alert("Ai win")
                         }
                     }else{
-                        $("invalid_word_check").text("This is not a word");
+                        $("#invalid_word_check").text("This is not a word");
                     }
                 },error : function(request,err){
                     console.log('Fail!');

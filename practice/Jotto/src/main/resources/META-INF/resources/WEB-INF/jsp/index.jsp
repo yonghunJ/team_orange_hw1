@@ -45,7 +45,7 @@
 
                 <button type="button" class="btn btn-link" data-toggle="modal" data-target="#darkModalForm" >SignUp</button>
                 <hr />
-                <label id="login_warning" style="color:red;"></label>
+                <div id="login_warning" style="color:red;"></div>
             </div>
 
             <div>
@@ -74,7 +74,6 @@
                     <button type="button" id = "first_input_btn" class="yh_btn">Input</button>
                 </div>
                 <div id ="ai_answer_inadquate">
-                    <label></label>
                 </div>
             </div>
 
@@ -128,8 +127,9 @@
                                 </div><!-- /  CONTENT BOX-->
                             </div><!-- BUTTON BOX-->
                             <div class="webflow-style-input">
-                                <input id="userGuess" type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";><label id="invalid_word_check"></label>
+                                <input id="userGuess" type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
                                 <button type="button" id = "user_input" class="yh_btn">Input</button>
+                                <div id="invalid_word_check" style="color:red"></div>
                             </div>
                         </div>
 
