@@ -9,6 +9,7 @@ $(document).ready(function() {
         var pageNum = $("#flipbook").turn("page");
         console.log(pageNum);
         $("#flipbook").turn("page", pageNum+1);
+        $("#user_input").removeAttr("disabled");
     });
     $("#past_result").click(function(){
         console.log("past_result clicked");

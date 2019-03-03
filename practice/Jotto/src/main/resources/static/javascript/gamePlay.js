@@ -107,8 +107,12 @@ $(document).ready(function(){
 
                         if(user_game_ended==true){
                             alert("user win")
+                            $("#user_input").attr("disabled", "disabled");
+
                         }else if(ai_game_ended ==true){
                             alert("Ai win")
+                            $("#user_input").attr("disabled", "disabled");
+
                         }
                         $("#invalid_word_check").text("");
                     }else{
