@@ -94,6 +94,9 @@ public class GameController {
     public void sendData(HttpSession session) {
         User user = userRepository.findByName((String) session.getAttribute("user"));
         GameRecord gameRecord = new GameRecord(new Date(), this.gameManager.getUserWord(), this.gameManager.getAiWord(), this.gameManager.getGameRoundList());
+        if (user == null || gameRecord == null) {
+            System.out.println("null");
+        }
         user.addGame(gameRecord);
         userRepository.save(user);
     }

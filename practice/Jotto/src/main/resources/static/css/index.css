@@ -3,6 +3,10 @@
     src: url("fonts/whatever it takes bold.ttf") format("truetype");
 }
 
+html {
+    height: 100%;
+}
+
 .raise:hover, .raise:focus {
     box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
     transform: translateY(-0.25em);
@@ -102,12 +106,13 @@ body{
     /*background-color: #f5df2e;*/
     /*!*background-image: linear-gradient(to left, #f5df2e 0%, #f07654 74%);*!222222*/
     background-color: #fffcf9;
-    background-image: linear-gradient(to left, #fffcf9 0%, #ffd166 74%);
+    background-image: linear-gradient(30deg, #fffcf9 0%, #ffd166 74%);
     /* color: wheat; */
     /* text-align: center; */
     /* height: 100%; */
     /* width:60%; */
     /* max-width: 50%; */
+    font-size: 25px;
 }
 
 #canvas{

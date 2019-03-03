@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    var isValid = false;
     var bb = $(".prev");
     console.log(bb);
     $(".prev").click(function(){
@@ -8,6 +9,13 @@ $(document).ready(function(){
         $("#flipbook").turn("page", pageNum-1);
     });
 
-
+    function validateForm() {
+        if (isValid == false) {
+            isValid = true;
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 });

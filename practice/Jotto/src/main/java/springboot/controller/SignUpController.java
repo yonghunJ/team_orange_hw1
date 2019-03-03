@@ -19,8 +19,10 @@ public class SignUpController {
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public ModelAndView signUpRequset(@RequestParam("signup_id") String id, @RequestParam("signup_pw") String pwd) {
-        System.out.println("qweqwe");
-        userRepository.save(Passwords.createUser(id,pwd));
+        if (userRepository.findByName(id) == null) {
+            System.out.println("sign up complete");
+            userRepository.save(Passwords.createUser(id,pwd));
+        }
         return new ModelAndView("index");
     }
 

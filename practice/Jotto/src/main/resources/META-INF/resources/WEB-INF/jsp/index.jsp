@@ -263,7 +263,7 @@
 
                         <div class="row d-flex align-items-center mb-4">
                             <div class="text-center mb-3 col-md-12">
-                                <button type="submit" id="signup_btn" class="btn btn-success btn-block btn-rounded z-depth-1">Sign up</button>
+                                <button type="submit" id="signup_btn" class="btn btn-success btn-block btn-rounded z-depth-1" onsubmit="return validateForm()">Sign up</button>
                             </div>
                         </div>
                         <div class="row"></div>
