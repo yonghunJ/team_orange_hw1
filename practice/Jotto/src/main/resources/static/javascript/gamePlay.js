@@ -30,14 +30,14 @@ $(document).ready(function(){
             }
         });
     }
-
+    user_input
     //5 input
-    $('#userGuess').keyup(function(){
+
+    $("#user_input").click(function() {
         var bla = $('#userGuess').val();
         if(bla.length != 5){
-            console.log("length !=5");
+            $("ai_answer_inadquate").text("Wrong input")
         }else{
-
             $.ajax({
                 type:"get",
                 url: "/user_guess?user_guess="+bla,
@@ -117,66 +117,8 @@ $(document).ready(function(){
                     console.log('Fail!');
                     console.log("User ID: " + this.login_pw);
                 }
-            });
+            })
 
-
-            //text for ajax failed
-            // var res = bla.split("");
-            // let round = '<tr><td>'+'round'+'</td>';
-            // let user_guess = '<td><span>'+res[0]+'</span><span>' +res[1]+'</span><span>' +res[2]+'</span><span>' +res[3]+'</span><span>' +res[4]+'</span></td>';
-            // let guess_corr = '<td>'+'correct'+'</td></tr>'
-            // let user_submit = $(round + user_guess + guess_corr);
-            // user_submit.hide();
-            // if($('#player_table > tbody > tr:first').length == 0) {
-            //     $('#player_table > tbody').append(user_submit);
-            // }else{
-            //     $('#player_table > tbody > tr:first').before(user_submit);
-            //     console.log("tr")
-            // }
-            //
-            // let al_button2 = document.getElementsByClassName("raise");
-            // for(let i=0; i<al_button.length ; i++){
-            //     if(al_button2[i].style.backgroundColor =="" || al_button2[i].style.backgroundColor =="black"){
-            //         let spans = $("table > tbody > tr td span");
-            //         for(let j=0;j<spans.length;j++){
-            //             if(al_button2[i].innerHTML.toLowerCase()== spans[j].innerText.toLowerCase()){
-            //                 spans[j].style.color="black"
-            //             }
-            //         }
-            //     }else if(al_button[i].style.backgroundColor =="green"){
-            //         let spans = $("table > tbody > tr td span");
-            //         for(let j=0;j<spans.length;j++){
-            //             if(al_button[i].innerHTML.toLowerCase()== spans[j].innerText.toLowerCase()){
-            //                 spans[j].style.color="green"
-            //             }
-            //         }
-            //     }else if(al_button[i].style.backgroundColor =="red"){
-            //         let spans = $("table > tbody > tr td span");
-            //         for(let j=0;j<spans.length;j++){
-            //             if(al_button[i].innerHTML.toLowerCase()== spans[j].innerText.toLowerCase()){
-            //                 spans[j].style.color="red"
-            //             }
-            //         }
-            //     }
-            // }
-            //
-            //
-            //
-            // user_submit.fadeIn("slow");
-            //
-            // let ai_guess = $("<tr><td>aaa</td><td>bbb</td><td>ccc</td></tr>");
-            // ai_guess.hide();
-            // if($('#ai_table > tbody > tr:first').length==0){
-            //     $('#ai_table > tbody').before(ai_guess);
-            // }else{
-            //     $('#ai_table > tbody > tr:first').before(ai_guess);
-            // }
-            // ai_guess.fadeIn("slow");
-            //
-            //
-            // $('#userGuess').val("");
-            // // round +=1;
         }
     });
-
 });
