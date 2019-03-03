@@ -96,6 +96,7 @@ public class GameManager {
             this.aiGuess = jottoManager.chooseAiGuess(userWord);
 
             for (int i = 0; i < 5; i++) {
+                System.out.println(userWord + "   --   " + aiGuess);
                 if (this.userWord.contains(Character.toString(this.aiGuess.charAt(i)))) {
                     aiColorArray[i] = 1;
                     this.aiGuessCount++;

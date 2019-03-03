@@ -88,7 +88,7 @@ public class JottoManager {
             }
         }
         // Keep doing again while include.size <= 3
-        else if (include.size() <= 3 && dict.getWord(empty, excludeTemp, 3, ignoredWordsTemp) != null) {
+        else if (dict.getWord(empty, excludeTemp, 3, ignoredWordsTemp) != null) {
             // Get aiGuess from DB
             aiGuess = dict.getWord(empty, excludeTemp, 3, ignoredWordsTemp);
             charCount = countChars(aiGuess); // Get HashMap with Character,Integer pair
@@ -154,7 +154,7 @@ public class JottoManager {
                     addUnique(exclude, keys);
                 }
                 // If guessCount = 2, then exclude.add(c3) && include.add(c1) && include.add(c1)
-                else if (guessCount == 1) {
+                else if (guessCount == 2) {
                     ArrayList<Character> keyToInclude = new ArrayList<Character>();
                     keyToInclude = getKeysFromValue(charCount, 1);
                     addUnique(include, keyToInclude);
@@ -192,15 +192,18 @@ public class JottoManager {
             // Find 2+1+1+1 letters word
             // Get aiGuess from DB
 
-            System.out.println(include.toString());
-            System.out.println(exclude.toString());
+            System.out.println("1" + include.toString());
+            System.out.println("1" + exclude.toString());
 
-            if (dict.getWord(empty, excludeTemp, 4, ignoredWordsTemp) != null) {
-                aiGuess = dict.getWord(empty, excludeTemp, 4, ignoredWordsTemp);
+            if (dict.getWord(includeTemp, excludeTemp, 4, ignoredWordsTemp) != null) {
+                aiGuess = dict.getWord(includeTemp, excludeTemp, 4, ignoredWordsTemp);
             }
-            else {
+            else if (dict.getWord(includeTemp, empty, 4, ignoredWordsTemp) != null){
                 aiGuess = dict.getWord(includeTemp, empty, 4, ignoredWordsTemp);
             }
+            else
+                aiGuess = dict.getWord(empty, excludeTemp, 4, ignoredWordsTemp);
+
             charCount = countChars(aiGuess); // Get HashMap with Character,Integer pair
 
             // Get guessCount
@@ -232,7 +235,9 @@ public class JottoManager {
             }
         }
 
+        System.out.println(include.toString());
         System.out.println(exclude.toString());
+        System.out.println(aiGuess);
 
         ignoredWords.add(aiGuess); // Update ignoredWords
         return aiGuess;
