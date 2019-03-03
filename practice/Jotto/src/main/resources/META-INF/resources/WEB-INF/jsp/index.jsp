@@ -248,7 +248,7 @@
                     <div class="modal-body">
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="signup_id">ID</label>
-                            <input type="text" id="signup_id" name="signup_id" class="form-control validate white-text" required>
+                            <input type="text" id="signup_id" name="signup_id" class="form-control validate white-text" required><label id="singup_id_warning" style="color:red"></label>
                         </div>
                         <div class="md-form pb-3">
                             <label data-error="wrong" data-success="right" for="signup_pw">PASSWORD</label>
@@ -256,9 +256,6 @@
                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                             <label data-error="wrong" data-success="right" for="signup_pw2">CHECK PASSWORD</label>
                             <input type="password" id="signup_pw2" name="signup_pw2" class="form-control validate white-text" required>
-                            <div class="form-group mt-4">
-                                <input class="form-check-input" type="checkbox" id="checkbox624">
-                            </div>
                         </div>
 
                         <div class="row d-flex align-items-center mb-4">
