@@ -25,6 +25,7 @@ $(document).ready(function(){
                 }
             },error : function(request,err){
                 console.log('login Fail!');
+                $("#login_warning").text('ID or Password is wrong');
             }
         });
     });

@@ -1,8 +1,6 @@
 $(document).ready(function() {
 
     $("#main_menu").hide();
-    var pageNum = $("#flipbook").turn("page");
-    $("#flipbook").turn("page", pageNum+1);
 
     $("#game_play").click(function(){
         console.log("game play clicked");

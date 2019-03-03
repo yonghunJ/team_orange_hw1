@@ -100,46 +100,21 @@
                                         </table>
                                     </div><!-- /  CONTENT BOX-->
                                 </div><!-- BUTTON BOX-->
+                                <div class="webflow-style-input">
+                                    <input id="userGuess" type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
+                                    <button type="button" id = "user_input" class="yh_btn">Input</button>
+
+                                </div>
                             </div>
 
                         </div>
                     </div>
+
                 </div>
                 <button class="prev">prev</button>
-            </div>
-        </div>
-        <div style="background-color:yellow">
-            <div class="demo" id="player_plate">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6 player_screen" id="">
-                            <div class="pricingTable">
-                                <div class="pricingTable-header">
-                                    <span class="price-icon"></span>
-                                    <span class="price-value">YY<span class="month">Player</span></span>
-                                    <h3 class="heading">Standard</h3>
-                                </div>
-                                <div class="pricingContent">
-                                    <table id ="ai_table">
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div><!-- /  CONTENT BOX-->
-                            </div><!-- BUTTON BOX-->
-                            <div class="webflow-style-input">
-                                <input id="userGuess" type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
-                                <button type="button" id = "user_input" class="yh_btn">Input</button>
-                                <div id="invalid_word_check" style="color:red"></div>
-                            </div>
-
-
-
-                        </div>
-
-                    </div>
-                </div>
-
+                <div id="invalid_word_check" style="color:red"></div>
                 <hr>
+
                 <div>
                     <button type="button" class=" raise ">A</button>
                     <button type="button" class="raise  ">B</button>
@@ -168,6 +143,31 @@
                     <button type="button" class="raise  ">Y</button>
                     <button type="button" class="raise  ">Z</button>
                 </div>
+            </div>
+        </div>
+        <div style="background-color:yellow">
+            <div class="demo" id="player_plate">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 player_screen" id="">
+                            <div class="pricingTable">
+                                <div class="pricingTable-header">
+                                    <span class="price-icon"></span>
+                                    <span class="price-value">YY<span class="month">Player</span></span>
+                                    <h3 class="heading">Standard</h3>
+                                </div>
+                                <div class="pricingContent">
+                                    <table id ="ai_table">
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div><!-- /  CONTENT BOX-->
+                            </div><!-- BUTTON BOX-->
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
         <div style="background-color:green"> Page 4

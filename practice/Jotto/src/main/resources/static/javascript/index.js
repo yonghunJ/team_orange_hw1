@@ -1,6 +1,5 @@
 $(document).ready(function(){
-    var bb = $(".prev");
-    console.log(bb);
+
     $(".prev").click(function(){
 
         var pageNum = $("#flipbook").turn("page");
