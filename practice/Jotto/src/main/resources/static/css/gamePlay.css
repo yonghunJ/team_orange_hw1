@@ -1,5 +1,12 @@
 /*make scroll to the table*/
-#ai_table{
+#alpalphabet_buttons{
+    position: absolute;
+    top: 90%;
+}
+#user_input{
+    border: 0px solid white;
+
+}#ai_table{
      overflow-y:scroll;
      height:400px;
      display:block;

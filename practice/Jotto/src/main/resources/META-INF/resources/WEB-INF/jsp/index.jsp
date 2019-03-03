@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" style="height:100%">
 <head>
     <meta charset="utf-8">
     <title>11</title>
@@ -26,9 +26,10 @@
         * {
             font-family: "whatever it takes";
         }
+
     </style>
     <link rel="stylesheet" href="/css/pastGameResult.css">
-
+    <link rel="icon" href="/image/logo.png">
 
 </head>
 <body>
@@ -45,7 +46,7 @@
 
                 <button type="button" class="btn btn-link" data-toggle="modal" data-target="#darkModalForm" >SignUp</button>
                 <hr />
-                <label id="login_warning" style="color:red;"></label>
+                <div id="login_warning" style="color:red;"></div>
             </div>
 
             <div>
@@ -71,9 +72,9 @@
             <div id="user_first_input_box">
                 <div class="webflow-style-input">
                     <input  id = "ai_answer"type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
+                    <button type="button" id = "first_input_btn" class="yh_btn">Input</button>
                 </div>
                 <div id ="ai_answer_inadquate">
-                    <label></label>
                 </div>
             </div>
 
@@ -100,40 +101,22 @@
                                         </table>
                                     </div><!-- /  CONTENT BOX-->
                                 </div><!-- BUTTON BOX-->
+                                <div class="webflow-style-input">
+                                    <input id="userGuess" type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
+                                    <button type="button" id = "user_input" class="yh_btn">Input</button>
+
+                                </div>
                             </div>
 
                         </div>
                     </div>
+
                 </div>
                 <button class="prev">prev</button>
-            </div>
-        </div>
-        <div style="background-color:yellow">
-            <div class="demo" id="player_plate">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6 player_screen" id="">
-                            <div class="pricingTable">
-                                <div class="pricingTable-header">
-                                    <span class="price-icon"></span>
-                                    <span class="price-value">YY<span class="month">Player</span></span>
-                                    <h3 class="heading">Standard</h3>
-                                </div>
-                                <div class="pricingContent">
-                                    <table id ="ai_table">
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div><!-- /  CONTENT BOX-->
-                            </div><!-- BUTTON BOX-->
-                            <div class="webflow-style-input">
-                                <input id="userGuess" type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";><label id="invalid_word_check"></label>
-                            </div>
-                        </div>
+                <div id="invalid_word_check" style="color:red"></div>
+                <hr>
 
-                    </div>
-                </div>
-                <div>
+                <div id="alphabet_buttons">
                     <button type="button" class=" raise ">A</button>
                     <button type="button" class="raise  ">B</button>
                     <button type="button" class="raise  ">C</button>
@@ -161,6 +144,31 @@
                     <button type="button" class="raise  ">Y</button>
                     <button type="button" class="raise  ">Z</button>
                 </div>
+            </div>
+        </div>
+        <div style="background-color:yellow">
+            <div class="demo" id="player_plate">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 player_screen" id="">
+                            <div class="pricingTable">
+                                <div class="pricingTable-header">
+                                    <span class="price-icon"></span>
+                                    <span class="price-value">YY<span class="month">Player</span></span>
+                                    <h3 class="heading">Standard</h3>
+                                </div>
+                                <div class="pricingContent">
+                                    <table id ="ai_table">
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div><!-- /  CONTENT BOX-->
+                            </div><!-- BUTTON BOX-->
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
         <div style="background-color:green"> Page 4
@@ -248,7 +256,7 @@
                     <div class="modal-body">
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="signup_id">ID</label>
-                            <input type="text" id="signup_id" name="signup_id" class="form-control validate white-text" required>
+                            <input type="text" id="signup_id" name="signup_id" class="form-control validate white-text" required><label id="signup_id_warning" style="color:red"></label>
                         </div>
                         <div class="md-form pb-3">
                             <label data-error="wrong" data-success="right" for="signup_pw">PASSWORD</label>
@@ -256,9 +264,6 @@
                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                             <label data-error="wrong" data-success="right" for="signup_pw2">CHECK PASSWORD</label>
                             <input type="password" id="signup_pw2" name="signup_pw2" class="form-control validate white-text" required>
-                            <div class="form-group mt-4">
-                                <input class="form-check-input" type="checkbox" id="checkbox624">
-                            </div>
                         </div>
 
                         <div class="row d-flex align-items-center mb-4">
@@ -290,6 +295,7 @@
     // })
     $("#flipbook").turn("size", 1200, 700);
     // $("#flipbook").turn("center");
+
 </script>
 
 </html>

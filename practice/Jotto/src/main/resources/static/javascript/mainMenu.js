@@ -7,6 +7,7 @@ $(document).ready(function() {
         var pageNum = $("#flipbook").turn("page");
         console.log(pageNum);
         $("#flipbook").turn("page", pageNum+1);
+        $("#user_input").removeAttr("disabled");
     });
     $("#past_result").click(function(){
         console.log("past_result clicked");
@@ -49,6 +50,8 @@ $(document).ready(function() {
                 if(list1.length <20){
                     for(let i=0; i<list1.length ; i++) {
                         list1[i].addEventListener("click",function(){
+                            $("#ai_result_table > tbody").empty();
+                            $("#player_result_table > tbody").empty();
                             $.ajax({
                                 type:"get",
                                 dataType: "json",
@@ -110,53 +113,61 @@ $(document).ready(function() {
                         });
                     }
                 }else{ //The number of list >20
-                    for(let i=0; i<20 ; i++) {
+                    for(let i=0; i<list1.length ; i++) {
                         list1[i].addEventListener("click",function(){
+                            $("#ai_result_table > tbody").empty();
+                            $("#player_result_table > tbody").empty();
                             $.ajax({
                                 type:"get",
                                 dataType: "json",
                                 url: "/pastGameResult/data?data="+data[i],
                                 success : function(data) {
-
+                                    console.log(data)
                                     for(let m=0;m<data.rounds.length;m++){
 
-                                        var res = data.rounds[m].userGuess.split("");
+                                        var res = data.rounds[m].aiGuess.split("");
+                                        console.log("res"+res)
                                         let round = '<tr><td>'+'round'+'</td>';
                                         let ai_guess ="<td>";
                                         for(let k=0;k<data.rounds[m].aiColorArray.length;k++){
                                             if(data.rounds[m].aiColorArray[k] ==0){
-                                                ai_guess+='<span style="color:red">' +res[k]+'</span>'
+                                                ai_guess+='<span style="color:red;display:inline!important">' +res[k]+'</span>'
                                             }else{
-                                                ai_guess+='<span style="color:red">' +res[k]+'</span>'
+                                                ai_guess+='<span style="color:green;display:inline!important">' +res[k]+'</span>'
                                             }
                                         }
-                                        ai_guess +="</td>";
+
+                                        ai_guess +="</td></tr>";
+                                        console.log("ai_guess"+ai_guess)
                                         let ai_submit = $(round + ai_guess);
-                                        ai_submit.hide();
+                                        //ai_submit.hide();
                                         if($('#ai_result_table > tbody > tr:first').length == 0) {
                                             $('#ai_result_table > tbody').append(ai_submit);
                                         }else{
                                             $('#ai_result_table > tbody > tr:first').before(ai_submit);
                                         }
                                     }
-                                    for(let m=0;m<data.length;m++){
-                                        var res = data.rounds[m].aiGuess.split("");
+
+
+                                    for(let m=0;m<data.rounds.length;m++){
+                                        var res = data.rounds[m].userGuess.split("");
                                         let round = '<tr><td>'+'round'+'</td>';
-                                        let user_guess ="<td>";
+                                        let userGuess ="<td>";
                                         for(let k=0;k<data.rounds[m].userColorArray.length;k++){
                                             if(data.rounds[m].userColorArray[k] ==0){
-                                                user_guess+='<span style="color:red">' +res[k]+'</span>'
+                                                userGuess+='<span style="color:red;display:inline!important">' +res[k]+'</span>'
                                             }else{
-                                                user_guess+='<span style="color:red">' +res[k]+'</span>'
+                                                userGuess+='<span style="color:red;display:inline!important">' +res[k]+'</span>'
                                             }
                                         }
-                                        user_guess +="</td>";
-                                        let user_submit = $(round + user_guess);
-                                        user_submit.hide();
-                                        if($('#ai_result_table > tbody > tr:first').length == 0) {
-                                            $('#ai_result_table > tbody').append(user_submit);
+
+                                        userGuess +="</td></tr>";
+                                        let user_submit = $(round + userGuess);
+                                        //user_submit.hide();
+                                        if($('#player_result_table > tbody > tr:first').length == 0) {
+                                            $('#player_result_table > tbody').append(user_submit);
                                         }else{
-                                            $('#ai_result_table > tbody > tr:first').before(user_submit);
+                                            $('#player_result_table > tbody > tr:first').before(user_submit);
                                         }
                                     }
 
@@ -168,52 +179,58 @@ $(document).ready(function() {
                     }
                     for(let i=0; i<list2.length ; i++) {
                         list2[i].addEventListener("click",function(){
+                            $("#ai_result_table > tbody").empty();
+                            $("#player_result_table > tbody").empty();
                             $.ajax({
                                 type:"get",
                                 dataType: "json",
-                                url: "/pastGameResult/data?data="+data,
+                                url: "/pastGameResult/data?data="+data[i+20],
                                 success : function(data) {
+                                    for(let m=0;m<data.rounds.length;m++){
 
-
-                                    for(let m=0;m<data.rounds[m].length;m++){
-
-                                        var res = data.rounds[m].userGuess.split("");
+                                        var res = data.rounds[m].aiGuess.split("");
+                                        console.log("res"+res)
                                         let round = '<tr><td>'+'round'+'</td>';
                                         let ai_guess ="<td>";
                                         for(let k=0;k<data.rounds[m].aiColorArray.length;k++){
                                             if(data.rounds[m].aiColorArray[k] ==0){
-                                                ai_guess+='<span style="color:red">' +res[k]+'</span>'
+                                                ai_guess+='<span style="color:red;display:inline!important">' +res[k]+'</span>'
                                             }else{
-                                                ai_guess+='<span style="color:red">' +res[k]+'</span>'
+                                                ai_guess+='<span style="color:green;display:inline!important">' +res[k]+'</span>'
                                             }
                                         }
-                                        ai_guess +="</td>";
+
+                                        ai_guess +="</td></tr>";
+                                        console.log("ai_guess"+ai_guess)
                                         let ai_submit = $(round + ai_guess);
-                                        ai_submit.hide();
+                                        //ai_submit.hide();
                                         if($('#ai_result_table > tbody > tr:first').length == 0) {
                                             $('#ai_result_table > tbody').append(ai_submit);
                                         }else{
                                             $('#ai_result_table > tbody > tr:first').before(ai_submit);
                                         }
                                     }
-                                    for(let m=0;m<data.length;m++){
-                                        var res = data.rounds[m].aiGuess.split("");
+
+
+                                    for(let m=0;m<data.rounds.length;m++){
+                                        var res = data.rounds[m].userGuess.split("");
                                         let round = '<tr><td>'+'round'+'</td>';
-                                        let user_guess ="<td>";
+                                        let userGuess ="<td>";
                                         for(let k=0;k<data.rounds[m].userColorArray.length;k++){
                                             if(data.rounds[m].userColorArray[k] ==0){
-                                                user_guess+='<span style="color:red">' +res[k]+'</span>'
+                                                userGuess+='<span style="color:red;display:inline!important">' +res[k]+'</span>'
                                             }else{
-                                                user_guess+='<span style="color:red">' +res[k]+'</span>'
+                                                userGuess+='<span style="color:red;display:inline!important">' +res[k]+'</span>'
                                             }
                                         }
-                                        user_guess +="</td>";
-                                        let user_submit = $(round + user_guess);
-                                        user_submit.hide();
-                                        if($('#ai_result_table > tbody > tr:first').length == 0) {
-                                            $('#ai_result_table > tbody').append(user_submit);
+
+                                        userGuess +="</td></tr>";
+                                        let user_submit = $(round + userGuess);
+                                        //user_submit.hide();
+                                        if($('#player_result_table > tbody > tr:first').length == 0) {
+                                            $('#player_result_table > tbody').append(user_submit);
                                         }else{
-                                            $('#ai_result_table > tbody > tr:first').before(user_submit);
+                                            $('#player_result_table > tbody > tr:first').before(user_submit);
                                         }
                                     }
 

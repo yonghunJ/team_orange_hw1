@@ -1,8 +1,8 @@
 $(document).ready(function(){
     $("#signup_id").focusout(function() {
-        console.log("signup id duplication ajax request");
+
+
         var signup_id = $("#signup_id").val();
-        console.log(signup_id);
 
         $.ajax({
             type:"get",
@@ -11,9 +11,10 @@ $(document).ready(function(){
             success : function(data) {
                 console.log('Success!');
                 if(data==0){
-                    console.log("there is no id dupliacted");
+                    $("#signup_btn").removeAttr("disabled");
                 }else if(data==1){
-                    console.log("ID is duplicated");
+                    $("#signup_id_warning").text("ID is dupliacted");
+                    $("#signup_btn").attr("disabled","disabled")
                 }
             },error : function(request,err){
                 console.log('Fail!');
@@ -24,6 +25,9 @@ $(document).ready(function(){
 
 
       });
+    $("#signup_btn").click(function(){
+        $("#signup_btn").attr("disabled:disabled");
+    })
 
 //Paswword double check
     var password = document.getElementById("signup_pw");
