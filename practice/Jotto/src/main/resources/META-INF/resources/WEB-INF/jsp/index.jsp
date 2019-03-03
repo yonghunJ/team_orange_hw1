@@ -116,7 +116,7 @@
                 <div id="invalid_word_check" style="color:red"></div>
                 <hr>
 
-                <div>
+                <div id="alphabet_buttons">
                     <button type="button" class=" raise ">A</button>
                     <button type="button" class="raise  ">B</button>
                     <button type="button" class="raise  ">C</button>
