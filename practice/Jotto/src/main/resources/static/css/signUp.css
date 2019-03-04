@@ -1,9 +1,12 @@
- .card-image{
-  background-image: url("/image/signUp.jpg");
-}
+ /*.card-image{*/
+  /*background-image: url("/image/signUp.jpg");*/
+/*}*/
+ #signup_id,signup_pw,signup_pw2{
+     font-size:20px;
+ }
 .md-form label{
-    font-size: 10px;
-    color: #fff;
+    font-size: 25px;
+    color: black;
 }
 .form-dark .font-small {
     font-size: 0.8rem; }
@@ -18,7 +21,7 @@
   height: 15px; } */
 
 .form-dark .md-form label {
-    color: #fff; }
+    color: black; }
 
 .form-dark input[type=text]:focus:not([readonly]) {
     border-bottom: 1px solid #00C851;

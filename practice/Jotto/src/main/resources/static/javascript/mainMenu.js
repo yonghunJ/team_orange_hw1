@@ -63,7 +63,7 @@ $(document).ready(function() {
             url: "/pastGameResult",
             success : function(data) {
                 console.log(data)
-                if(data.length<20){
+                if(data.length<17){
                         for(let i=0;i<data.length;i++){
                             $("#pastGameResult1 > ul").append('<li><a class="pastGameResultList">'+data[i]+'</a></li>');
                         }
@@ -73,7 +73,7 @@ $(document).ready(function() {
                             $("#flipbook").turn("page", pageNum+2);
                         })
                     }else{
-                        for(let i=0;i<20;i++){
+                        for(let i=0;i<17;i++){
                             $("#pastGameResult1 > ul").append('<li><a class="pastGameResultList">'+data[i]+'</a></li>');
                         }
                         for(let j=0;j<data.length-20;j++){
@@ -89,7 +89,7 @@ $(document).ready(function() {
 
                 let list1 = $("#pastGameResult1 > ul >li");
                 let list2 = $("#pastGameResult2 > ul >li");
-                if(list1.length <20){
+                if(list1.length <17){
                     for(let i=0; i<list1.length ; i++) {
                         list1[i].addEventListener("click",function(){
                             $("#ai_result_table > tbody").empty();
