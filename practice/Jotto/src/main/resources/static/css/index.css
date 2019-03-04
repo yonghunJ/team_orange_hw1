@@ -80,7 +80,8 @@ html {
     margin: 0.5em;
     margin: 1px 1px;
     color: white;
-    text-align: center
+    text-align: center;
+    width:1.5em;
 }
 
 
@@ -486,3 +487,6 @@ body{
 .webflow-style-input input::-webkit-input-placeholder {
     color: #7881A1;
 }
+
+/*loader*/
+/*loader*/

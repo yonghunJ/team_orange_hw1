@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
     $("#login_btn").click(function(){
         var id = $("#login_id").val();
         var pw = $("#login_pw").val();

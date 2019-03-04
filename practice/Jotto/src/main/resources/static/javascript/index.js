@@ -1,3 +1,7 @@
+$(window).load(function() {
+    $('#loading').hide();
+});
+
 $(document).ready(function(){
     var isValid = false;
     var bb = $(".prev");
