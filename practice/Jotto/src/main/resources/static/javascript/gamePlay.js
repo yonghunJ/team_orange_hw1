@@ -63,6 +63,7 @@ $(document).ready(function(){
                         let user_guess_word = data.user_guess_word;
                         let ai_guess_count = data.ai_guess_count;
                         let ai_guess = data.ai_guess;
+                        let ai_color_array = data.ai_color_array.aiColorArray;
                         let user_game_ended = data.user_game_ended;
                         let ai_game_ended = data.ai_game_ended;
                         let game_round_number = data.game_round_number;
@@ -108,7 +109,15 @@ $(document).ready(function(){
 
                         user_submit.fadeIn("slow");
                         var ai_split = ai_guess.split("");
-                        let ui_guess = '<td><span>'+ai_split[0]+'</span><span>' +ai_split[1]+'</span><span>' +ai_split[2]+'</span><span>' +ai_split[3]+'</span><span>' +ai_split[4]+'</span></td>';
+                        let ui_guess = '<td>';
+                        for(let k=0;k<5;k++){
+                            if(ai_color_array[k] ==0){
+                                ui_guess+= '<span style="color:red">'+ai_split[k]+'</span>';
+                            }else{
+                                ui_guess+= '<span style="color:green">'+ai_split[k]+'</span>';
+                            }
+                        }
+                        ui_guess+= '</td>';
                         let ai_guess_corr = '<td>'+ai_guess_count+'</td></tr>'
 
                         let ai_submit = $(round + ui_guess + ai_guess_corr);
