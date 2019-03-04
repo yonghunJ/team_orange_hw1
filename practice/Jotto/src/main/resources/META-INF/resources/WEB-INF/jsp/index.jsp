@@ -68,7 +68,7 @@
 
         </div>
         <%-- User First Input--%>
-        <div style="background-color:green"> Page 2
+        <div style="background-color:green" class="even"> Page 2
             <div id="user_first_input_box">
                 <div class="webflow-style-input">
                     <input  id = "ai_answer"type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
@@ -79,20 +79,24 @@
             </div>
 
         </div>
-        <div style="background-color:purple"> Page 3wea</div>
+        <div style="background-color:purple" class="odd"> Page 3wea</div>
 
         <%-- Game Play --%>
-        <div class="">
+        <div class="even">
             <div>
                 <div class="demo" id="ai_plate">
                     <div class="container">
                         <div class="row">
+                            <div id="main_page_recall">
+                                <button id="main_page_recall_btn">sdf</button>
+                            </div>
                             <div class="col-md-3 col-sm-6" id="ai_screen">
                                 <div class="pricingTable">
                                     <div class="pricingTable-header">
+                                        <div id="who_is_winner_player"></div>
                                         <span class="price-icon"></span>
-                                        <span class="price-value">YY<span class="month">Player</span></span>
-                                        <h3 class="heading">Standard</h3>
+                                        <span class="price-value">Player<span class="month"></span></span>
+                                        <h3 class="heading" id="user_name">aas</h3>
                                     </div>
                                     <div class="pricingContent">
                                         <table id="player_table">
@@ -112,9 +116,8 @@
                     </div>
 
                 </div>
-                <button class="prev">prev</button>
+
                 <div id="invalid_word_check" style="color:red"></div>
-                <hr>
 
                 <div id="alphabet_buttons">
                     <button type="button" class=" raise ">A</button>
@@ -146,16 +149,17 @@
                 </div>
             </div>
         </div>
-        <div style="background-color:yellow">
+        <div style="background-color:yellow" class="odd">
             <div class="demo" id="player_plate">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3 col-sm-6 player_screen" id="">
                             <div class="pricingTable">
                                 <div class="pricingTable-header">
+                                    <div id="who_is_winner_ai"></div>
                                     <span class="price-icon"></span>
-                                    <span class="price-value">YY<span class="month">Player</span></span>
-                                    <h3 class="heading">Standard</h3>
+                                    <span class="price-value">AI<span class="month"></span></span>
+                                    <h3 class="heading" id="ai_name">AI</h3>
                                 </div>
                                 <div class="pricingContent">
                                     <table id ="ai_table">
@@ -171,23 +175,23 @@
 
             </div>
         </div>
-        <div style="background-color:green"> Page 4
+        <div style="background-color:green"class="even"> Page 4
             <div id="pastGameResult1" class="pastGameResult">
-                <button type="button" id="aaaaa">next page</button>
+                <button type="button" id="aaaaa">Main Page</button>
                 <ul>
                 </ul>
 
             </div>
         </div>
 
-        <div style="background-color:purple">page5
+        <div style="background-color:purple" class="odd">page5
             <div id="pastGameResult2" class="pastGameResult">
                 <ul>
                 </ul>
 
             </div>
         </div>
-        <div style="background-color:gray"> Page 6
+        <div style="background-color:gray"class="even"> Page 6
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-6 player_screen"  >
@@ -195,7 +199,8 @@
                             <div class="pricingTable-header">
                                 <span class="price-icon"></span>
                                 <span class="price-value">YY<span class="month">Player</span></span>
-                                <h3 class="heading">Standard</h3>
+                                <h3 class="heading" id="user_name_result">User</h3>
+                                <button class="prev">prev</button>
                             </div>
 
                             <div class="pricingContent">
@@ -211,16 +216,17 @@
                 </div>
             </div>
         </div>
-        <div>page7
+        <div class="odd">page7
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-6 player_screen"  >
                         <div class="pricingTable">
                             <div class="pricingTable-header">
                                 <span class="price-icon"></span>
-                                <span class="price-value">YY<span class="month">Player</span></span>
-                                <h3 class="heading">Standard</h3>
+                                <span class="price-value"><span class="month">Player</span></span>
+                                <h3 class="heading"  id="ai_name_result">AI</h3>
                             </div>
+
                             <div class="pricingContent">
                                 <table id ="ai_result_table">
                                     <tbody>
@@ -246,7 +252,7 @@
                 <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
                     <div class="modal-header text-center pb-4">
                         <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel">
-                            <strong>JOTTO GAME</strong><a class="green-text font-weight-bold"><strong>SIGN UP</strong></a>
+                            <strong class="green-text font-weight-bold">SIGN UP</strong>
                         </h3>
                         <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>

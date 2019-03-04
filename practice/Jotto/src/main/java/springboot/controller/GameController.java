@@ -84,8 +84,8 @@ public class GameController {
             } else {
                 response.put("user_game_ended",false);
                 response.put("ai_game_ended",true);
-                response.put("user_answer", this.gameManager.getUserWord());
-                response.put("ai_annwer", this.gameManager.getAiWord());
+                response.put("user_answer",this.gameManager.getUserWord());
+                response.put("ai_answer",this.gameManager.getAiWord());
                 sendData(session);
                 this.gameManager = null;
             }

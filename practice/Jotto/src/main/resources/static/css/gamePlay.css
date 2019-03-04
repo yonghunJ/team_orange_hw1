@@ -1,7 +1,25 @@
 /*make scroll to the table*/
+
+
+#main_page_recall_btn {
+    background-color:transparent;
+
+}
+
+
+#main_page_recall{
+    width:100%;
+    position:absolute;
+}
 #alpalphabet_buttons{
     position: absolute;
     top: 90%;
+}
+#who_is_winner_player{
+    text-align: right;
+}
+#who_is_winner_ai{
+    text-align: left;
 }
 #user_input{
     border: 0px solid white;

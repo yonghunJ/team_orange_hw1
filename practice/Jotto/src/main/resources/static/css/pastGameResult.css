@@ -2,3 +2,18 @@
     height: 90%;
     width: 90%;
 }
+#ai_result_table{
+    overflow-y:scroll;
+    height:400px;
+    display:block;
+}
+#player_result_table{
+    overflow-y:scroll;
+    height:400px;
+    display:block;
+}
+.pastGameResultList{
+    text-decoration: none;
+    color:black;
+    cursor:pointer;
+}

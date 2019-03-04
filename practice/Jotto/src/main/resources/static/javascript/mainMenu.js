@@ -5,7 +5,21 @@ $(document).ready(function() {
         console.log(pageNum);
         $("#flipbook").turn("page", pageNum+1);
         $("#user_input").removeAttr("disabled");
+
+        $("#user_name").text("User");
+        $("#ai_name").text("AI");
+        $("#who_is_winner_player").text("");
+        $("#who_is_winner_ai").text("");
     }
+
+    $("#ai_answer").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $("#first_input_btn").click();
+            $("#ai_answer").val("");
+        }
+    });
+
+
     $("#main_menu").hide();
 
     $("#game_play").on("click", gameplayFunction);
@@ -14,8 +28,10 @@ $(document).ready(function() {
         if (page==1) {
             $("#flipbook").turn("disable", true);
             $("#past_result").on("click", pastGameResultFunction);
+            $("#game_play").on("click", gameplayFunction);
         }
     });
+    
     function pastGameResultFunction() {
         console.log("past_result clicked");
         $("#flipbook").turn("disable", false);
@@ -47,16 +63,16 @@ $(document).ready(function() {
             url: "/pastGameResult",
             success : function(data) {
                 if(data.length<20){
-                    for(let i=0;i<data.length;i++){
-                        $("#pastGameResult1 > ul").append('<li>'+data[i]+'</li>');
-                    }
-                }else{
-                    for(let i=0;i<20;i++){
-                        $("#pastGameResult1 > ul").append('<li>'+data[i]+'</li>');
-                    }
-                    for(let j=0;j<data.length-20;j++){
-                        $("#pastGameResult2 > ul").append('<tli>'+data[i]+'</tli>');
-                    }
+                        for(let i=0;i<data.length;i++){
+                            $("#pastGameResult1 > ul").append('<li><a class="pastGameResultList">'+data[i]+'</a></li>');
+                        }
+                    }else{
+                        for(let i=0;i<20;i++){
+                            $("#pastGameResult1 > ul").append('<li><a class="pastGameResultList">'+data[i]+'</a></li>');
+                        }
+                        for(let j=0;j<data.length-20;j++){
+                            $("#pastGameResult2 > ul").append('<tli><a class="pastGameResultList">'+data[i]+'</a></tli>');
+                        }
                 }
 
 

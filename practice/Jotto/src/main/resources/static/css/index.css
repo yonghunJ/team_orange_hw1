@@ -105,8 +105,11 @@ body{
     /*background-image: linear-gradient(to left, #f5d020 0%, #f53803 74%);*/
     /*background-color: #f5df2e;*/
     /*!*background-image: linear-gradient(to left, #f5df2e 0%, #f07654 74%);*!222222*/
-    background-color: #fffcf9;
-    background-image: linear-gradient(30deg, #fffcf9 0%, #ffd166 74%);
+    /*background-color: #fffcf9;*/
+    /*background-image: linear-gradient(30deg, #fffcf9 0%, #ffd166 74%);*/
+    background-color: #f06543;
+    background-image: linear-gradient(315deg, #f06543 0%, #ffbe3d 74%);
+
     /* color: wheat; */
     /* text-align: center; */
     /* height: 100%; */
