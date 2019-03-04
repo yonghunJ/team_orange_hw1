@@ -1,4 +1,13 @@
 $(document).ready(function(){
+
+
+    $("#userGuess").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $("#user_input").click();
+        }
+    });
+
+
     let al_button = document.getElementsByClassName("raise");
 
     for(let i=0; i<al_button.length ; i++){
