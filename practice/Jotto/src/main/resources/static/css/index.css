@@ -1,3 +1,65 @@
+#gameTitle{
+    position: absolute;
+    top: 15%;
+    left: 45%;
+    font-size: 60px;
+}
+#game_play{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fe6d6d;
+    border-radius: 0;
+    position: absolute;
+    top: 20%;
+    left: 45%;
+
+}
+#past_result{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fe6d6d;
+    border-radius: 0;
+    position: absolute;
+    top: 70%;
+    left: 40%;
+
+}
+#past_result:hover{ color: #fe6d6d; }
+#past_result:after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fe6d6d;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.2s ease 0s, height 0.2s ease 0.1s, border-top-width 0.1s ease 0.2s, margin 0.2s ease 0s;
+}
+#past_result:hover:after{
+    width: 60%;
+    height: 0;
+    border-width: 0 2px 2px;
+    margin: 0 20%;
+    transition: width 0.2s ease 0.2s, height 0.2s ease 0.1s, border-top-width 0.1s ease 0s, margin 0.2s ease 0.2s;
+}
+#game_play:hover{ color: #fe6d6d; }
+#game_play:after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fe6d6d;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.2s ease 0s, height 0.2s ease 0.1s, border-top-width 0.1s ease 0.2s, margin 0.2s ease 0s;
+}
+#game_play:hover:after{
+    width: 60%;
+    height: 0;
+    border-width: 0 2px 2px;
+    margin: 0 20%;
+    transition: width 0.2s ease 0.2s, height 0.2s ease 0.1s, border-top-width 0.1s ease 0s, margin 0.2s ease 0.2s;
+}
 @font-face {
     font-family: "whatever it takes";
     src: url("fonts/whatever it takes bold.ttf") format("truetype");
@@ -18,7 +80,8 @@ html {
     margin: 0.5em;
     margin: 1px 1px;
     color: white;
-    text-align: center
+    text-align: center;
+    width:1.5em;
 }
 
 
@@ -141,28 +204,28 @@ body{
     background-color: #ed184f!important;
     background-image: linear-gradient(90deg, #fd5581, #fd8b55);
 }
-#game_play{
-    height:60px;
-    width:60px;
-    position:absolute;
-    top:25%;
-    left:50%;
-    text-align:center;
-    margin:-30px 0 0 -30px;
-    border-radius:100px;
-    z-index:1
-}
-#past_result{
-    height:60px;
-    width:60px;
-    position:absolute;
-    top:75%;
-    left:50%;
-    text-align:center;
-    margin:-30px 0 0 -30px;
-    border-radius:100px;
-    z-index:1
-}
+/*#game_play{*/
+    /*height:60px;*/
+    /*width:60px;*/
+    /*position:absolute;*/
+    /*top:25%;*/
+    /*left:50%;*/
+    /*text-align:center;*/
+    /*margin:-30px 0 0 -30px;*/
+    /*border-radius:100px;*/
+    /*z-index:1*/
+/*}*/
+/*#past_result{*/
+    /*height:60px;*/
+    /*width:60px;*/
+    /*position:absolute;*/
+    /*top:75%;*/
+    /*left:50%;*/
+    /*text-align:center;*/
+    /*margin:-30px 0 0 -30px;*/
+    /*border-radius:100px;*/
+    /*z-index:1*/
+/*}*/
 .intro-banner-vdo-play-btn i{
     line-height:56px;
     font-size:30px
@@ -434,3 +497,5 @@ body{
 #instruction {
     margin: 10%;
 }
+/*loader*/
+/*loader*/

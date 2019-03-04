@@ -7,10 +7,26 @@
     height:400px;
     display:block;
 }
+#ai_result_table tbody{
+    width: 100%;
+    display: table;
+}
+#ai_result_table thead{
+    width: 100%;
+    display: table;
+}
 #player_result_table{
     overflow-y:scroll;
     height:400px;
     display:block;
+}
+#player_result_table tbody{
+    width: 100%;
+    display: table;
+}
+#player_result_table thead{
+    width: 100%;
+    display: table;
 }
 .pastGameResultList{
     text-decoration: none;

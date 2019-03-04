@@ -3,8 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en" dir="ltr" style="height:100%">
 <head>
+
     <meta charset="utf-8">
-    <title>11</title>
+    <title>Jotto</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -33,12 +34,17 @@
 
 </head>
 <body>
+
 <div id="canvas">
 
     <div id="flipbook" style="background-color:transparent">
         <%--Book Cover--%>
         <div class="">
+            <div id="gameTitle">
 
+                <div>Jotto</div>
+                <div>Game</div>
+            </div>
             <div id="login_form" stlye="position:absolute; top 100px;right:0px;">
                 <input type="text" id="login_id" name="login_id" placeholder="User Name" class="input_login">
                 <input type="password" id="login_pw"  name="login_pw" class="input_login" placeholder="Password">
@@ -53,17 +59,14 @@
 
             </div>
             <div id="main_menu">
-                <a id="game_play" class="intro-banner-vdo-play-btn pinkBg" target="_blank">
-                    <span class="ripple pinkBg"></span>
-                    <span class="ripple pinkBg"></span>
-                    <span class="ripple pinkBg"></span>
-                </a>
+                <%--<a id="game_play" class="intro-banner-vdo-play-btn pinkBg" target="_blank">--%>
+
+                <%--</a>--%>
+                <a href="#" id ="game_play" class="btn">Game Play</a>
                 <hr>
-                <a id="past_result" class="intro-banner-vdo-play-btn pinkBg" target="_blank">
-                    <span class="ripple pinkBg"></span>
-                    <span class="ripple pinkBg"></span>
-                    <span class="ripple pinkBg"></span>
-                </a>
+                <%--<a id="past_result" class="intro-banner-vdo-play-btn pinkBg" target="_blank">--%>
+                    <a href="#" id ="past_result" class="btn">Past Game Result</a>
+                <%--</a>--%>
             </div>
 
         </div>
@@ -109,6 +112,9 @@
                                     </div>
                                     <div class="pricingContent">
                                         <table id="player_table">
+                                            <thead>
+                                                <td>Round</td><td>Guess</td><td>Count</td>
+                                            </thead>
                                             <tbody>
                                             </tbody>
                                         </table>
@@ -129,32 +135,36 @@
                 <div id="invalid_word_check" style="color:red"></div>
 
                 <div id="alphabet_buttons">
-                    <button type="button" class=" raise ">A</button>
-                    <button type="button" class="raise  ">B</button>
-                    <button type="button" class="raise  ">C</button>
-                    <button type="button" class="raise  ">D</button>
-                    <button type="button" class="raise  ">E</button>
-                    <button type="button" class="raise  ">F</button>
-                    <button type="button" class="raise  ">G</button>
-                    <button type="button" class="raise  ">H</button>
-                    <button type="button" class="raise  ">I</button>
-                    <button type="button" class="raise  ">J</button>
-                    <button type="button" class="raise  ">K</button>
-                    <button type="button" class="raise  ">L</button>
-                    <button type="button" class="raise  ">M</button>
-                    <button type="button" class="raise  ">N</button>
-                    <button type="button" class="raise  ">O</button>
-                    <button type="button" class="raise  ">P</button>
-                    <button type="button" class="raise  ">Q</button>
-                    <button type="button" class="raise  ">R</button>
-                    <button type="button" class="raise  ">S</button>
-                    <button type="button" class="raise  ">T</button>
-                    <button type="button" class="raise  ">U</button>
-                    <button type="button" class="raise  ">V</button>
-                    <button type="button" class="raise  ">W</button>
-                    <button type="button" class="raise  ">X</button>
-                    <button type="button" class="raise  ">Y</button>
-                    <button type="button" class="raise  ">Z</button>
+                    <div>
+                        <button type="button" class=" raise ">A</button>
+                        <button type="button" class="raise  ">B</button>
+                        <button type="button" class="raise  ">C</button>
+                        <button type="button" class="raise  ">D</button>
+                        <button type="button" class="raise  ">E</button>
+                        <button type="button" class="raise  ">F</button>
+                        <button type="button" class="raise  ">G</button>
+                        <button type="button" class="raise  ">H</button>
+                        <button type="button" class="raise  ">I</button>
+                        <button type="button" class="raise  ">J</button>
+                        <button type="button" class="raise  ">K</button>
+                        <button type="button" class="raise  ">L</button>
+                        <button type="button" class="raise  ">M</button>
+                    </div>
+                    <div>
+                        <button type="button" class="raise  ">N</button>
+                        <button type="button" class="raise  ">O</button>
+                        <button type="button" class="raise  ">P</button>
+                        <button type="button" class="raise  ">Q</button>
+                        <button type="button" class="raise  ">R</button>
+                        <button type="button" class="raise  ">S</button>
+                        <button type="button" class="raise  ">T</button>
+                        <button type="button" class="raise  ">U</button>
+                        <button type="button" class="raise  ">V</button>
+                        <button type="button" class="raise  ">W</button>
+                        <button type="button" class="raise  ">X</button>
+                        <button type="button" class="raise  ">Y</button>
+                        <button type="button" class="raise  ">Z</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -172,6 +182,9 @@
                                 </div>
                                 <div class="pricingContent">
                                     <table id ="ai_table">
+                                        <thead>
+                                            <td>Round</td><td>Guess</td><td>Count</td>
+                                        </thead>
                                         <tbody>
                                         </tbody>
                                     </table>
@@ -206,14 +219,16 @@
                     <div class="col-md-3 col-sm-6 player_screen"  >
                         <div class="pricingTable">
                             <div class="pricingTable-header">
-                                <span class="price-icon"></span>
+                                <span class="price-icon" id="player_pastgameresult_logo"></span>
                                 <span class="price-value">YY<span class="month">Player</span></span>
                                 <h3 class="heading" id="user_name_result">User</h3>
-                                <button class="prev">prev</button>
                             </div>
 
                             <div class="pricingContent">
                                 <table id ="player_result_table">
+                                    <thead>
+                                        <td>Round</td><td>Guess</td><td>Count</td>
+                                    </thead>
                                     <tbody>
 
                                     </tbody>
@@ -231,13 +246,16 @@
                     <div class="col-md-3 col-sm-6 player_screen"  >
                         <div class="pricingTable">
                             <div class="pricingTable-header">
-                                <span class="price-icon"></span>
+                                <span class="price-icon" id="AI_pastgameresult_logo"></span>
                                 <span class="price-value"><span class="month">Player</span></span>
                                 <h3 class="heading"  id="ai_name_result">AI</h3>
                             </div>
 
                             <div class="pricingContent">
                                 <table id ="ai_result_table">
+                                    <thead>
+                                        <td>Round</td><td>Guess</td><td>Count</td>
+                                    </thead>
                                     <tbody>
                                     </tbody>
                                 </table>
@@ -310,6 +328,7 @@
     // })
     $("#flipbook").turn("size", 1200, 700);
     // $("#flipbook").turn("center");
+
 
 </script>
 
