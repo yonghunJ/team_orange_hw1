@@ -66,9 +66,10 @@ $(document).ready(function(){
                         let ai_guess = data.ai_guess;
                         let user_game_ended = data.user_game_ended;
                         let ai_game_ended = data.ai_game_ended;
+                        let game_round_number = data.game_round_number;
 
                         let usr_split = user_guess_word.split("");
-                        let round = '<tr><td>'+'round'+'</td>';
+                        let round = '<tr><td>Round '+game_round_number+'</td>';
                         let user_guess = '<td><span>'+usr_split[0]+'</span><span>' +usr_split[1]+'</span><span>' +usr_split[2]+'</span><span>' +usr_split[3]+'</span><span>' +usr_split[4]+'</span></td>';
                         let user_guess_corr = '<td>'+user_guess_count+'</td></tr>'
 

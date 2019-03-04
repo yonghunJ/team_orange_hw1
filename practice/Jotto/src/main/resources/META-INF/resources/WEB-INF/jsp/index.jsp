@@ -252,7 +252,7 @@
                 <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
                     <div class="modal-header text-center pb-4">
                         <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel">
-                            <strong>JOTTO GAME</strong><a class="green-text font-weight-bold"><strong>SIGN UP</strong></a>
+                            <strong class="green-text font-weight-bold">SIGN UP</strong>
                         </h3>
                         <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>

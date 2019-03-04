@@ -3,12 +3,14 @@
     width: 90%;
 }
 #ai_result_table{
-    overflow:auto;
-    height:300px
+    overflow-y:scroll;
+    height:400px;
+    display:block;
 }
 #player_result_table{
-    overflow:auto;
-    height:300px;
+    overflow-y:scroll;
+    height:400px;
+    display:block;
 }
 .pastGameResultList{
     text-decoration: none;

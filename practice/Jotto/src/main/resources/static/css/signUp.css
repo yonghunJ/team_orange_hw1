@@ -1,6 +1,6 @@
-/* .card-image{
-  background-image: url("./sign_up.jpg");
-} */
+ .card-image{
+  background-image: url("/image/signUp.jpg");
+}
 .md-form label{
     font-size: 10px;
     color: #fff;

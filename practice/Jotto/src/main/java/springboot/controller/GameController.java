@@ -70,17 +70,22 @@ public class GameController {
             response.put("ai_guess_count",aiGuessCount);
             response.put("ai_guess",aiGuess);
             response.put("game_round_number", gameRoundCount);
+            response.put("ai_color_array",this.gameManager.getGameRoundList().get(gameRoundCount-1));
             if (roundResult == 0) {
                 response.put("user_game_ended",false);
                 response.put("ai_game_ended",false);
             } else if (roundResult == 1) {
                 response.put("user_game_ended",true);
                 response.put("ai_game_ended",false);
+                response.put("user_answer",this.gameManager.getUserWord());
+                response.put("ai_answer",this.gameManager.getAiWord());
                 sendData(session);
                 this.gameManager = null;
             } else {
                 response.put("user_game_ended",false);
                 response.put("ai_game_ended",true);
+                response.put("user_answer",this.gameManager.getUserWord());
+                response.put("ai_answer",this.gameManager.getAiWord());
                 sendData(session);
                 this.gameManager = null;
             }
