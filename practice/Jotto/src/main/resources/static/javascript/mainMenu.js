@@ -32,14 +32,14 @@ $(document).ready(function() {
             success : function(data) {
                 if(data.length<20){
                         for(let i=0;i<data.length;i++){
-                            $("#pastGameResult1 > ul").append('<li>'+data[i]+'</li>');
+                            $("#pastGameResult1 > ul").append('<li><a class="pastGameResultList">'+data[i]+'</a></li>');
                         }
                     }else{
                         for(let i=0;i<20;i++){
-                            $("#pastGameResult1 > ul").append('<li>'+data[i]+'</li>');
+                            $("#pastGameResult1 > ul").append('<li><a class="pastGameResultList">'+data[i]+'</a></li>');
                         }
                         for(let j=0;j<data.length-20;j++){
-                            $("#pastGameResult2 > ul").append('<tli>'+data[i]+'</tli>');
+                            $("#pastGameResult2 > ul").append('<tli><a class="pastGameResultList">'+data[i]+'</a></tli>');
                         }
                 }
 

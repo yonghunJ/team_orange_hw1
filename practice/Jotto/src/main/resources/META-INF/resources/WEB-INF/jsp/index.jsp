@@ -68,7 +68,7 @@
 
         </div>
         <%-- User First Input--%>
-        <div style="background-color:green"> Page 2
+        <div style="background-color:green" class="even"> Page 2
             <div id="user_first_input_box">
                 <div class="webflow-style-input">
                     <input  id = "ai_answer"type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
@@ -79,10 +79,10 @@
             </div>
 
         </div>
-        <div style="background-color:purple"> Page 3wea</div>
+        <div style="background-color:purple" class="odd"> Page 3wea</div>
 
         <%-- Game Play --%>
-        <div class="">
+        <div class="even">
             <div>
                 <div class="demo" id="ai_plate">
                     <div class="container">
@@ -146,7 +146,7 @@
                 </div>
             </div>
         </div>
-        <div style="background-color:yellow">
+        <div style="background-color:yellow" class="odd">
             <div class="demo" id="player_plate">
                 <div class="container">
                     <div class="row">
@@ -171,7 +171,7 @@
 
             </div>
         </div>
-        <div style="background-color:green"> Page 4
+        <div style="background-color:green"class="even"> Page 4
             <div id="pastGameResult1" class="pastGameResult">
                 <button type="button" id="aaaaa">next page</button>
                 <ul>
@@ -180,14 +180,14 @@
             </div>
         </div>
 
-        <div style="background-color:purple">page5
+        <div style="background-color:purple" class="odd">page5
             <div id="pastGameResult2" class="pastGameResult">
                 <ul>
                 </ul>
 
             </div>
         </div>
-        <div style="background-color:gray"> Page 6
+        <div style="background-color:gray"class="even"> Page 6
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-6 player_screen"  >
@@ -196,6 +196,7 @@
                                 <span class="price-icon"></span>
                                 <span class="price-value">YY<span class="month">Player</span></span>
                                 <h3 class="heading">Standard</h3>
+                                <button class="prev">prev</button>
                             </div>
 
                             <div class="pricingContent">
@@ -211,7 +212,7 @@
                 </div>
             </div>
         </div>
-        <div>page7
+        <div class="odd">page7
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-6 player_screen"  >
@@ -221,6 +222,7 @@
                                 <span class="price-value">YY<span class="month">Player</span></span>
                                 <h3 class="heading">Standard</h3>
                             </div>
+
                             <div class="pricingContent">
                                 <table id ="ai_result_table">
                                     <tbody>
