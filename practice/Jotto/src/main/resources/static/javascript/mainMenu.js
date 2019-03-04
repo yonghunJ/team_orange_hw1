@@ -1,16 +1,32 @@
 $(document).ready(function() {
-
-    $("#main_menu").hide();
-
-    $("#game_play").click(function(){
+    function gameplayFunction() {
         console.log("game play clicked");
         var pageNum = $("#flipbook").turn("page");
         console.log(pageNum);
         $("#flipbook").turn("page", pageNum+1);
         $("#user_input").removeAttr("disabled");
+    }
+    $("#main_menu").hide();
+
+    $("#game_play").on("click", gameplayFunction);
+
+    $("#flipbook").bind("turned", function(event, page, view) {
+        if (page==1) {
+            $("#flipbook").turn("disable", true);
+            $("#past_result").on("click", pastGameResultFunction);
+        }
     });
-    $("#past_result").click(function(){
+    function pastGameResultFunction() {
         console.log("past_result clicked");
+        $("#flipbook").turn("disable", false);
+        $("#flipbook").bind("turned", function(event, page, view) {
+            if (page==5) {
+                var pageNum = $("#flipbook").turn("page");
+                $("#flipbook").turn("page", pageNum-4);
+                $("#game_play").on("click", gameplayFunction);
+            }
+        });
+
         var pageNum = $("#flipbook").turn("page");
         console.log(pageNum);
         $("#flipbook").turn("page", pageNum+1);
@@ -31,16 +47,16 @@ $(document).ready(function() {
             url: "/pastGameResult",
             success : function(data) {
                 if(data.length<20){
-                        for(let i=0;i<data.length;i++){
-                            $("#pastGameResult1 > ul").append('<li>'+data[i]+'</li>');
-                        }
-                    }else{
-                        for(let i=0;i<20;i++){
-                            $("#pastGameResult1 > ul").append('<li>'+data[i]+'</li>');
-                        }
-                        for(let j=0;j<data.length-20;j++){
-                            $("#pastGameResult2 > ul").append('<tli>'+data[i]+'</tli>');
-                        }
+                    for(let i=0;i<data.length;i++){
+                        $("#pastGameResult1 > ul").append('<li>'+data[i]+'</li>');
+                    }
+                }else{
+                    for(let i=0;i<20;i++){
+                        $("#pastGameResult1 > ul").append('<li>'+data[i]+'</li>');
+                    }
+                    for(let j=0;j<data.length-20;j++){
+                        $("#pastGameResult2 > ul").append('<tli>'+data[i]+'</tli>');
+                    }
                 }
 
 
@@ -250,9 +266,11 @@ $(document).ready(function() {
                 console.log('Fail!');
             }
         });
+    }
+
+    $("#past_result").on("click", pastGameResultFunction);
 
 
 
 
-    });
 });
