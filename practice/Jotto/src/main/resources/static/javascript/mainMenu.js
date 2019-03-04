@@ -16,10 +16,10 @@ $(document).ready(function() {
         $("#flipbook").turn("page", pageNum+1);
         setTimeout(function () {
             $("#flipbook").turn("page", pageNum+3);
-        }, 1000);
+        }, 500);
         setTimeout(function () {
             $("#flipbook").turn("page", pageNum+5);
-        }, 2000);
+        }, 1000);
 
 
 
