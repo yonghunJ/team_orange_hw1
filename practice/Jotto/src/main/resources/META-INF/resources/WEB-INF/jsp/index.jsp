@@ -84,11 +84,11 @@
         </div>
         <div style="background-color:purple" class="odd">
             <div id="instruction">
-                <p class="instruction_p">Choose a one 5 letters word. It shuld have no repeating letters.</p>
-                <p class="instruction_p">The computer will also choose 5 letters word with no repeating letters.</p>
-                <p class="instruction_p">Each round, you guess the computer's word. Then we will show the number of matching letters in your guess word and computer's word.</p>
-                <p class="instruction_p">You can color an alphabet to mark it is in the computer's word.</p>
-                <p class="instruction_p">If you figure out what the computer word is before computer, you win.</p>
+                <p class="instruction_p">Choose a one 5 letter word. It should have no repeating letters.</p>
+                <p class="instruction_p">The computer will also choose one 5 letter word with no repeating letters.</p>
+                <p class="instruction_p">Each round, you guess the computer's created word. Then we will show the number of matching letters in your guessed word and the computer's word.</p>
+                <p class="instruction_p">You can color the alphabet to mark if it is in the computer's word.</p>
+                <p class="instruction_p">If you figure out what the computer's word is before the computer does, you win.</p>
                 <p class="instruction_p">Good luck!</p>
             </div>
         </div>
