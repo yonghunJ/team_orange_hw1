@@ -200,7 +200,6 @@
                                 <span class="price-icon"></span>
                                 <span class="price-value">YY<span class="month">Player</span></span>
                                 <h3 class="heading" id="user_name_result">User</h3>
-                                <button class="prev">prev</button>
                             </div>
 
                             <div class="pricingContent">
