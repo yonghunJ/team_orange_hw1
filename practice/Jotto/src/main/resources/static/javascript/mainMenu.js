@@ -142,11 +142,12 @@ $(document).ready(function() {
                                         let num_round = m+1
                                         let round = '<tr><td  style="width:33%">R'+num_round+'</td>';
                                         let userGuess ="<td style='width:33%'>";
+                                        console.log(data.rounds[m].userColorArray);
                                         for(let k=0;k<data.rounds[m].userColorArray.length;k++){
                                             if(data.rounds[m].userColorArray[k] ==0){
                                                 userGuess+='<span style="color:red;display:inline!important">' +res[k]+'</span>'
                                             }else{
-                                                userGuess+='<span style="color:red;display:inline!important">' +res[k]+'</span>'
+                                                userGuess+='<span style="color:green;display:inline!important">' +res[k]+'</span>'
                                             }
                                         }
                                         userGuess +="</td>";
@@ -220,7 +221,7 @@ $(document).ready(function() {
                                             if(data.rounds[m].userColorArray[k] ==0){
                                                 userGuess+='<span style="color:red;display:inline!important">' +res[k]+'</span>'
                                             }else{
-                                                userGuess+='<span style="color:red;display:inline!important">' +res[k]+'</span>'
+                                                userGuess+='<span style="color:green;display:inline!important">' +res[k]+'</span>'
                                             }
                                         }
                                         userGuess +="</td>";
@@ -291,7 +292,7 @@ $(document).ready(function() {
                                             if(data.rounds[m].userColorArray[k] ==0){
                                                 userGuess+='<span style="color:red;display:inline!important">' +res[k]+'</span>'
                                             }else{
-                                                userGuess+='<span style="color:red;display:inline!important">' +res[k]+'</span>'
+                                                userGuess+='<span style="color:green;display:inline!important">' +res[k]+'</span>'
                                             }
                                         }
                                         userGuess +="</td>";

@@ -76,12 +76,11 @@ public class GameManager {
         int guessCount;
         this.userGuessCount = 0;
         this.aiGuessCount = 0;
-        this.userColorArray = new int[5];
-        this.aiColorArray = new int[5];
 
         // flag 0 = user; flag 1 = ai
 
         if (!flag) { // For user guess
+            this.userColorArray = new int[5];
             for (int i = 0; i < 5; i++) {
                 if (this.aiWord.contains(Character.toString(this.userGuess.charAt(i)))) {
                     userColorArray[i] = 1;
@@ -93,6 +92,7 @@ public class GameManager {
             guessCount = this.userGuessCount;
         }
         else { // For AI guess
+            this.aiColorArray = new int[5];
             this.aiGuess = jottoManager.chooseAiGuess(userWord);
 
             for (int i = 0; i < 5; i++) {
