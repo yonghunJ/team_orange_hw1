@@ -1,5 +1,17 @@
 $(document).ready(function() {
+    // var a = '<%=(String) session.getAttribute("user");%>';
+        // if(a ==null){
+        //     $("#main_menu").hide();
+        // }else{
+        //     console.log(a)
+        //     $("#main_menu").show();
+        // }
+        // $("#logout").click(function(){
+        //     a=null
+        // })
+    $("#main_menu").hide();
     function gameplayFunction() {
+        $("ai_answer").val("");
         console.log("game play clicked");
         var pageNum = $("#flipbook").turn("page");
         console.log(pageNum);
@@ -19,7 +31,6 @@ $(document).ready(function() {
         }
     });
 
-    $("#main_menu").hide();
 
     $("body").on("click", "#game_play",gameplayFunction);
 
