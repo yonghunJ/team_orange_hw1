@@ -1,3 +1,9 @@
+#gameTitle{
+    position: absolute;
+    top: 15%;
+    left: 45%;
+    font-size: 60px;
+}
 #game_play{
     text-transform: uppercase;
     letter-spacing: 1px;

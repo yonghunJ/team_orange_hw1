@@ -18,6 +18,7 @@ $(document).ready(function(){
             success : function(data) {
                 if(data==0){
                     $("#login_form").hide();
+                    $("#gameTitle").hide();
                     $("#main_menu").show();
                 }else {
                     $("#login_warning").text('ID or Password is wrong');

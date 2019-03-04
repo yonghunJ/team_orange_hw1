@@ -38,7 +38,11 @@
     <div id="flipbook" style="background-color:transparent">
         <%--Book Cover--%>
         <div class="">
+            <div id="gameTitle">
 
+                <div>Jotto</div>
+                <div>Game</div>
+            </div>
             <div id="login_form" stlye="position:absolute; top 100px;right:0px;">
                 <input type="text" id="login_id" name="login_id" placeholder="User Name" class="input_login">
                 <input type="password" id="login_pw"  name="login_pw" class="input_login" placeholder="Password">
