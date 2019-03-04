@@ -422,6 +422,7 @@ body{
 }
 #ai_screen{
     margin-left:100px;
+    width: 35%;
 }
 
 #player_table tbody tr td{
@@ -500,10 +501,10 @@ body{
 /*loader*/
 /*loader*/
 #div-left{
-    width: 63%;
+    margin-left: 40px;
     float: left;
 }
 #div-right{
-    width: 37%;
+    margin-left: 10px;
     float: left;
 }

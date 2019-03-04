@@ -47,6 +47,7 @@ public class GameController {
         if (this.gameManager.getJottoManager().getDict().isValidWord(upperString) && checkLetters(upperString)) {
             this.gameManager.setUserWord(upperString);
             this.gameManager.setAiWord();
+            System.out.println(this.gameManager.getAiWord());
             gameRoundCount = 0;
             return 0;
         } else{
