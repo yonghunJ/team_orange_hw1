@@ -222,7 +222,7 @@
                         <div class="pricingTable">
                             <div class="pricingTable-header">
                                 <span class="price-icon" id="player_pastgameresult_logo"></span>
-                                <span class="price-value">YY<span class="month">Player</span></span>
+                                <span class="price-value"><span class="month">Player</span></span>
                                 <h3 class="heading" id="user_name_result">User</h3>
                             </div>
 
@@ -249,7 +249,7 @@
                         <div class="pricingTable">
                             <div class="pricingTable-header">
                                 <span class="price-icon" id="AI_pastgameresult_logo"></span>
-                                <span class="price-value"><span class="month">Player</span></span>
+                                <span class="price-value"><span class="month">Computer</span></span>
                                 <h3 class="heading"  id="ai_name_result">AI</h3>
                             </div>
 
