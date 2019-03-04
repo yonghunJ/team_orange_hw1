@@ -53,17 +53,14 @@
 
             </div>
             <div id="main_menu">
-                <a id="game_play" class="intro-banner-vdo-play-btn pinkBg" target="_blank">
-                    <span class="ripple pinkBg"></span>
-                    <span class="ripple pinkBg"></span>
-                    <span class="ripple pinkBg"></span>
-                </a>
+                <%--<a id="game_play" class="intro-banner-vdo-play-btn pinkBg" target="_blank">--%>
+
+                <%--</a>--%>
+                <a href="#" id ="game_play" class="btn">Game Play</a>
                 <hr>
-                <a id="past_result" class="intro-banner-vdo-play-btn pinkBg" target="_blank">
-                    <span class="ripple pinkBg"></span>
-                    <span class="ripple pinkBg"></span>
-                    <span class="ripple pinkBg"></span>
-                </a>
+                <%--<a id="past_result" class="intro-banner-vdo-play-btn pinkBg" target="_blank">--%>
+                    <a href="#" id ="past_result" class="btn">Past Game Result</a>
+                <%--</a>--%>
             </div>
 
         </div>
@@ -100,6 +97,9 @@
                                     </div>
                                     <div class="pricingContent">
                                         <table id="player_table">
+                                            <thead>
+                                                <td>Round</td><td>Guess</td><td>Count</td>
+                                            </thead>
                                             <tbody>
                                             </tbody>
                                         </table>
@@ -163,6 +163,9 @@
                                 </div>
                                 <div class="pricingContent">
                                     <table id ="ai_table">
+                                        <thead>
+                                            <td>Round</td><td>Guess</td><td>Count</td>
+                                        </thead>
                                         <tbody>
                                         </tbody>
                                     </table>
@@ -197,13 +200,16 @@
                     <div class="col-md-3 col-sm-6 player_screen"  >
                         <div class="pricingTable">
                             <div class="pricingTable-header">
-                                <span class="price-icon"></span>
+                                <span class="price-icon" id="player_pastgameresult_logo"></span>
                                 <span class="price-value">YY<span class="month">Player</span></span>
                                 <h3 class="heading" id="user_name_result">User</h3>
                             </div>
 
                             <div class="pricingContent">
                                 <table id ="player_result_table">
+                                    <thead>
+                                        <td>Round</td><td>Guess</td><td>Count</td>
+                                    </thead>
                                     <tbody>
 
                                     </tbody>
@@ -221,13 +227,16 @@
                     <div class="col-md-3 col-sm-6 player_screen"  >
                         <div class="pricingTable">
                             <div class="pricingTable-header">
-                                <span class="price-icon"></span>
+                                <span class="price-icon" id="AI_pastgameresult_logo"></span>
                                 <span class="price-value"><span class="month">Player</span></span>
                                 <h3 class="heading"  id="ai_name_result">AI</h3>
                             </div>
 
                             <div class="pricingContent">
                                 <table id ="ai_result_table">
+                                    <thead>
+                                        <td>Round</td><td>Guess</td><td>Count</td>
+                                    </thead>
                                     <tbody>
                                     </tbody>
                                 </table>
