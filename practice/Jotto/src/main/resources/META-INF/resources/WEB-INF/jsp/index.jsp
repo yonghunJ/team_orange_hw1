@@ -71,7 +71,7 @@
 
         </div>
         <%-- User First Input--%>
-        <div style="background-color:green" class="even"> Page 2
+        <div style="background-color:green" class="even">
             <div id="user_first_input_box">
                 <h1 id="welcome">Welcome to Jotto Game</h1>
                 <div class="webflow-style-input">
@@ -82,7 +82,7 @@
                 </div>
             </div>
         </div>
-        <div style="background-color:purple" class="odd"> Page 3wea
+        <div style="background-color:purple" class="odd">
             <div id="instruction">
                 <p class="instruction_p">Choose a one 5 letters word. It shuld have no repeating letters.</p>
                 <p class="instruction_p">The computer will also choose 5 letters word with no repeating letters.</p>
@@ -100,7 +100,7 @@
                     <div class="container">
                         <div class="row">
                             <div id="main_page_recall">
-                                <button id="main_page_recall_btn">sdf</button>
+                                <button id="main_page_recall_btn"><img src="/image/home.svg" height="25" width="25"></button>
                             </div>
                             <div class="col-md-3 col-sm-6" id="ai_screen">
                                 <div class="pricingTable">
@@ -199,7 +199,7 @@
 
             </div>
         </div>
-        <div style="background-color:green"class="even"> Page 4
+        <div style="background-color:green"class="even">
             <div id="pastGameResult1" class="pastGameResult">
                 <button type="button" id="aaaaa">Main Page</button>
                 <ul>
@@ -208,14 +208,14 @@
             </div>
         </div>
 
-        <div style="background-color:purple" class="odd">page5
+        <div style="background-color:purple" class="odd">
             <div id="pastGameResult2" class="pastGameResult">
                 <ul>
                 </ul>
 
             </div>
         </div>
-        <div style="background-color:gray"class="even"> Page 6
+        <div style="background-color:gray"class="even">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-6 player_screen"  >
@@ -242,7 +242,7 @@
                 </div>
             </div>
         </div>
-        <div class="odd">page7
+        <div class="odd">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-6 player_screen"  >
