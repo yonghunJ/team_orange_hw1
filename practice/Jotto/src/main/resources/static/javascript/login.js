@@ -28,4 +28,12 @@ $(document).ready(function(){
             }
         });
     });
+
+    $("#login_pw").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $("#login_btn").click();
+        }
+    });
+
+
 });
