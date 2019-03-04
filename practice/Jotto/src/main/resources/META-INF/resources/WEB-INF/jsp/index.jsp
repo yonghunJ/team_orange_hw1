@@ -123,6 +123,7 @@
                                 <div class="webflow-style-input">
                                     <input id="userGuess" type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
                                     <button type="button" id = "user_input" class="yh_btn">Input</button>
+                                    <div id="invalid_word_check" style="color:red"></div>
 
                                 </div>
                             </div>
@@ -131,8 +132,7 @@
                     </div>
 
                 </div>
-
-                <div id="invalid_word_check" style="color:red"></div>
+                <hr>
 
                 <div id="alphabet_buttons">
                     <div>
