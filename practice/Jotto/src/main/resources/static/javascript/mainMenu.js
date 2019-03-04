@@ -62,6 +62,9 @@ $(document).ready(function() {
             url: "/pastGameResult",
             success : function(data) {
                 console.log(data)
+                $('#pastGameResult1 > ul').empty()
+                $('#pastGameResult2 > ul').empty()
+
                 if(data.length<17){
                         for(let i=0;i<data.length;i++){
                             $("#pastGameResult1 > ul").append('<li><a class="pastGameResultList">'+data[i]+'</a></li>');
@@ -134,7 +137,7 @@ $(document).ready(function() {
 
                                     }
 
-
+                                    console.log(data.rounds)
                                     for(let m=0;m<data.rounds.length;m++){
                                         var res = data.rounds[m].userGuess.split("");
 
@@ -145,8 +148,10 @@ $(document).ready(function() {
                                         console.log(data.rounds[m].userColorArray);
                                         for(let k=0;k<data.rounds[m].userColorArray.length;k++){
                                             if(data.rounds[m].userColorArray[k] ==0){
+                                                console.log("red")
                                                 userGuess+='<span style="color:red;display:inline!important">' +res[k]+'</span>'
                                             }else{
+                                                console.log("green")
                                                 userGuess+='<span style="color:green;display:inline!important">' +res[k]+'</span>'
                                             }
                                         }
@@ -198,7 +203,7 @@ $(document).ready(function() {
 
                                         ai_guess +="</td>";
                                         let corr ="<td style='width:33%'>";
-                                        corr += (data.rounds[m].userColorArray).filter(function (x) {
+                                        corr += (data.rounds[m].aiColorArray).filter(function (x) {
                                             return x ==1;
                                         }).length;
                                         corr +="</td></tr>"
@@ -226,7 +231,7 @@ $(document).ready(function() {
                                         }
                                         userGuess +="</td>";
                                         let corr ="<td  style='width:33%'>";
-                                        corr += (data.rounds[m].aiColorArray).filter(function (x) {
+                                        corr += (data.rounds[m].userColorArray).filter(function (x) {
                                             return x ==1;
                                         }).length;
                                         corr +="</td></tr>"

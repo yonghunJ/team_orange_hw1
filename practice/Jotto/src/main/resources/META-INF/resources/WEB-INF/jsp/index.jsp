@@ -201,7 +201,6 @@
         </div>
         <div style="background-color:green"class="even">
             <div id="pastGameResult1" class="pastGameResult">
-                <button type="button" id="aaaaa">Main Page</button>
                 <ul>
                 </ul>
 
