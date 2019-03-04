@@ -3,9 +3,9 @@
 
 #main_page_recall_btn {
     background-color:transparent;
+    border:none;
+    outline:none;
 }
-
-
 #main_page_recall{
     width:100%;
     position:absolute;
