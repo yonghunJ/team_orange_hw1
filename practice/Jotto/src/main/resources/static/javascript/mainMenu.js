@@ -19,7 +19,6 @@ $(document).ready(function() {
         }
     });
 
-
     $("#main_menu").hide();
 
     $("body").on("click", "#game_play",gameplayFunction);
@@ -57,10 +56,6 @@ $(document).ready(function() {
             $("#flipbook").turn("page", pageNum+5);
         }, 1000);
 
-
-
-
-
         $.ajax({
             type:"get",
             dataType: "json",
@@ -80,16 +75,14 @@ $(document).ready(function() {
                         for(let i=0;i<17;i++){
                             $("#pastGameResult1 > ul").append('<li><a class="pastGameResultList">'+data[i]+'</a></li>');
                         }
-                        for(let j=0;j<data.length-20;j++){
-                            $("#pastGameResult2 > ul").append('<tli><a class="pastGameResultList">'+data[i]+'</a></tli>');
+                        for(let j=0;j<data.length-17;j++){
+                            $("#pastGameResult2 > ul").append('<li><a class="pastGameResultList">'+data[j+17]+'</a></li>');
                         }
                         $("#pastGameResult1 > ul > li > a").click(function(){
                             var pageNum = $("#flipbook").turn("page");
                             $("#flipbook").turn("page", pageNum+2);
                         })
                 }
-
-
 
                 let list1 = $("#pastGameResult1 > ul >li");
                 let list2 = $("#pastGameResult2 > ul >li");
