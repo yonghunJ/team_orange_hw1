@@ -45,7 +45,7 @@ input:focus::-webkit-input-placeholder {
 .yh_btn{
     background-color: transparent;
     color: #999999;
-    border: 1px solid WHITE;
+    border: 1px solid #333333;
 }
 button:hover {
     /* opacity:1; */

@@ -11,9 +11,15 @@
     width:100%;
     position:absolute;
 }
-#alpalphabet_buttons{
-    position: absolute;
-    top: 90%;
+#alphabet_buttons_top{
+    margin-top:7px;
+    display: flex;
+    justify-content: center;
+}
+#alphabet_buttons_bottom{
+    margin-top:2px;
+    display: flex;
+    justify-content: center;
 }
 #who_is_winner_player{
     text-align: right;
