@@ -112,9 +112,8 @@
                     </div>
 
                 </div>
-                <button class="prev">prev</button>
+
                 <div id="invalid_word_check" style="color:red"></div>
-                <hr>
 
                 <div id="alphabet_buttons">
                     <button type="button" class=" raise ">A</button>

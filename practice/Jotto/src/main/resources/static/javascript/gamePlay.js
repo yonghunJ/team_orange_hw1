@@ -4,6 +4,8 @@ $(document).ready(function(){
     $("#userGuess").keyup(function(event) {
         if (event.keyCode === 13) {
             $("#user_input").click();
+            $("#userGuess").val("");
+
         }
     });
 
