@@ -3,6 +3,12 @@
     position: absolute;
     top: 90%;
 }
+#who_is_winner_player{
+    text-align: right;
+}
+#who_is_winner_ai{
+    text-align: left;
+}
 #user_input{
     border: 0px solid white;
 

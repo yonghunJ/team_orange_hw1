@@ -16,6 +16,10 @@ $(document).ready(function() {
         console.log(pageNum);
         $("#flipbook").turn("page", pageNum+1);
         $("#user_input").removeAttr("disabled");
+
+
+        $("#user_name").text("User");
+        $("#ai_name").text("AI");
     });
     $("#past_result").click(function(){
         console.log("past_result clicked");

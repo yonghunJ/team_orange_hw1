@@ -90,9 +90,10 @@
                             <div class="col-md-3 col-sm-6" id="ai_screen">
                                 <div class="pricingTable">
                                     <div class="pricingTable-header">
+                                        <div id="who_is_winner_player"></div>
                                         <span class="price-icon"></span>
-                                        <span class="price-value">YY<span class="month">Player</span></span>
-                                        <h3 class="heading">Standard</h3>
+                                        <span class="price-value"><span class="month">Player</span></span>
+                                        <h3 class="heading" id="user_name">aas</h3>
                                     </div>
                                     <div class="pricingContent">
                                         <table id="player_table">
@@ -152,9 +153,10 @@
                         <div class="col-md-3 col-sm-6 player_screen" id="">
                             <div class="pricingTable">
                                 <div class="pricingTable-header">
+                                    <div id="who_is_winner_ai"></div>
                                     <span class="price-icon"></span>
                                     <span class="price-value">YY<span class="month">Player</span></span>
-                                    <h3 class="heading">Standard</h3>
+                                    <h3 class="heading" id="ai_name">AI</h3>
                                 </div>
                                 <div class="pricingContent">
                                     <table id ="ai_table">
@@ -172,7 +174,7 @@
         </div>
         <div style="background-color:green"class="even"> Page 4
             <div id="pastGameResult1" class="pastGameResult">
-                <button type="button" id="aaaaa">next page</button>
+                <button type="button" id="aaaaa">Main Page</button>
                 <ul>
                 </ul>
 
@@ -194,7 +196,7 @@
                             <div class="pricingTable-header">
                                 <span class="price-icon"></span>
                                 <span class="price-value">YY<span class="month">Player</span></span>
-                                <h3 class="heading">Standard</h3>
+                                <h3 class="heading" id="user_name_result">User</h3>
                                 <button class="prev">prev</button>
                             </div>
 
@@ -218,8 +220,8 @@
                         <div class="pricingTable">
                             <div class="pricingTable-header">
                                 <span class="price-icon"></span>
-                                <span class="price-value">YY<span class="month">Player</span></span>
-                                <h3 class="heading">Standard</h3>
+                                <span class="price-value"><span class="month">Player</span></span>
+                                <h3 class="heading"  id="ai_name_result">AI</h3>
                             </div>
 
                             <div class="pricingContent">

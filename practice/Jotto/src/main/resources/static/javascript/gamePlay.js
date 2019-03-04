@@ -116,13 +116,20 @@ $(document).ready(function(){
                         }
                         ai_submit.fadeIn("slow");
 
-                        if(user_game_ended==true){
-                            alert("user win")
+                        if(user_game_ended==true){//user win
                             $("#user_input").attr("disabled", "disabled");
+                            $("#user_name").text(user_guess_word);
+                            $("#ai_name").text(ai_guess);
+                            $("#who_is_winner_player").text("Win");
+                            $("#who_is_winner_ai").text("Lose");
 
-                        }else if(ai_game_ended ==true){
-                            alert("Ai win")
+
+                        }else if(ai_game_ended ==true){// AI win
                             $("#user_input").attr("disabled", "disabled");
+                            $("#user_name").text(user_guess_word);
+                            $("#ai_name").text(ai_guess);
+                            $("#who_is_winner_player").text("Lose");
+                            $("#who_is_winner_ai").text("Win");
 
                         }
                         $("#invalid_word_check").text("");
