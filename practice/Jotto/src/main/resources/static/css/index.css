@@ -424,3 +424,13 @@ body{
 .webflow-style-input input::-webkit-input-placeholder {
     color: #7881A1;
 }
+
+#welcome {
+    text-align: center;
+    font-size: 70px;
+    margin-bottom: 200px;
+}
+
+#instruction {
+    margin: 10%;
+}

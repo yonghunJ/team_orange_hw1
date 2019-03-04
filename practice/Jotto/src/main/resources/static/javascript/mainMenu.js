@@ -3,9 +3,9 @@ $(document).ready(function() {
         console.log("game play clicked");
         var pageNum = $("#flipbook").turn("page");
         console.log(pageNum);
+
         $("#flipbook").turn("page", pageNum+1);
         $("#user_input").removeAttr("disabled");
-
         $("#user_name").text("User");
         $("#ai_name").text("AI");
         $("#who_is_winner_player").text("");
@@ -22,7 +22,7 @@ $(document).ready(function() {
 
     $("#main_menu").hide();
 
-    $("#game_play").on("click", gameplayFunction);
+    $("body").on("click", "#game_play",gameplayFunction);
 
     $("#flipbook").bind("turned", function(event, page, view) {
         if (page==1) {
@@ -38,7 +38,11 @@ $(document).ready(function() {
         $("#flipbook").bind("turned", function(event, page, view) {
             if (page==5) {
                 var pageNum = $("#flipbook").turn("page");
-                $("#flipbook").turn("page", pageNum-4);
+                $("#flipbook").turn("page", --pageNum);
+                $("#flipbook").turn("page", --pageNum);
+                $("#flipbook").turn("page", --pageNum);
+                $("#flipbook").turn("page", --pageNum);
+
                 $("#game_play").on("click", gameplayFunction);
             }
         });
@@ -272,21 +276,12 @@ $(document).ready(function() {
                             });
                         });
                     }
-
                 }
-
-
-
-
             },error : function(request,err){
                 console.log('Fail!');
             }
         });
     }
 
-    $("#past_result").on("click", pastGameResultFunction);
-
-
-
-
+    $("body").on("click", "#past_result",pastGameResultFunction);
 });

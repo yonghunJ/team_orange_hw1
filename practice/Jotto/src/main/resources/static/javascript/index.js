@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     var isValid = false;
     var bb = $(".prev");
     console.log(bb);
@@ -19,3 +20,5 @@ $(document).ready(function(){
     }
 
 });
+
+

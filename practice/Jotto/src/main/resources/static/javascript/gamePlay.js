@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $("#main_page_recall_btn").click(function(){
+    $("#main_page_recall_btn").on("click",function(){
         var pageNum = $("#flipbook").turn("page");
         $("#flipbook").turn("page", pageNum-3);
     })
@@ -9,7 +9,6 @@ $(document).ready(function(){
         if (event.keyCode === 13) {
             $("#user_input").click();
             $("#userGuess").val("");
-
         }
     });
 
@@ -48,7 +47,7 @@ $(document).ready(function(){
 
     //5 input
 
-    $("#user_input").click(function() {
+    $("#user_input").on("click",function() {
         var bla = $('#userGuess').val();
         if(bla.length != 5){
             $("#invalid_word_check").text("Wrong input")
@@ -146,7 +145,7 @@ $(document).ready(function(){
                     console.log("User ID: " + this.login_pw);
                 }
             })
-
         }
+        $('#userGuess').val("");
     });
 });

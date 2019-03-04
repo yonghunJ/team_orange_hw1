@@ -70,6 +70,7 @@
         <%-- User First Input--%>
         <div style="background-color:green" class="even"> Page 2
             <div id="user_first_input_box">
+                <h1 id="welcome">Welcome to Jotto Game</h1>
                 <div class="webflow-style-input">
                     <input  id = "ai_answer"type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
                     <button type="button" id = "first_input_btn" class="yh_btn">Input</button>
@@ -77,9 +78,17 @@
                 <div id ="ai_answer_inadquate">
                 </div>
             </div>
-
         </div>
-        <div style="background-color:purple" class="odd"> Page 3wea</div>
+        <div style="background-color:purple" class="odd"> Page 3wea
+            <div id="instruction">
+                <p class="instruction_p">Choose a one 5 letters word. It shuld have no repeating letters.</p>
+                <p class="instruction_p">The computer will also choose 5 letters word with no repeating letters.</p>
+                <p class="instruction_p">Each round, you guess the computer's word. Then we will show the number of matching letters in your guess word and computer's word.</p>
+                <p class="instruction_p">You can color an alphabet to mark it is in the computer's word.</p>
+                <p class="instruction_p">If you figure out what the computer word is before computer, you win.</p>
+                <p class="instruction_p">Good luck!</p>
+            </div>
+        </div>
 
         <%-- Game Play --%>
         <div class="even">

@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $("#first_input_btn").click(function(){
+    $("body").on("click","#first_input_btn",function(){
         var input = $('#ai_answer').val();
 
         if(input.length != 5){

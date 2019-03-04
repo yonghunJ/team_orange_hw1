@@ -27,6 +27,7 @@ import java.util.Map;
 @Controller
 public class GameController {
     private GameManager gameManager;
+    private ArrayList<String> userGuessList;
     int gameRoundCount;
 
     @Autowired
@@ -36,8 +37,10 @@ public class GameController {
     @ResponseBody
     public int getUserWordInput(@RequestParam(value = "user_first_input") String firstInput) {
         String upperString = firstInput.toUpperCase();
-        if (this.gameManager == null)
+        if (this.gameManager == null) {
             this.gameManager = new GameManager();
+            userGuessList = new ArrayList<>();
+        }
 
         // check valid word
         // Does it have 5 unique letters?
@@ -57,8 +60,9 @@ public class GameController {
         HashMap<String, Object> response = new HashMap<>();
         String upperInput = input.toUpperCase();
 
-        if (this.gameManager.getJottoManager().getDict().isValidWord(upperInput)) {
+        if (this.gameManager.getJottoManager().getDict().isValidWord(upperInput) && !userGuessList.contains(upperInput)) {
             gameRoundCount++;
+            userGuessList.add(upperInput);
             this.gameManager.setUserGuess(upperInput);
             int userGuessCount = this.gameManager.getGuessCount(false);
             int aiGuessCount = this.gameManager.getGuessCount(true);
@@ -70,24 +74,28 @@ public class GameController {
             response.put("ai_guess_count",aiGuessCount);
             response.put("ai_guess",aiGuess);
             response.put("game_round_number", gameRoundCount);
-            response.put("ai_color_array", this.gameManager.getGameRoundList().get(gameRoundCount-1));
+
             if (roundResult == 0) {
                 response.put("user_game_ended",false);
                 response.put("ai_game_ended",false);
+                response.put("ai_color_array", this.gameManager.getGameRoundList().get(gameRoundCount-1));
             } else if (roundResult == 1) {
                 response.put("user_game_ended",true);
                 response.put("ai_game_ended",false);
                 response.put("user_answer", this.gameManager.getUserWord());
-                response.put("ai_annwer", this.gameManager.getAiWord());
+                response.put("ai_answer", this.gameManager.getAiWord());
                 sendData(session);
                 this.gameManager = null;
+                userGuessList.clear();
             } else {
                 response.put("user_game_ended",false);
                 response.put("ai_game_ended",true);
                 response.put("user_answer",this.gameManager.getUserWord());
                 response.put("ai_answer",this.gameManager.getAiWord());
+                response.put("ai_color_array", this.gameManager.getGameRoundList().get(gameRoundCount-1));
                 sendData(session);
                 this.gameManager = null;
+                userGuessList.clear();
             }
         } else {
             response.put("is_valid_word",false);
