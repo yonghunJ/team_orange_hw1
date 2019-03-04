@@ -40,6 +40,7 @@
     <div id="flipbook" style="background-color:transparent">
         <%--Book Cover--%>
         <div class="">
+            <% if (session.getAttribute("user")==null) { %>
             <div id="gameTitle">
 
                 <div>Jotto</div>
@@ -54,10 +55,6 @@
                 <hr />
                 <div id="login_warning" style="color:red;"></div>
             </div>
-
-            <div>
-
-            </div>
             <div id="main_menu">
                 <%--<a id="game_play" class="intro-banner-vdo-play-btn pinkBg" target="_blank">--%>
 
@@ -65,9 +62,28 @@
                 <a href="#" id ="game_play" class="btn">Game Play</a>
                 <hr>
                 <%--<a id="past_result" class="intro-banner-vdo-play-btn pinkBg" target="_blank">--%>
-                    <a href="#" id ="past_result" class="btn">Past Game Result</a>
+                <a href="#" id ="past_result" class="btn">Past Game Result</a>
                 <%--</a>--%>
             </div>
+            <% } else { %>
+            <div id="main_menu1">
+                <%--<a id="game_play" class="intro-banner-vdo-play-btn pinkBg" target="_blank">--%>
+
+                <%--</a>--%>
+                <a href="#" id ="game_play" class="btn">Game Play</a>
+                <hr>
+                <%--<a id="past_result" class="intro-banner-vdo-play-btn pinkBg" target="_blank">--%>
+                <a href="#" id ="past_result" class="btn">Past Game Result</a>
+                <%--</a>--%>
+            </div>
+            <% } %>
+
+
+
+            <div>
+
+            </div>
+
 
         </div>
         <%-- User First Input--%>
@@ -84,11 +100,11 @@
         </div>
         <div style="background-color:purple" class="odd">
             <div id="instruction">
-                <p class="instruction_p">Choose a one 5 letters word. It shuld have no repeating letters.</p>
-                <p class="instruction_p">The computer will also choose 5 letters word with no repeating letters.</p>
-                <p class="instruction_p">Each round, you guess the computer's word. Then we will show the number of matching letters in your guess word and computer's word.</p>
-                <p class="instruction_p">You can color an alphabet to mark it is in the computer's word.</p>
-                <p class="instruction_p">If you figure out what the computer word is before computer, you win.</p>
+                <p class="instruction_p">Choose a one 5 letter word. It should have no repeating letters.</p>
+                <p class="instruction_p">The computer will also choose one 5 letter word with no repeating letters.</p>
+                <p class="instruction_p">Each round, you guess the computer's created word. Then we will show the number of matching letters in your guessed word and the computer's word.</p>
+                <p class="instruction_p">You can color the alphabet to mark if it is in the computer's word.</p>
+                <p class="instruction_p">If you figure out what the computer's word is before the computer does, you win.</p>
                 <p class="instruction_p">Good luck!</p>
             </div>
         </div>
@@ -201,7 +217,6 @@
         </div>
         <div style="background-color:green"class="even">
             <div id="pastGameResult1" class="pastGameResult">
-                <button type="button" id="aaaaa">Main Page</button>
                 <ul>
                 </ul>
 

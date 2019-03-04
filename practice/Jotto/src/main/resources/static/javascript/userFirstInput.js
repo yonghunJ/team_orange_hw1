@@ -1,6 +1,9 @@
 $(document).ready(function() {
 
     $("body").on("click","#first_input_btn",function(){
+        $("#player_table > tbody").empty();
+        $("#ai_table > tbody").empty();
+        $("#invalid_word_check").text("");
         var input = $('#ai_answer').val();
 
         if(input.length != 5){
