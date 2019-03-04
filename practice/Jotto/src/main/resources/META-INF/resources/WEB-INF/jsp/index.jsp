@@ -87,12 +87,15 @@
                 <div class="demo" id="ai_plate">
                     <div class="container">
                         <div class="row">
+                            <div id="main_page_recall">
+                                <button id="main_page_recall_btn">sdf</button>
+                            </div>
                             <div class="col-md-3 col-sm-6" id="ai_screen">
                                 <div class="pricingTable">
                                     <div class="pricingTable-header">
                                         <div id="who_is_winner_player"></div>
                                         <span class="price-icon"></span>
-                                        <span class="price-value"><span class="month">Player</span></span>
+                                        <span class="price-value">Player<span class="month"></span></span>
                                         <h3 class="heading" id="user_name">aas</h3>
                                     </div>
                                     <div class="pricingContent">
@@ -155,7 +158,7 @@
                                 <div class="pricingTable-header">
                                     <div id="who_is_winner_ai"></div>
                                     <span class="price-icon"></span>
-                                    <span class="price-value">YY<span class="month">Player</span></span>
+                                    <span class="price-value">AI<span class="month"></span></span>
                                     <h3 class="heading" id="ai_name">AI</h3>
                                 </div>
                                 <div class="pricingContent">

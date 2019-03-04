@@ -20,6 +20,8 @@ $(document).ready(function() {
 
         $("#user_name").text("User");
         $("#ai_name").text("AI");
+        $("#who_is_winner_player").text("");
+        $("#who_is_winner_ai").text("");
     });
     $("#past_result").click(function(){
         console.log("past_result clicked");

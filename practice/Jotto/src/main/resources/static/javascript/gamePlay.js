@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+    $("#main_page_recall_btn").click(function(){
+        var pageNum = $("#flipbook").turn("page");
+        $("#flipbook").turn("page", pageNum-3);
+    })
 
     $("#userGuess").keyup(function(event) {
         if (event.keyCode === 13) {
@@ -10,31 +14,31 @@ $(document).ready(function(){
     });
 
 
-    let al_button = document.getElementsByClassName("raise");
+    let user_buttons = document.getElementsByClassName("raise");
 
-    for(let i=0; i<al_button.length ; i++){
-        al_button[i].addEventListener("click",function(){
-            if(al_button[i].style.backgroundColor =="" || al_button[i].style.backgroundColor =="black"){
-                al_button[i].style.backgroundColor ="green";
-                let spans = $("table > tbody > tr td span");
+    for(let i=0; i<user_buttons.length ; i++){
+        user_buttons[i].addEventListener("click",function(){
+            if(user_buttons[i].style.backgroundColor =="" || user_buttons[i].style.backgroundColor =="black"){
+                user_buttons[i].style.backgroundColor ="green";
+                let spans = $("#player_table > tbody > tr td span");
                 for(let j=0;j<spans.length;j++){
-                    if(al_button[i].innerHTML.toLowerCase()== spans[j].innerText.toLowerCase()){
+                    if(user_buttons[i].innerHTML.toLowerCase()== spans[j].innerText.toLowerCase()){
                         spans[j].style.color="green"
                     }
                 }
-            }else if(al_button[i].style.backgroundColor =="green"){
-                al_button[i].style.backgroundColor ="red";
-                let spans = $("table > tbody > tr td span");
+            }else if(user_buttons[i].style.backgroundColor =="green"){
+                user_buttons[i].style.backgroundColor ="red";
+                let spans = $("#player_table > tbody > tr td span");
                 for(let j=0;j<spans.length;j++){
-                    if(al_button[i].innerHTML.toLowerCase()== spans[j].innerText.toLowerCase()){
+                    if(user_buttons[i].innerHTML.toLowerCase()== spans[j].innerText.toLowerCase()){
                         spans[j].style.color="red"
                     }
                 }
-            }else if(al_button[i].style.backgroundColor =="red"){
-                al_button[i].style.backgroundColor ="black";
-                let spans = $("table > tbody > tr td span");
+            }else if(user_buttons[i].style.backgroundColor =="red"){
+                user_buttons[i].style.backgroundColor ="black";
+                let spans = $("#player_table > tbody > tr td span");
                 for(let j=0;j<spans.length;j++){
-                    if(al_button[i].innerHTML.toLowerCase()== spans[j].innerText.toLowerCase()){
+                    if(user_buttons[i].innerHTML.toLowerCase()== spans[j].innerText.toLowerCase()){
                         spans[j].style.color="black"
                     }
                 }
@@ -79,21 +83,21 @@ $(document).ready(function(){
                         let al_button = document.getElementsByClassName("raise");
                         for(let i=0; i<al_button.length ; i++){
                             if(al_button[i].style.backgroundColor =="" || al_button[i].style.backgroundColor =="black"){
-                                let spans = $("table > tbody > tr td span");
+                                let spans = $("#player_table > tbody > tr td span");
                                 for(let j=0;j<spans.length;j++){
                                     if(al_button[i].innerHTML.toLowerCase()== spans[j].innerText.toLowerCase()){
                                         spans[j].style.color="black"
                                     }
                                 }
                             }else if(al_button[i].style.backgroundColor =="green"){
-                                let spans = $("table > tbody > tr td span");
+                                let spans = $("#player_table > tbody > tr td span");
                                 for(let j=0;j<spans.length;j++){
                                     if(al_button[i].innerHTML.toLowerCase()== spans[j].innerText.toLowerCase()){
                                         spans[j].style.color="green"
                                     }
                                 }
                             }else if(al_button[i].style.backgroundColor =="red"){
-                                let spans = $("table > tbody > tr td span");
+                                let spans = $("#player_table > tbody > tr td span");
                                 for(let j=0;j<spans.length;j++){
                                     if(al_button[i].innerHTML.toLowerCase()== spans[j].innerText.toLowerCase()){
                                         spans[j].style.color="red"
