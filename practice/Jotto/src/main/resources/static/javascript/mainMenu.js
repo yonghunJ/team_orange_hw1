@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+    $("#ai_answer").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $("#first_input_btn").click();
+        }
+    });
+
+
     $("#main_menu").hide();
 
     $("#game_play").click(function(){
