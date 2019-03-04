@@ -67,6 +67,11 @@ $(document).ready(function() {
                         for(let i=0;i<data.length;i++){
                             $("#pastGameResult1 > ul").append('<li><a class="pastGameResultList">'+data[i]+'</a></li>');
                         }
+
+                        $("#pastGameResult1 > ul > li > a").click(function(){
+                            var pageNum = $("#flipbook").turn("page");
+                            $("#flipbook").turn("page", pageNum+2);
+                        })
                     }else{
                         for(let i=0;i<20;i++){
                             $("#pastGameResult1 > ul").append('<li><a class="pastGameResultList">'+data[i]+'</a></li>');
@@ -74,6 +79,10 @@ $(document).ready(function() {
                         for(let j=0;j<data.length-20;j++){
                             $("#pastGameResult2 > ul").append('<tli><a class="pastGameResultList">'+data[i]+'</a></tli>');
                         }
+                        $("#pastGameResult1 > ul > li > a").click(function(){
+                            var pageNum = $("#flipbook").turn("page");
+                            $("#flipbook").turn("page", pageNum+2);
+                        })
                 }
 
 
