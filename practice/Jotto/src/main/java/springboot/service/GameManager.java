@@ -32,7 +32,7 @@ public class GameManager {
             GameRound currentGameRound = new GameRound(this.userGuess, null, userColorArray, null);
             gameRoundList.add(currentGameRound);
 
-            return  gameRoundResult;
+            return gameRoundResult;
         }
         else {
             gameRoundResult = 2; // AI wins

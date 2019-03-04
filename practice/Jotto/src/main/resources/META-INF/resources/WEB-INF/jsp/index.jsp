@@ -72,7 +72,7 @@
             <div id="user_first_input_box">
                 <div class="webflow-style-input">
                     <input  id = "ai_answer"type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
-                    <button type="button" id = "first_input_btn" class="yh_btn">Input</button>
+                    <button type="button" id = "first_input_btn" class="yh_btn" style="color:beige;">Enter</button>
                 </div>
                 <div id ="ai_answer_inadquate">
                 </div>
@@ -105,10 +105,15 @@
                                         </table>
                                     </div><!-- /  CONTENT BOX-->
                                 </div><!-- BUTTON BOX-->
-                                <div class="webflow-style-input">
-                                    <input id="userGuess" type="email" placeholder="5 letter Input" maxlength="5" size="3" size="5";>
-                                    <button type="button" id = "user_input" class="yh_btn">Input</button>
+                                <div id="div-left">
+                                    <div class="webflow-style-input">
+                                        <input id="userGuess" type="email" placeholder="5 letter Input" size="10" maxlength="5";>
+                                        <button type="button" id = "user_input" size="10" class="yh_btn" style="color:beige;">Enter</button>
 
+                                    </div>
+                                </div>
+                                <div id="div-right">
+                                    <span id="invalid_word_check" style="color:red"></span>
                                 </div>
                             </div>
 
@@ -117,10 +122,9 @@
 
                 </div>
 
-                <div id="invalid_word_check" style="color:red"></div>
 
-                <div id="alphabet_buttons">
-                    <button type="button" class=" raise ">A</button>
+                <div id="alphabet_buttons_top">
+                    <button type="button" class="raise ">A</button>
                     <button type="button" class="raise  ">B</button>
                     <button type="button" class="raise  ">C</button>
                     <button type="button" class="raise  ">D</button>
@@ -133,6 +137,8 @@
                     <button type="button" class="raise  ">K</button>
                     <button type="button" class="raise  ">L</button>
                     <button type="button" class="raise  ">M</button>
+                </div>
+                <div id="alphabet_buttons_bottom">
                     <button type="button" class="raise  ">N</button>
                     <button type="button" class="raise  ">O</button>
                     <button type="button" class="raise  ">P</button>

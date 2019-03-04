@@ -18,7 +18,7 @@ html {
     margin: 0.5em;
     margin: 1px 1px;
     color: white;
-    text-align: center
+    text-align: center;
 }
 
 
@@ -386,14 +386,13 @@ body{
     -ms-flex-direction: row;
     flex-direction: row;
     width: 150px;
-    max-width: 400px;
+    max-width: 150px;
     margin: 0 auto;
     border-radius: 2px;
     /* padding: 1.4rem 2rem 1.6rem; */
 
     background: rgba(57, 63, 84, 0.8);
 }
-
 .webflow-style-input:after {
     content: "";
     position: absolute;
@@ -423,4 +422,13 @@ body{
 }
 .webflow-style-input input::-webkit-input-placeholder {
     color: #7881A1;
+}
+
+#div-left{
+    width: 63%;
+    float: left;
+}
+#div-right{
+    width: 37%;
+    float: left;
 }
