@@ -30,9 +30,6 @@ $(document).ready(function() {
                 }
             });
         }
-
+        $('#ai_answer').val("");
     })
-
-
-
 });

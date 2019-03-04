@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    var destPageNum = $("#flipbook").turn("page");
+
     function gameplayFunction() {
         console.log("game play clicked");
         var pageNum = $("#flipbook").turn("page");
@@ -34,15 +36,21 @@ $(document).ready(function() {
     function pastGameResultFunction() {
         console.log("past_result clicked");
         $("#flipbook").turn("disable", false);
-        $("#flipbook").bind("turned", function(event, page, view) {
-            if (page==5) {
-                var pageNum = $("#flipbook").turn("page");
-                $("#flipbook").turn("page", --pageNum);
-                $("#flipbook").turn("page", --pageNum);
-                $("#flipbook").turn("page", --pageNum);
-                $("#flipbook").turn("page", --pageNum);
+        $("#flipbook").bind("turning", function (event, page) {
+            destPageNum = $("#flipbook").turn("page");
+        });
 
-                $("#game_play").on("click", gameplayFunction);
+        $("#flipbook").bind("turned", function(event, page, view) {
+            if (page == 5 && destPageNum == 6) {
+                var pageNum = $("#flipbook").turn("page");
+                setTimeout(function () {
+                    $("#flipbook").turn("page", --pageNum);
+                    $("#flipbook").turn("page", --pageNum);
+                    $("#flipbook").turn("page", --pageNum);
+                    $("#flipbook").turn("page", --pageNum);
+
+                    $("#game_play").on("click", gameplayFunction);
+                }, 500);
             }
         });
 

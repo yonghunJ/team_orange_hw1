@@ -37,10 +37,8 @@ public class GameController {
     @ResponseBody
     public int getUserWordInput(@RequestParam(value = "user_first_input") String firstInput) {
         String upperString = firstInput.toUpperCase();
-        if (this.gameManager == null) {
-            this.gameManager = new GameManager();
-            userGuessList = new ArrayList<>();
-        }
+        this.gameManager = new GameManager();
+        userGuessList = new ArrayList<>();
 
         // check valid word
         // Does it have 5 unique letters?
