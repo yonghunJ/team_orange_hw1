@@ -142,6 +142,8 @@ $(document).ready(function(){
                             $("#ai_name").text(ai_guess);
                             $("#who_is_winner_player").text("Win");
                             $("#who_is_winner_ai").text("Lose");
+                            $("#winner_color_change_user").css("background-color","#3ace3a");
+                            $("#winner_color_change_ai").css("background-color","#ff3434");
 
 
                         }else if(ai_game_ended ==true){// AI win
@@ -150,6 +152,8 @@ $(document).ready(function(){
                             $("#ai_name").text(ai_guess);
                             $("#who_is_winner_player").text("Lose");
                             $("#who_is_winner_ai").text("Win");
+                            $("#winner_color_change_user").css("background-color","#ff3434");
+                            $("#winner_color_change_ai").css("background-color","#3ace3a");
 
                         }
                         $("#invalid_word_check").text("");
