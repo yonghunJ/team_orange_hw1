@@ -31,13 +31,12 @@ $(document).ready(function(){
         });
     });
 
-    $("#login_pw").keyup(function(event) {
+    $("body").on("keyup", "#login_pw", function () {
         if (event.keyCode === 13) {
             $("#login_btn").click();
             $("#login_pw").val("");
             $("#login_id").val("");
         }
     });
-
 
 });

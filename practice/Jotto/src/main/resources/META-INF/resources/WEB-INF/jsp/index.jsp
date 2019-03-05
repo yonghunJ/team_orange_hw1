@@ -195,7 +195,7 @@
                                 <div class="pricingTable-header" id="winner_color_change_ai">
                                     <div id="who_is_winner_ai"></div>
                                     <span class="price-icon"></span>
-                                    <span class="price-value">AI<span class="month"></span></span>
+                                    <span class="price-value" class="price-value-ai">AI<span class="month"></span></span>
                                     <h3 class="heading" id="ai_name">AI</h3>
                                 </div>
                                 <div class="pricingContent">
