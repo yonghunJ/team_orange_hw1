@@ -47,22 +47,21 @@
                 <div id="title2">Game</div>
             </div>
             <div id="login_form" stlye="position:absolute; top 100px;right:0px;">
-                <input type="text" id="login_id" name="login_id" placeholder="User Name" class="input_login">
-                <input type="password" id="login_pw"  name="login_pw" class="input_login" placeholder="Password">
+                <p><span>ID:</span><input type="text" id="login_id" name="login_id" placeholder="User Name" class="input_login"></p>
+                <p><span>Password:</span><input type="password" id="login_pw"  name="login_pw" class="input_login" placeholder="Password"></p>
                 <button type="submit" id = "login_btn" class="yh_btn">Log In</button>
 
-                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#darkModalForm" >SignUp</button>
-                <hr />
+                <button type="button" class="yh_btn" data-toggle="modal" data-target="#darkModalForm" >SignUp</button>
                 <div id="login_warning" style="color:red;"></div>
             </div>
             <div id="main_menu">
                 <%--<a id="game_play" class="intro-banner-vdo-play-btn pinkBg" target="_blank">--%>
 
                 <%--</a>--%>
-                <a href="#" id ="game_play" class="btn">Game Play</a>
+                <a href="#" id ="game_play" class="btn1">Game Play</a>
                 <hr>
                 <%--<a id="past_result" class="intro-banner-vdo-play-btn pinkBg" target="_blank">--%>
-                <a href="#" id ="past_result" class="btn">Past Game Result</a>
+                <a href="#" id ="past_result" class="btn2">Past Game Result</a>
                 <%--</a>--%>
             </div>
             <% } else { %>

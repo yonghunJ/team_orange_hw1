@@ -2,7 +2,7 @@
     position:relative;
     /*margin:0 auto;*/
     top :60%;
-    left:40%;
+    left:33%;
     width:100%
 }
 .login_box{
@@ -25,12 +25,14 @@
 .input_login{
     border:0px;
     display: block;
-    margin:30px;
     background-color: transparent;
     color:#33cc33;
     border-bottom: 2px solid lightgrey;
-    font-size: 17px;
-    line-height:normal;
+    line-height: 1.5;
+    font-size: 22px;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-weight: 500;
+
 }
 .input_login:focus {
     outline: none;
