@@ -3,6 +3,20 @@ $(document).ready(function() {
 
     $("#main_menu").hide();
     function gameplayFunction() {
+        $("#winner_color_change_user").css("background-color","transparent");
+        $("#winner_color_change_ai").css("background-color","transparent");
+        $("#winner_color_change_user").hover(
+            function() {
+                $(this).css('background-color', '#b696e9')
+            }, function() {
+                $(this).css('background-color', 'transparent')
+        });
+        $("#winner_color_change_ai").hover(
+            function() {
+                $(this).css('background-color', '#b696e9')
+            }, function() {
+                $(this).css('background-color', 'transparent')
+            })
         $("ai_answer").val("");
         console.log("game play clicked");
         var pageNum = $("#flipbook").turn("page");
@@ -10,8 +24,8 @@ $(document).ready(function() {
 
         $("#flipbook").turn("page", pageNum+1);
         $("#user_input").removeAttr("disabled");
-        $("#user_name").text("User");
-        $("#ai_name").text("AI");
+        $("#user_name").text("");
+        $("#ai_name").text("");
         $("#who_is_winner_player").text("");
         $("#who_is_winner_ai").text("");
     }

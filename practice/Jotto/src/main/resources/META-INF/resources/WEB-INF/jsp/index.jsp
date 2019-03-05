@@ -122,11 +122,11 @@
                             </div>
                             <div class="col-md-3 col-sm-6" id="ai_screen">
                                 <div class="pricingTable">
-                                    <div class="pricingTable-header">
+                                    <div class="pricingTable-header" id="winner_color_change_user">
                                         <div id="who_is_winner_player"></div>
                                         <span class="price-icon"></span>
                                         <span class="price-value">Player<span class="month"></span></span>
-                                        <h3 class="heading" id="user_name">aas</h3>
+                                        <h3 class="heading" id="user_name"</h3>
                                     </div>
                                     <div class="pricingContent">
                                         <table id="player_table">
@@ -194,7 +194,7 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-6 player_screen" id="">
                             <div class="pricingTable">
-                                <div class="pricingTable-header">
+                                <div class="pricingTable-header" id="winner_color_change_ai">
                                     <div id="who_is_winner_ai"></div>
                                     <span class="price-icon"></span>
                                     <span class="price-value">AI<span class="month"></span></span>
