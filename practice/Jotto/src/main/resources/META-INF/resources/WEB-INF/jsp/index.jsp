@@ -40,7 +40,6 @@
     <div id="flipbook" style="background-color:transparent">
         <%--Book Cover--%>
         <div class="">
-            <% if (session.getAttribute("user")==null) { %>
             <div id="gameTitle">
 
                 <div>Jotto</div>
@@ -65,26 +64,6 @@
                 <a href="#" id ="past_result" class="btn">Past Game Result</a>
                 <%--</a>--%>
             </div>
-            <% } else { %>
-            <div id="main_menu1">
-                <%--<a id="game_play" class="intro-banner-vdo-play-btn pinkBg" target="_blank">--%>
-
-                <%--</a>--%>
-                <a href="#" id ="game_play" class="btn">Game Play</a>
-                <hr>
-                <%--<a id="past_result" class="intro-banner-vdo-play-btn pinkBg" target="_blank">--%>
-                <a href="#" id ="past_result" class="btn">Past Game Result</a>
-                <%--</a>--%>
-            </div>
-            <% } %>
-
-
-
-            <div>
-
-            </div>
-
-
         </div>
         <%-- User First Input--%>
         <div style="background-color:green" class="even">
