@@ -17,7 +17,7 @@ $(document).ready(function() {
             }, function() {
                 $(this).css('background-color', 'transparent')
             })
-        $("ai_answer").val("");
+        $("#ai_answer").val("");
         console.log("game play clicked");
         var pageNum = $("#flipbook").turn("page");
         console.log(pageNum);
@@ -108,7 +108,6 @@ $(document).ready(function() {
                     for(let i=0;i<data.length;i++){
                         $("#pastGameResult1 > ul").append('<li><a class="pastGameResultList">'+data[i]+'</a></li>');
                     }
-
                     $("#pastGameResult1 > ul > li > a").click(function(){
                         var pageNum = $("#flipbook").turn("page");
                         $("#flipbook").turn("page", pageNum+2);
@@ -143,6 +142,13 @@ $(document).ready(function() {
                                 dataType: "json",
                                 url: "/pastGameResult/data?data="+data[i],
                                 success : function(data) {
+                                    if(data.computerWord==data.rounds[data.rounds.length-1].userGuess){
+                                        $("#who_is_winner_player1").text("WIN")
+                                        $("#who_is_winner_ai1").text("LOSE")
+                                    }else{
+                                        $("#who_is_winner_player1").text("LOSE")
+                                        $("#who_is_winner_ai1").text("WIN")
+                                    }
                                     console.log(data)
                                     for(let m=0;m<data.rounds.length;m++){
                                         var res = "";
@@ -230,6 +236,7 @@ $(document).ready(function() {
                         });
                     }
                 }else{ //The number of list >20
+
                     for(let i=0; i<list1.length ; i++) {
                         list1[i].addEventListener("click",function(){
                             $("#ai_result_table > tbody").empty();
@@ -239,6 +246,13 @@ $(document).ready(function() {
                                 dataType: "json",
                                 url: "/pastGameResult/data?data="+data[i],
                                 success : function(data) {
+                                    if(data.computerWord==data.rounds[data.rounds.length-1].userGuess){
+                                        $("#who_is_winner_player1").text("WIN")
+                                        $("#who_is_winner_ai1").text("LOSE")
+                                    }else{
+                                        $("#who_is_winner_player1").text("LOSE")
+                                        $("#who_is_winner_ai1").text("WIN")
+                                    }
                                     console.log(data)
                                     for(let m=0;m<data.rounds.length;m++){
                                         var res = "";
