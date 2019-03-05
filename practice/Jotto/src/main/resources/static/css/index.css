@@ -1,28 +1,24 @@
-#gameTitle{
-    position: absolute;
-    top: 15%;
-    left: 45%;
-    font-size: 60px;
-}
+
 #game_play{
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #fe6d6d;
     border-radius: 0;
     position: absolute;
-    top: 20%;
-    left: 45%;
-
+    font-size: 45px;
+    top: 35%;
+    left: 34%;
 }
 #past_result{
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #fe6d6d;
     border-radius: 0;
+    border-width: 100px;
     position: absolute;
-    top: 70%;
-    left: 40%;
-
+    font-size: 45px;
+    bottom: 35%;
+    left: 22%;
 }
 #past_result:hover{ color: #fe6d6d; }
 #past_result:after{
@@ -60,9 +56,33 @@
     margin: 0 20%;
     transition: width 0.2s ease 0.2s, height 0.2s ease 0.1s, border-top-width 0.1s ease 0s, margin 0.2s ease 0.2s;
 }
+
+#title1{
+    position: absolute;
+    top: 15%;
+    left: 22%;
+    font-family: 'Wicked Mouse Demo';
+    font-size: 60px;
+    letter-spacing: 7px;
+}
+#title2{
+    position: absolute;
+    top: 25%;
+    left: 42%;
+    font-family: 'Wicked Mouse Demo';
+    font-size: 60px;
+    letter-spacing: 7px;
+}
+
 @font-face {
     font-family: "whatever it takes";
     src: url("fonts/whatever it takes bold.ttf") format("truetype");
+
+}
+
+@font-face {
+    font-family: "Wicked Mouse Demo";
+    src: url("fonts/Wicked Mouse Demo.otf");
 }
 
 html {

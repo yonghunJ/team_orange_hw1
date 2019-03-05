@@ -2,7 +2,9 @@
   /*background-image: url("/image/signUp.jpg");*/
 /*}*/
  #signup_id,signup_pw,signup_pw2{
-     font-size:20px;
+     font-size:24px;
+     font-family: 'Lato', Calibri, Arial, sans-serif;
+     font-weight: 500;
  }
 .md-form label{
     font-size: 25px;
@@ -21,7 +23,11 @@
   height: 15px; } */
 
 .form-dark .md-form label {
-    color: black; }
+    font-size: 24px;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-weight: 500;
+    color: black;
+}
 
 .form-dark input[type=text]:focus:not([readonly]) {
     border-bottom: 1px solid #00C851;

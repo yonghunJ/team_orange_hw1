@@ -43,8 +43,8 @@
             <% if (session.getAttribute("user")==null) { %>
             <div id="gameTitle">
 
-                <div>Jotto</div>
-                <div>Game</div>
+                <div id="title1">Jotto</div>
+                <div id="title2">Game</div>
             </div>
             <div id="login_form" stlye="position:absolute; top 100px;right:0px;">
                 <input type="text" id="login_id" name="login_id" placeholder="User Name" class="input_login">
@@ -70,10 +70,10 @@
                 <%--<a id="game_play" class="intro-banner-vdo-play-btn pinkBg" target="_blank">--%>
 
                 <%--</a>--%>
-                <a href="#" id ="game_play" class="btn">Game Play</a>
+                <a href="#" id ="game_play" class="btn1">Game Play</a>
                 <hr>
                 <%--<a id="past_result" class="intro-banner-vdo-play-btn pinkBg" target="_blank">--%>
-                <a href="#" id ="past_result" class="btn">Past Game Result</a>
+                <a href="#" id ="past_result" class="btn2">Past Game Result</a>
                 <%--</a>--%>
             </div>
             <% } %>
@@ -100,11 +100,13 @@
         </div>
         <div style="background-color:purple" class="odd">
             <div id="instruction">
+                <br>
                 <p class="instruction_p">Choose a one 5 letter word. It should have no repeating letters.</p>
                 <p class="instruction_p">The computer will also choose one 5 letter word with no repeating letters.</p>
                 <p class="instruction_p">Each round, you guess the computer's created word. Then we will show the number of matching letters in your guessed word and the computer's word.</p>
                 <p class="instruction_p">You can color the alphabet to mark if it is in the computer's word.</p>
                 <p class="instruction_p">If you figure out what the computer's word is before the computer does, you win.</p>
+                <br>
                 <p class="instruction_p">Good luck!</p>
             </div>
         </div>
@@ -299,14 +301,13 @@
                             <strong class="green-text font-weight-bold">SIGN UP</strong>
                         </h3>
                         <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <!--Body-->
                     <div class="modal-body">
                         <div class="md-form mb-5">
                             <label data-error="wrong" data-success="right" for="signup_id">ID</label>
-                            <input type="text" id="signup_id" name="signup_id" class="form-control validate white-text" required><label id="signup_id_warning" style="color:red"></label>
+                            <input type="text" id="signup_id" name="signup_id" class="form-control validate white-text" required><label id="signup_id_warning" style="font-family: 'Lato', Calibri, Arial, sans-serif; color:red; size: 16px; margin-left: 13px;"></label>
                         </div>
                         <div class="md-form pb-3">
                             <label data-error="wrong" data-success="right" for="signup_pw">PASSWORD</label>
