@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $("#main_page_recall_btn").on("click",function(){
+    $("body").on("click","#main_page_recall_btn",function(){
         var pageNum = $("#flipbook").turn("page");
         $("#flipbook").turn("page", pageNum-3);
     })
@@ -47,7 +47,7 @@ $(document).ready(function(){
 
     //5 input
 
-    $("#user_input").on("click",function() {
+    $("body").on("click","#user_input" ,function() {
         var bla = $('#userGuess').val();
         if(bla.length != 5){
             $("#invalid_word_check").text("Wrong input")
@@ -63,15 +63,17 @@ $(document).ready(function(){
                         let user_guess_word = data.user_guess_word;
                         let ai_guess_count = data.ai_guess_count;
                         let ai_guess = data.ai_guess;
-                        let ai_color_array = data.ai_color_array.aiColorArray;
                         let user_game_ended = data.user_game_ended;
                         let ai_game_ended = data.ai_game_ended;
                         let game_round_number = data.game_round_number;
-
+                        let ai_color_array;
                         let usr_split = user_guess_word.split("");
                         let round = '<tr><td>R'+game_round_number+'</td>';
                         let user_guess = '<td><span>'+usr_split[0]+'</span><span>' +usr_split[1]+'</span><span>' +usr_split[2]+'</span><span>' +usr_split[3]+'</span><span>' +usr_split[4]+'</span></td>';
                         let user_guess_corr = '<td>'+user_guess_count+'</td></tr>'
+                        if (data.ai_color_array != null) {
+                            ai_color_array = data.ai_color_array.aiColorArray;
+                        }
 
                         let user_submit = $(round + user_guess + user_guess_corr);
                         user_submit.hide();
@@ -108,26 +110,31 @@ $(document).ready(function(){
                         }
 
                         user_submit.fadeIn("slow");
-                        var ai_split = ai_guess.split("");
-                        let ui_guess = '<td>';
-                        for(let k=0;k<5;k++){
-                            if(ai_color_array[k] ==0){
-                                ui_guess+= '<span style="color:red">'+ai_split[k]+'</span>';
-                            }else{
-                                ui_guess+= '<span style="color:green">'+ai_split[k]+'</span>';
+                        if (data.ai_color_array != null) {
+                            var ai_split = ai_guess.split("");
+                            let ui_guess = '<td>';
+                            for(let k=0;k<5;k++){
+                                if(ai_color_array[k] ==0){
+                                    ui_guess+= '<span style="color:red">'+ai_split[k]+'</span>';
+                                }else{
+                                    ui_guess+= '<span style="color:green">'+ai_split[k]+'</span>';
+                                }
                             }
-                        }
-                        ui_guess+= '</td>';
-                        let ai_guess_corr = '<td>'+ai_guess_count+'</td></tr>'
 
-                        let ai_submit = $(round + ui_guess + ai_guess_corr);
-                        ai_submit.hide();
-                        if($('#ai_table > tbody > tr:first').length == 0) {
-                            $('#ai_table > tbody').append(ai_submit);
-                        }else{
-                            $('#ai_table > tbody > tr:first').before(ai_submit);
+
+                            ui_guess+= '</td>';
+                            let ai_guess_corr = '<td>'+ai_guess_count+'</td></tr>'
+
+                            let ai_submit = $(round + ui_guess + ai_guess_corr);
+                            ai_submit.hide();
+
+                            if($('#ai_table > tbody > tr:first').length == 0) {
+                                $('#ai_table > tbody').append(ai_submit);
+                            }else{
+                                $('#ai_table > tbody > tr:first').before(ai_submit);
+                            }
+                            ai_submit.fadeIn("slow");
                         }
-                        ai_submit.fadeIn("slow");
 
                         if(user_game_ended==true){//user win
                             $("#user_input").attr("disabled", "disabled");

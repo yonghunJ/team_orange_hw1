@@ -45,25 +45,42 @@ $(document).ready(function() {
             if (page == 5 && destPageNum == 6) {
                 var pageNum = $("#flipbook").turn("page");
                 setTimeout(function () {
-                    $("#flipbook").turn("page", --pageNum);
-                    $("#flipbook").turn("page", --pageNum);
-                    $("#flipbook").turn("page", --pageNum);
-                    $("#flipbook").turn("page", --pageNum);
-
-                    $("#game_play").on("click", gameplayFunction);
+                    $("#flipbook").turn("page", pageNum-1);
                 }, 500);
+                setTimeout(function () {
+                    $("#flipbook").turn("page", pageNum-3);
+                }, 1000);
+                setTimeout(function () {
+                    $("#flipbook").turn("page", 1);
+                }, 1500);
+
+                $("#game_play").on("click", gameplayFunction);
+                $("#flipbook").turn("disable", true);
+            }
+            else if (page == 5 && destPageNum == 7){
+                var pageNum = $("#flipbook").turn("page");
+                setTimeout(function () {
+                    $("#flipbook").turn("page", pageNum-2);
+                }, 500);
+                setTimeout(function () {
+                    $("#flipbook").turn("page", pageNum-4);
+                }, 1000);
+                setTimeout(function () {
+                    $("#flipbook").turn("page", 1);
+                }, 1500);
+                $("#flipbook").turn("disable", true);
             }
         });
 
         var pageNum = $("#flipbook").turn("page");
         console.log(pageNum);
         $("#flipbook").turn("page", pageNum+1);
-        // setTimeout(function () {
-            $("#flipbook").turn("page", pageNum+3);
-        // }, 500);
-        // setTimeout(function () {
-            $("#flipbook").turn("page", pageNum+5);
-        // }, 1000);
+        setTimeout(function () {
+        $("#flipbook").turn("page", pageNum+3);
+        }, 500);
+        setTimeout(function () {
+        $("#flipbook").turn("page", pageNum+5);
+        }, 1000);
 
         $.ajax({
             type:"get",
