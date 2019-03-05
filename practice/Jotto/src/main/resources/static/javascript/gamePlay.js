@@ -5,13 +5,12 @@ $(document).ready(function(){
         $("#flipbook").turn("page", pageNum-3);
     })
 
-    $("#userGuess").keyup(function(event) {
+    $("body").on('keyup', "#userGuess", function () {
         if (event.keyCode === 13) {
             $("#user_input").click();
             $("#userGuess").val("");
         }
     });
-
 
     let user_buttons = document.getElementsByClassName("raise");
 
@@ -68,9 +67,9 @@ $(document).ready(function(){
                         let game_round_number = data.game_round_number;
                         let ai_color_array;
                         let usr_split = user_guess_word.split("");
-                        let round = '<tr><td>R'+game_round_number+'</td>';
-                        let user_guess = '<td><span>'+usr_split[0]+'</span><span>' +usr_split[1]+'</span><span>' +usr_split[2]+'</span><span>' +usr_split[3]+'</span><span>' +usr_split[4]+'</span></td>';
-                        let user_guess_corr = '<td>'+user_guess_count+'</td></tr>'
+                        let round = '<tr><td style="width:33%">R'+game_round_number+'</td>';
+                        let user_guess = '<td style="width:33%"><span>'+usr_split[0]+'</span><span>' +usr_split[1]+'</span><span>' +usr_split[2]+'</span><span>' +usr_split[3]+'</span><span>' +usr_split[4]+'</span></td>';
+                        let user_guess_corr = '<td style="width:33%">'+user_guess_count+'</td></tr>'
                         if (data.ai_color_array != null) {
                             ai_color_array = data.ai_color_array.aiColorArray;
                         }
@@ -112,7 +111,7 @@ $(document).ready(function(){
                         user_submit.fadeIn("slow");
                         if (data.ai_color_array != null) {
                             var ai_split = ai_guess.split("");
-                            let ui_guess = '<td>';
+                            let ui_guess = '<td style="width:33%">';
                             for(let k=0;k<5;k++){
                                 if(ai_color_array[k] ==0){
                                     ui_guess+= '<span style="color:red">'+ai_split[k]+'</span>';
@@ -123,7 +122,7 @@ $(document).ready(function(){
 
 
                             ui_guess+= '</td>';
-                            let ai_guess_corr = '<td>'+ai_guess_count+'</td></tr>'
+                            let ai_guess_corr = '<td  style="width:33%">'+ai_guess_count+'</td></tr>'
 
                             let ai_submit = $(round + ui_guess + ai_guess_corr);
                             ai_submit.hide();

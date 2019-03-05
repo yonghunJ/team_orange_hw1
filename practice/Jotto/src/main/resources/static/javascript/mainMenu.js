@@ -30,13 +30,12 @@ $(document).ready(function() {
         $("#who_is_winner_ai").text("");
     }
 
-    $("#ai_answer").keyup(function(event) {
+    $("body").on("keyup", "#ai_answer", function () {
         if (event.keyCode === 13) {
             $("#first_input_btn").click();
             $("#ai_answer").val("");
         }
-    });
-
+    })
 
     $("body").on("click", "#game_play",gameplayFunction);
 
