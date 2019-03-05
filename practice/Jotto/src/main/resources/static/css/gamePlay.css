@@ -21,10 +21,18 @@
     justify-content: center;
 }
 #who_is_winner_player{
-    text-align: right;
+    position: absolute;
+    right: 0%;
+    top: -10%;
+    font-size: 45px;
+    font-style: italic;
 }
 #who_is_winner_ai{
-    text-align: left;
+    position: absolute;
+    left: 0%;
+    top: -10%;
+    font-size: 45px;
+    font-style: italic;
 }
 #user_input{
     border: 0px solid white;
