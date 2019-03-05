@@ -103,7 +103,7 @@
                                         <div id="who_is_winner_player"></div>
                                         <span class="price-icon"></span>
                                         <span class="price-value">Player<span class="month"></span></span>
-                                        <h3 class="heading" id="user_name"</h3>
+                                        <h3 class="heading" id="user_name"></h3>
                                     </div>
                                     <div class="pricingContent">
                                         <table id="player_table">
@@ -214,7 +214,8 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-6 player_screen"  >
                         <div class="pricingTable">
-                            <div class="pricingTable-header">
+                            <div class="pricingTable-header" id="winner_color_change_player2">
+                                <div id="who_is_winner_player1"></div>
                                 <span class="price-icon" id="player_pastgameresult_logo"></span>
                                 <span class="price-value"><span class="month">Player</span></span>
                                 <h3 class="heading" id="user_name_result">User</h3>
@@ -241,7 +242,8 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-6 player_screen"  >
                         <div class="pricingTable">
-                            <div class="pricingTable-header">
+                            <div class="pricingTable-header"  id="winner_color_change_ai2">
+                                <div id="who_is_winner_ai1"></div>
                                 <span class="price-icon" id="AI_pastgameresult_logo"></span>
                                 <span class="price-value"><span class="month">Computer</span></span>
                                 <h3 class="heading"  id="ai_name_result">AI</h3>

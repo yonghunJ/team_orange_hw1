@@ -27,6 +27,13 @@
     font-size: 45px;
     font-style: italic;
 }
+#who_is_winner_player1{
+    position: absolute;
+    right: 0%;
+    top: -10%;
+    font-size: 45px;
+    font-style: italic
+}
 #who_is_winner_ai{
     position: absolute;
     left: 0%;
@@ -34,6 +41,14 @@
     font-size: 45px;
     font-style: italic;
 }
+#who_is_winner_ai1{
+    position: absolute;
+    left: 0%;
+    top: -10%;
+    font-size: 45px;
+    font-style: italic;
+}
+
 #user_input{
     border: 0px solid white;
 
