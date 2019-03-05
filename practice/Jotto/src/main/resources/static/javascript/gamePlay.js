@@ -144,7 +144,18 @@ $(document).ready(function(){
                             $("#who_is_winner_ai").text("Lose");
                             $("#winner_color_change_user").css("background-color","#3ace3a");
                             $("#winner_color_change_ai").css("background-color","#ff3434");
-
+                            $("#winner_color_change_user").hover(
+                                function() {
+                                    $(this).css('background-color', '#3ace3a')
+                                }, function() {
+                                    $(this).css('background-color', '#3ace3a')
+                                });
+                            $("#winner_color_change_ai").hover(
+                                function() {
+                                    $(this).css('background-color', '#ff3434')
+                                }, function() {
+                                    $(this).css('background-color', '#ff3434')
+                                })
 
                         }else if(ai_game_ended ==true){// AI win
                             $("#user_input").attr("disabled", "disabled");
@@ -154,7 +165,18 @@ $(document).ready(function(){
                             $("#who_is_winner_ai").text("Win");
                             $("#winner_color_change_user").css("background-color","#ff3434");
                             $("#winner_color_change_ai").css("background-color","#3ace3a");
-
+                            $("#winner_color_change_user").hover(
+                                function() {
+                                    $(this).css('background-color', '#ff3434')
+                                }, function() {
+                                    $(this).css('background-color', '#ff3434')
+                                });
+                            $("#winner_color_change_ai").hover(
+                                function() {
+                                    $(this).css('background-color', '#3ace3a')
+                                }, function() {
+                                    $(this).css('background-color', '#3ace3a')
+                                })
                         }
                         $("#invalid_word_check").text("");
                     }else{
